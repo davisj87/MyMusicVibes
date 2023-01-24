@@ -9,6 +9,7 @@ enum RequestError: Error {
     case decode
     case invalidURL
     case tokenRefreshError
+    case missingToken
     case noResponse
     case unauthorized
     case unexpectedStatusCode
