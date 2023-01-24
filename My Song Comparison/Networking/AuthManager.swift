@@ -61,11 +61,11 @@ actor AuthManager {
                 let refreshEndpoint = RefreshTokenEndpoint()
                 let authRequest = AuthRequest(endpoint: refreshEndpoint)
                 guard let tokenObject = try await authRequest.executeRequestWithPayload(refreshEndpoint.payloadData) else {
-                    throw AuthError.missingToken
+                    throw RequestError.tokenRefreshError
                 }
                 let calendar = Calendar.current
                 guard let expirationDate = calendar.date(byAdding: .second, value: tokenObject.expiresIn - 120 , to: Date()) else {
-                    throw AuthError.missingToken
+                    throw RequestError.tokenRefreshError
                 }
                 
                 let auth = TokenStorageObject(authToken: tokenObject.authToken, refreshToken: tokenObject.refreshToken, expiresIn: expirationDate)
