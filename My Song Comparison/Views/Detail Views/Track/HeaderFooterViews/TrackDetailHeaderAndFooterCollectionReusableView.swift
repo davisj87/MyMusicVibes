@@ -10,7 +10,7 @@ import UIKit
 class TrackDetailHeaderCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackDetailHeaderCollectionReusableView"
     
-    var section:TrackCollectionViewSection? {
+    var section:TrackCollectionViewSectionViewModel? {
         didSet {
             guard let section = section else { return }
             sectionLabel.text = section.title

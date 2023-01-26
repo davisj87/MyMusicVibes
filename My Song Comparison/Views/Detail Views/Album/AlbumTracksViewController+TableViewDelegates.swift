@@ -39,11 +39,16 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let cVM = self.vm else { return }
-//        let trackVC = TrackViewController()
-//        trackVC.title = cVM.rows[indexPath.row].track.name
-//        trackVC.vm = TrackViewModel(track: cVM.rows[indexPath.row].track, trackDetail: cVM.rows[indexPath.row].details)
-//        trackVC.navigationItem.largeTitleDisplayMode = .never
-//        navigationController?.pushViewController(trackVC, animated: true)
+        guard let cVM = self.vm else { return }
+        
+        let trackViewModel = cVM.getTrackAndDetailsVM(at: indexPath.row)
+        guard   let track = trackViewModel.track,
+                let trackDetail = trackViewModel.trackDetail else { return }
+        
+        let trackDetailVC = TrackDetailsViewController()
+        trackDetailVC.title = trackViewModel.name
+        trackDetailVC.vm = TrackDetailsCollectionViewModel(track: track, trackDetail: trackDetail)
+        trackDetailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(trackDetailVC, animated: true)
     }
 }

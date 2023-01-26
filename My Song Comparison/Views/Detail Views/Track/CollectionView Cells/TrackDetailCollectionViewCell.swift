@@ -9,7 +9,7 @@ import UIKit
 
 class TrackDetailCollectionViewCell: ShadowCollectionViewCell {
 
-    var trackDetail:TrackCollectionViewSectionsAttribute? {
+    var trackDetail:TrackCollectionViewCellViewModel? {
         didSet {
             guard let trackDetailObj = trackDetail else { return }
             nameLabel.text = trackDetailObj.name

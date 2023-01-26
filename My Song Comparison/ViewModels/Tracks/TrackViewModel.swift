@@ -8,6 +8,9 @@
 import Foundation
 
 struct TrackViewModel: TrackDetailViewFormatter {
+    private (set) var track:TracksObject?
+    private (set) var trackDetail:TrackFeaturesObject?
+    
     var name:String = ""
     var artist:String = ""
     var popularity:String = ""
@@ -18,6 +21,8 @@ struct TrackViewModel: TrackDetailViewFormatter {
     var keyMode:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
     
     init(track:TracksObject?, trackDetail:TrackFeaturesObject?) {
+        self.track = track
+        self.trackDetail = trackDetail
         if let track = track {
             self.name = track.name
             self.artist = track.artists.isEmpty ? "" : track.artists[0].name

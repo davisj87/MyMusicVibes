@@ -29,7 +29,7 @@ class TrackCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    var section:TrackCollectionViewSection? {
+    var section:TrackCollectionViewSectionViewModel? {
         didSet {
             guard let section = section else { return }
             sectionLabel.text = section.title

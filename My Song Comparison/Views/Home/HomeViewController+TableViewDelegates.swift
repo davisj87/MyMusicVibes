@@ -77,7 +77,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(artistAlbumsVC, animated: true)
         case 1:
-            let trackVC = TrackViewController()
+            let trackVC = TrackDetailsViewController()
             trackVC.title = self.vm.topItems.topTracks[indexPath.row].name
             trackVC.vm = TrackDetailsCollectionViewModel(track: self.vm.topItems.topTracks[indexPath.row])
             trackVC.navigationItem.largeTitleDisplayMode = .never
