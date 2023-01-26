@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum AuthError: Error {
-    case missingToken
-}
-
 struct TokenStorageObject:Codable {
     let authToken: String
     let refreshToken:String

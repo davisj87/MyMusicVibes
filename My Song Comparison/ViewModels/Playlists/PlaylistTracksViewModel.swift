@@ -8,12 +8,33 @@
 import Foundation
 
 
-class PlaylistTracksViewModel: TrackDetailViewModelHelper {
+class PlaylistTracksViewModel: TrackDetailViewFormatter {
     
     private let authManager = AuthManager()
-    private (set) var rows:[TrackListViewModel] = []
+    private var playlistTracks:[PlaylistTrackObject] = []
+    private var trackDetails = Set<TrackFeaturesObject>()
     
-    var id:String
+    var trackCount:Int {
+        return playlistTracks.count
+    }
+    
+    func getTrackAndDetailsVM(at index:Int) -> TrackViewModel {
+        let playlistTrack = playlistTracks[index]
+        if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: playlistTrack.track.id)) {
+            return TrackViewModel(track: playlistTrack.track, trackDetail: trackDetails[detailIndex])
+        }
+        return TrackViewModel(track: playlistTrack.track, trackDetail: nil)
+    }
+    
+    func getExtTrackDetail(trackId: String) -> TrackFeaturesObject? {
+        if let index = trackDetails.firstIndex(of: TrackFeaturesObject(withId: trackId)) {
+            let trackDetail = trackDetails[index]
+            return trackDetail
+        }
+        return nil
+    }
+    
+    private var id:String
     
     init(id:String) {
         self.id = id
@@ -23,52 +44,19 @@ class PlaylistTracksViewModel: TrackDetailViewModelHelper {
         let playlistTracksEndpoint = PlaylistTracksEndpoint(id: id)
         let playlistTracksRequest = APIRequest(endpoint: playlistTracksEndpoint, authManager: authManager)
         guard let playlistTracks = try await playlistTracksRequest.executeRequest() else { return }
-        try await self.getTracksDetails(tracks: playlistTracks.items)
-
+        self.playlistTracks = playlistTracks.items
+        self.trackDetails = try await self.getTracksDetails(tracks: playlistTracks.items)
     }
     
-    private func getTracksDetails(tracks:[PlaylistTrackObject]) async throws {
+    private func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject> {
         let trackIds = tracks.map{ $0.track.id }
         let trackIdsString = trackIds.joined(separator: ",")
         let tracksDetailsEndpoint = TracksDetailEndpoint(ids: trackIdsString)
         
         let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
-        guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return }
-        self.rows = await self.setupPlaylistTableViewModel(tracks: tracks, tracksDetails: trackDetails.audioFeatures)
+        guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
+        return trackDetails.audioFeatures
     }
     
-    private func setupPlaylistTableViewModel(tracks:[PlaylistTrackObject], tracksDetails:[TrackFeaturesObject]) async -> [TrackListViewModel] {
-
-        var trackDict:[String:TracksObject] = [:]
-        for eachTrack in tracks {
-            trackDict[eachTrack.track.id] = eachTrack.track
-        }
-        var tempTrackListViewModelArr:[TrackListViewModel] = []
-        for eachTrackDetail in tracksDetails {
-            if let trackInfo = trackDict[eachTrackDetail.id] {
-                let valenceString = self.intValencetoString(valence: eachTrackDetail.valence)
-                let keyString = self.intKeytoString(key: eachTrackDetail.key)
-                let modeString = self.intModetoString(mode: eachTrackDetail.mode)
-                let keyMode =  keyString + " " + modeString
-                let danceability = String(Int(eachTrackDetail.danceability))
-                let detailsShort = TrackFeaturesObjectShort(danceability: danceability, keyMode: keyMode, valence: valenceString)
-                let playlistTrack = TrackListViewModel(track: trackInfo, details: eachTrackDetail, detailsShort: detailsShort)
-                tempTrackListViewModelArr.append(playlistTrack)
-            }
-        }
-        return tempTrackListViewModelArr
-    }
-}
-
-struct TrackListViewModel {
-    var track:TracksObject
-    var details:TrackFeaturesObject
-    var detailsShort: TrackFeaturesObjectShort
-}
-
-struct TrackFeaturesObjectShort {
-    var danceability: String
-    var keyMode: String
-    var valence: String
 }
 

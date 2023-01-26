@@ -7,13 +7,34 @@
 
 import Foundation
 
-class AlbumTracksViewModel: TrackDetailViewModelHelper  {
+class AlbumTracksViewModel {
     
     private let authManager = AuthManager()
-    private (set) var rows:[TrackListViewModel] = []
-    
+    private var tracks:[TracksObject] = []
+    private var trackDetails = Set<TrackFeaturesObject>()
     private (set) var album:AlbumObject
 
+    var trackCount:Int {
+        return tracks.count
+    }
+    
+    func getTrackAndDetailsVM(at index:Int) -> TrackViewModel {
+        let track = tracks[index]
+        if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: track.id)) {
+            return TrackViewModel(track: track, trackDetail: trackDetails[detailIndex])
+        }
+        return TrackViewModel(track: track, trackDetail: nil)
+    }
+    
+    func getExtTrackDetail(trackId: String) -> TrackFeaturesObject? {
+        if let index = trackDetails.firstIndex(of: TrackFeaturesObject(withId: trackId)) {
+            let trackDetail = trackDetails[index]
+            return trackDetail
+        }
+        return nil
+    }
+
+    
     init(album:AlbumObject) {
         self.album = album
     }
@@ -25,13 +46,14 @@ class AlbumTracksViewModel: TrackDetailViewModelHelper  {
         let trackIds = albumTracks.items.map{ $0.id }
         let trackIdsString = trackIds.joined(separator: ",")
         
-        let trackArr = try await self.getTracksArray(ids: trackIdsString)
-        let trackDetailsArr = try await self.getTracksDetails(ids: trackIdsString)
-        
-        self.rows = await self.setupAlbumTracksTableViewModel(tracks: trackArr, tracksDetails: trackDetailsArr)
+        async let trackArr = self.getTracksArray(ids: trackIdsString)
+        async let trackDetailsArr = self.getTracksDetails(ids: trackIdsString)
+        let result = try await TrackAndDetailsResponse(tracks: trackArr, trackDetails: trackDetailsArr)
+        self.tracks = result.tracks
+        self.trackDetails = result.trackDetails
     }
     
-    private func getTracksDetails(ids:String) async throws -> [TrackFeaturesObject]{
+    private func getTracksDetails(ids:String) async throws -> Set<TrackFeaturesObject> {
         let tracksDetailsEndpoint = TracksDetailEndpoint(ids: ids)
         let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
         guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
@@ -47,28 +69,10 @@ class AlbumTracksViewModel: TrackDetailViewModelHelper  {
         print("got tracks")
         return tracksArr.tracks
     }
-    
-    private func setupAlbumTracksTableViewModel(tracks:[TracksObject], tracksDetails:[TrackFeaturesObject]) async -> [TrackListViewModel] {
+}
 
-        var trackDict:[String:TracksObject] = [:]
-        for eachTrack in tracks {
-            trackDict[eachTrack.id] = eachTrack
-        }
-        var tempTrackListViewModelArr:[TrackListViewModel] = []
-        for eachTrackDetail in tracksDetails {
-            if let trackInfo = trackDict[eachTrackDetail.id] {
-                let valenceString = self.intValencetoString(valence: eachTrackDetail.valence)
-                let keyString = self.intKeytoString(key: eachTrackDetail.key)
-                let modeString = self.intModetoString(mode: eachTrackDetail.mode)
-                let keyMode =  keyString + " " + modeString
-                let danceability = String(Int(eachTrackDetail.danceability))
-                let detailsShort = TrackFeaturesObjectShort(danceability: danceability, keyMode: keyMode, valence: valenceString)
-                let playlistTrack = TrackListViewModel(track: trackInfo, details: eachTrackDetail, detailsShort: detailsShort)
-                tempTrackListViewModelArr.append(playlistTrack)
-            }
-        }
-        return tempTrackListViewModelArr
-    }
-    
-    
+
+fileprivate struct TrackAndDetailsResponse {
+    var tracks:[TracksObject]
+    var trackDetails = Set<TrackFeaturesObject>()
 }

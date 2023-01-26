@@ -79,7 +79,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let trackVC = TrackViewController()
             trackVC.title = self.vm.topItems.topTracks[indexPath.row].name
-            trackVC.vm = TrackViewModel(track: self.vm.topItems.topTracks[indexPath.row])
+            trackVC.vm = TrackDetailsCollectionViewModel(track: self.vm.topItems.topTracks[indexPath.row])
             trackVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(trackVC, animated: true)
         case 2:

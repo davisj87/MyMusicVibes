@@ -8,8 +8,8 @@
 import Foundation
 
 // Needed when calling for multiple tracks
-struct TrackAudioFeatures<T:Decodable>: Decodable {
-    var audioFeatures: [T]
+struct TrackAudioFeatures: Decodable {      //<T:Decodable>
+    var audioFeatures: Set<TrackFeaturesObject>
     
     private enum CodingKeys: String, CodingKey {
         case audioFeatures = "audio_features"
@@ -18,12 +18,12 @@ struct TrackAudioFeatures<T:Decodable>: Decodable {
 extension TrackAudioFeatures {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.audioFeatures = ((try container.decodeIfPresent([T?].self, forKey: .audioFeatures)) ?? []).compactMap { $0 }
+        self.audioFeatures = try container.decodeIfPresent(Set<TrackFeaturesObject>.self, forKey: .audioFeatures) ?? Set<TrackFeaturesObject>()//((try container.decodeIfPresent(Set<TrackFeaturesObject?>.self, forKey: .audioFeatures)) ?? []).compactMap { $0 }
     }
 }
 
 //Use this when getting data for a single track at a time
-struct TrackFeaturesObject: Decodable {
+struct TrackFeaturesObject: Decodable, Hashable {
     var id: String
     var danceability: Float
     var energy: Float
@@ -45,6 +45,36 @@ struct TrackFeaturesObject: Decodable {
              acousticness, instrumentalness, liveness,
              valence, tempo, id
         case timeSignature = "time_signature"
+    }
+}
+
+extension TrackFeaturesObject: Equatable {
+    static func == (lhs: TrackFeaturesObject, rhs: TrackFeaturesObject) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+extension TrackFeaturesObject {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension TrackFeaturesObject {
+    init(withId id: String) {
+        self.id = id
+        self.danceability = 0
+        self.energy = 0
+        self.key = 0
+        self.loudness = 0
+        self.mode = 0
+        self.speechiness = 0
+        self.acousticness = 0
+        self.instrumentalness = 0
+        self.liveness = 0
+        self.valence = 0
+        self.tempo = 0
+        self.timeSignature = 0
     }
 }
 

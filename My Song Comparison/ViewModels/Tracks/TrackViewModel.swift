@@ -1,90 +1,116 @@
 //
-//  TrackViewModel.swift
+//  TrackDetailViewModelHelper.swift
 //  My Song Comparison
 //
-//  Created by Jarred Davis on 1/17/23.
+//  Created by Jarred Davis on 1/20/23.
 //
 
 import Foundation
-class TrackViewModel: TrackDetailViewModelHelper {
+
+struct TrackViewModel: TrackDetailViewFormatter {
+    var name:String = ""
+    var artist:String = ""
+    var popularity:String = ""
+    var imageUrlString:String = ""
     
-    private let authManager = AuthManager()
+    var valence:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
+    var dancability:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
+    var keyMode:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
     
-    private (set) var trackCollectionViewModel:TrackCollectionViewModel
-    
-    private (set) var track:TracksObject
-    private (set) var trackDetail:TrackFeaturesObject?
-    
-    init(track:TracksObject, trackDetail:TrackFeaturesObject? = nil) {
-        self.track = track
-        self.trackDetail = trackDetail
-        self.trackCollectionViewModel = TrackCollectionViewModel(header:track, sections: [])
+    init(track:TracksObject?, trackDetail:TrackFeaturesObject?) {
+        if let track = track {
+            self.name = track.name
+            self.artist = track.artists.isEmpty ? "" : track.artists[0].name
+            if track.popularity != -1 {
+                self.popularity = "Pop:\n \(track.popularity)"
+            }
+            if !track.album.images.isEmpty {
+                self.imageUrlString = track.album.images[0].url
+            }
+        }
+        
+        if let trackDetail = trackDetail {
+            let valenceVal = self.intValencetoString(valence: trackDetail.valence)
+            self.valence = TrackDetailAttribute(name: "Valence", value: valenceVal)
+            let danceVal = String(Int(trackDetail.danceability))
+            self.dancability = TrackDetailAttribute(name: "Dancability", value: danceVal)
+            
+            let keyString = self.intKeytoString(key: trackDetail.key)
+            let modeString = self.intModetoString(mode: trackDetail.mode)
+            let keyMode = keyString + " " + modeString
+            self.keyMode =  TrackDetailAttribute(name: "Key", value: keyMode)
+        }
+        
     }
-    
-    
-    func getTrack() async throws {
-        if let trackDetail = self.trackDetail {
-            print("used preloaded track details")
-            self.trackCollectionViewModel = await self.setupCollectionViewModel(trackDetails: trackDetail)
-        } else {
-            let singleTracksEndpoint = SingleTrackDetailEndpoint(id:self.track.id)
-            let singleTracksRequest = APIRequest(endpoint: singleTracksEndpoint, authManager: authManager)
-            print("get tracks details")
-            guard let trackDetails = try await singleTracksRequest.executeRequest() else { return }
-            print("got tracks details")
-            self.trackCollectionViewModel = await self.setupCollectionViewModel(trackDetails: trackDetails)
+}
+
+struct TrackDetailAttribute {
+    var name:String
+    var value:String
+}
+
+protocol TrackDetailViewFormatter {}
+
+extension TrackDetailViewFormatter {
+    func intKeytoString(key:Int) -> String {
+        switch key {
+        case 0:
+            return "C"
+        case 1:
+            return "C# or Db"
+        case 2:
+            return "D"
+        case 3:
+            return "D# or Eb"
+        case 4:
+            return "E"
+        case 5:
+            return "F"
+        case 6:
+            return "F# or Gb"
+        case 7:
+            return "G"
+        case 8:
+            return "G# or Ab"
+        case 9:
+            return "A"
+        case 10:
+            return "A# or Bb"
+        case 11:
+            return "B"
+        default:
+            return "N/A"
         }
     }
     
-    private func setupCollectionViewModel(trackDetails:TrackFeaturesObject) async -> TrackCollectionViewModel {
-        print("setup detail view model")
-        //Mood Section: Danceability, Valence, Energy, Tempo
-        let danceability = TrackCollectionViewSectionsAttribute(name: "Danceability", value: String(Int(trackDetails.danceability)))
-        
-        let valenceString = self.intValencetoString(valence: trackDetails.valence)
-        let valence = TrackCollectionViewSectionsAttribute(name: "Musical Vibe", value: valenceString)
-        let energy = TrackCollectionViewSectionsAttribute(name: "Energy", value: String(Int(trackDetails.energy)))
-        let tempo = TrackCollectionViewSectionsAttribute(name: "Tempo", value: String(Int(trackDetails.tempo)))
-        let moodArray = [danceability, valence, energy, tempo]
-        let moodSection = TrackCollectionViewSection(title: "Mood", attributes: moodArray)
-        
-        //Properties: Loudness, Speechiness, Instrumentalness, Key, Mode
-        let keyString = self.intKeytoString(key: trackDetails.key)
-        let modeString = self.intModetoString(mode: trackDetails.mode)
-        let keyMode = TrackCollectionViewSectionsAttribute(name: "Key", value: keyString + " " + modeString)
-        let loudness = TrackCollectionViewSectionsAttribute(name: "Loudness", value: String(trackDetails.loudness))
-        let speechiness = TrackCollectionViewSectionsAttribute(name: "Speechiness", value: String(Int(trackDetails.speechiness)))
-        let instrumentalness = TrackCollectionViewSectionsAttribute(name: "Instrumentalness", value: String(Int(trackDetails.instrumentalness)))
-        let propArray = [keyMode, loudness, speechiness, instrumentalness]
-        let propSection = TrackCollectionViewSection(title: "Properties", attributes: propArray)
-        
-        //Context: Liveness, Acousticness
-        let liveness = TrackCollectionViewSectionsAttribute(name: "Liveness", value: String(Int(trackDetails.liveness)))
-        let acousticness = TrackCollectionViewSectionsAttribute(name: "Acousticness", value: String(Int(trackDetails.acousticness)))
-        let contextArray = [liveness, acousticness]
-        let contextSection = TrackCollectionViewSection(title: "Context", attributes: contextArray)
-        
-        let sections = [moodSection, propSection, contextSection]
-        return TrackCollectionViewModel(header:self.track, sections: sections)
+    func intModetoString(mode:Int) -> String {
+        switch mode {
+        case 0:
+            return "Minor"
+        case 1:
+            return "Major"
+        default:
+            return "N/A"
+        }
     }
     
+    func intValencetoString(valence:Float) -> String {
+        /* A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
+        Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric),
+        while tracks with low valence sound more negative (e.g. sad, depressed, angry). */
+        switch Int(valence) {
+        case 0...20:
+            return "Sad"
+        case 21...45:
+            return "Gloomy"
+        case 46...55:
+            return "Neutral"
+        case 56...79:
+            return "Upbeat"
+        case 80...100:
+            return "Happy"
+        default:
+            return "Undefined"
+        }
+    }
 }
-
-struct TrackCollectionViewModel {
-    var header: TracksObject
-    var sections: [TrackCollectionViewSection]
-}
-
-struct TrackCollectionViewSection {
-    var title: String
-    var attributes: [TrackCollectionViewSectionsAttribute]
-}
-
-struct TrackCollectionViewSectionsAttribute {
-    var name: String
-    var value: String
-}
-
-
-
-

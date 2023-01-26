@@ -103,48 +103,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "891C19A5-A1C8-4617-8146-10D1D6B2271A"
+            uuid = "BBC1A4F1-CBF2-4349-A468-4453F499A2B4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "My Song Comparison/Networking/NetworkRequest.swift"
+            filePath = "My Song Comparison/Networking/AuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "request(_:payload:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "refreshToken()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F7516980-D23C-45AE-ACB2-A690FFD3F82E"
+            uuid = "253EADA8-92EA-442E-A5B7-1952DC78EEEC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "My Song Comparison/Views/AuthViewController.swift"
+            filePath = "My Song Comparison/Networking/AuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "refreshToken()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8327336A-E09A-4836-A61D-E2CD2287BB30"
+            uuid = "AB52CCE3-1BDE-466F-B008-8037FCD39CA1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "My Song Comparison/Views/AuthViewController.swift"
+            filePath = "My Song Comparison/Networking/AuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "refreshToken()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "835D5AB5-3C17-43E6-88DF-87F53A7AF638"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My Song Comparison/Networking/AuthManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "refreshToken()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

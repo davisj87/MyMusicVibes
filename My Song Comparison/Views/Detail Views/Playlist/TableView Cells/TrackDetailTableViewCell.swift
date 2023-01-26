@@ -8,33 +8,28 @@
 import UIKit
 
 class TrackDetailTableViewCell: ShadowTableViewCell {
-    var track:TracksObject? {
+    var track:TrackViewModel? {
         didSet {
-            guard let trackObject = track else { return }
-            nameLabel.text = trackObject.name
-            artistLabel.text = trackObject.artists.isEmpty ? "" : trackObject.artists[0].name
-            if trackObject.popularity != -1 {
-                popLabel.text = "Pop:\n \(trackObject.popularity)"
-                popLabel.numberOfLines = 2
-            }
-            guard !trackObject.album.images.isEmpty else { return }
-            let thumbUrl = trackObject.album.images[0].url
+            guard let track = track else { return }
+            nameLabel.text = track.name
+            artistLabel.text = track.artist
+            popLabel.text = track.popularity
+            popLabel.numberOfLines = 2
+            
+            valenceValueLabel.text = track.valence.value
+            dancabilityValueLabel.text = track.dancability.value
+            keyValueLabel.text = track.keyMode.value
+            
+            
+            guard track.imageUrlString != "" else { return }
             Task {
                 do {
-                    trackImageView.image = try await UIImage().loadImage(thumbUrl)
+                    trackImageView.image = try await UIImage().loadImage(track.imageUrlString)
                 }catch {
                     print ("image didnt load")
                 }
             }
-        }
-    }
-    
-    var trackDetailShort:TrackFeaturesObjectShort? {
-        didSet {
-            guard let trackDetailObj = trackDetailShort else { return }
-            valenceValueLabel.text = trackDetailObj.valence
-            dancabilityValueLabel.text = trackDetailObj.danceability
-            keyValueLabel.text = trackDetailObj.keyMode
+            
         }
     }
     

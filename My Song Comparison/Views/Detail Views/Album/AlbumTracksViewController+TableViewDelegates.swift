@@ -22,7 +22,7 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.vm?.rows.count ?? 0
+        return self.vm?.trackCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -32,18 +32,18 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trackDetailTableViewCell", for: indexPath) as! TrackDetailTableViewCell
         if let cVM = self.vm {
-            cell.track = cVM.rows[indexPath.row].track
-            cell.trackDetailShort = cVM.rows[indexPath.row].detailsShort
+            cell.track = cVM.getTrackAndDetailsVM(at: indexPath.row)
+//            cell.trackDetailShort = cVM.getShortTrackDetail(trackId: track.id)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cVM = self.vm else { return }
-        let trackVC = TrackViewController()
-        trackVC.title = cVM.rows[indexPath.row].track.name
-        trackVC.vm = TrackViewModel(track: cVM.rows[indexPath.row].track, trackDetail: cVM.rows[indexPath.row].details)
-        trackVC.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(trackVC, animated: true)
+//        guard let cVM = self.vm else { return }
+//        let trackVC = TrackViewController()
+//        trackVC.title = cVM.rows[indexPath.row].track.name
+//        trackVC.vm = TrackViewModel(track: cVM.rows[indexPath.row].track, trackDetail: cVM.rows[indexPath.row].details)
+//        trackVC.navigationItem.largeTitleDisplayMode = .never
+//        navigationController?.pushViewController(trackVC, animated: true)
     }
 }

@@ -8,8 +8,10 @@
 import UIKit
 
 class AlbumTracksViewController: UIViewController {
-
+    
+    //VM will be initalized from previous viewcontroller
     var vm: AlbumTracksViewModel?
+    
     private let albumTracksTableView: UITableView = UITableView()
 // This will show list of tracks from a playlist as well as an overview of the playlist
     override func viewDidLoad() {

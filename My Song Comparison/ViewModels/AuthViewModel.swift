@@ -21,11 +21,11 @@ struct AuthViewModel {
         let tokenRequest = AuthRequest(endpoint: tokenEndpoint)
         
         guard let tokenObject = try await tokenRequest.executeRequestWithPayload(tokenEndpoint.payloadData) else {
-            throw AuthError.missingToken
+            throw RequestError.missingToken
         }
         let calendar = Calendar.current
         guard let expirationDate = calendar.date(byAdding: .second, value: tokenObject.expiresIn - 120 , to: Date()) else {
-            throw AuthError.missingToken
+            throw RequestError.missingToken
         }
         
         let auth = TokenStorageObject(authToken: tokenObject.authToken, refreshToken: tokenObject.refreshToken, expiresIn: expirationDate)

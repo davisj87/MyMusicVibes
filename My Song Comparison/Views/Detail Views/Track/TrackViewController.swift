@@ -8,7 +8,7 @@
 import UIKit
 
 class TrackViewController: UIViewController {
-    var vm: TrackViewModel?
+    var vm: TrackDetailsCollectionViewModel?
     private var trackCollectionView: UICollectionView?
     
 //This will have all the track details. Thinkgs Like sogn Mood, Properties, Context, Etc.
