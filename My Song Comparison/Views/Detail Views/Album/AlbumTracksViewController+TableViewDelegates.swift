@@ -33,7 +33,6 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "trackDetailTableViewCell", for: indexPath) as! TrackDetailTableViewCell
         if let cVM = self.vm {
             cell.track = cVM.getTrackAndDetailsVM(at: indexPath.row)
-//            cell.trackDetailShort = cVM.getShortTrackDetail(trackId: track.id)
         }
         return cell
     }

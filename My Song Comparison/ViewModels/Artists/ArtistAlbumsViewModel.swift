@@ -19,7 +19,6 @@ class ArtistAlbumsViewModel  {
     }
     
     func getAlbumsFromArtist() async throws {
-        
         let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artistId)
         let artistAlbumsRequest = APIRequest(endpoint: artistAlbumsEndpoint, authManager: authManager)
         guard let artistAlbums = try await artistAlbumsRequest.executeRequest() else { return }

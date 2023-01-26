@@ -8,7 +8,7 @@
 import UIKit
 
 class TrackDetailTableViewCell: ShadowTableViewCell {
-    var track:TrackViewModel? {
+    var track:TrackTableViewCellViewModel? {
         didSet {
             guard let track = track else { return }
             nameLabel.text = track.name
@@ -19,8 +19,7 @@ class TrackDetailTableViewCell: ShadowTableViewCell {
             valenceValueLabel.text = track.valence.value
             dancabilityValueLabel.text = track.dancability.value
             keyValueLabel.text = track.keyMode.value
-            
-            
+    
             guard track.imageUrlString != "" else { return }
             Task {
                 do {

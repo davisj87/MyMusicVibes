@@ -18,12 +18,12 @@ class AlbumTracksViewModel {
         return tracks.count
     }
     
-    func getTrackAndDetailsVM(at index:Int) -> TrackViewModel {
+    func getTrackAndDetailsVM(at index:Int) -> TrackTableViewCellViewModel {
         let track = tracks[index]
         if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: track.id)) {
-            return TrackViewModel(track: track, trackDetail: trackDetails[detailIndex])
+            return TrackTableViewCellViewModel(track: track, trackDetail: trackDetails[detailIndex])
         }
-        return TrackViewModel(track: track, trackDetail: nil)
+        return TrackTableViewCellViewModel(track: track, trackDetail: nil)
     }
 
     
