@@ -25,14 +25,6 @@ class AlbumTracksViewModel {
         }
         return TrackViewModel(track: track, trackDetail: nil)
     }
-    
-    func getExtTrackDetail(trackId: String) -> TrackFeaturesObject? {
-        if let index = trackDetails.firstIndex(of: TrackFeaturesObject(withId: trackId)) {
-            let trackDetail = trackDetails[index]
-            return trackDetail
-        }
-        return nil
-    }
 
     
     init(album:AlbumObject) {
