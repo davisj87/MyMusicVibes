@@ -24,6 +24,8 @@ extension NetworkRequest {
                 throw RequestError.noResponse
             }
             print(response.statusCode)
+            
+//            print(data.JSONObject)
             switch response.statusCode {
             case 200...299:
                 guard let decodedResponse = self.decode(data) else {
@@ -74,7 +76,6 @@ extension APIRequest: NetworkRequest {
         guard let token = try await authManager.validToken() else {
             throw RequestError.unauthorized
         }
-        
         urlRequest.setValue("Bearer \(token.authToken)", forHTTPHeaderField: "Authorization")
         urlRequest.setValue(PayloadEncodingMethod.json.rawValue, forHTTPHeaderField: "Content-Type")
         return urlRequest

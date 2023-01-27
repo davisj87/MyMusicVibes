@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         let service = KeychainHelper.tokenSeviceStr
+//        KeychainHelper.standard.delete(service: service)
+//        KeychainHelper.standard.delete(service: KeychainHelper.refreshSeviceStr)
         if KeychainHelper.standard.read(service: service,
                                         type: TokenStorageObject.self) != nil {
             window.rootViewController = TabBarViewController()
