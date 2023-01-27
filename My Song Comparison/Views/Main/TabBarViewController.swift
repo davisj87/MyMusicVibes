@@ -42,17 +42,6 @@ class TabBarViewController: UITabBarController {
         
         self.setViewControllers([homeNav, searchNav, libraryNav], animated: false)
         
-        
-//        if !Credentials.isTokenValid { // Need to use soemthing else here for checking
-//            Task {
-//                do {
-//                    try await self.vm.refreshToken()
-//                } catch {
-//                    print("refresh didn't work")
-//                }
-//            }
-//        }
-        
     }
 
 }

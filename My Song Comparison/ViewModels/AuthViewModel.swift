@@ -14,9 +14,12 @@ struct AuthViewModel {
     }
     
     func getAndSaveAuthToken(authCode:String) async throws {
+        guard let codeVerifier = self.authEndpoint.codeVerifier else {
+            throw RequestError.unauthorized
+        }
         var tokenEndpoint = TokenEndpoint()
         tokenEndpoint.authCode = authCode
-        tokenEndpoint.codeVerifier = self.authEndpoint.codeVerifier!
+        tokenEndpoint.codeVerifier = codeVerifier
         
         let tokenRequest = AuthRequest(endpoint: tokenEndpoint)
         
@@ -35,16 +38,4 @@ struct AuthViewModel {
         KeychainHelper.standard.save(auth, service: service)
         
     }
-    
-//    func getAlbumSearch() async throws {
-//        let searchAlbumEndpoint = SearchAlbumEndpoint(searchString: "Taylor Davis Odyssey")
-//
-//        let searchAlbumRequest = APIRequest(endpoint: searchAlbumEndpoint)
-//
-//        guard let searchAlbumObject = try await searchAlbumRequest.executeRequest() else {
-//            return
-//        }
-//        print(searchAlbumObject)
-//    }
-    
 }

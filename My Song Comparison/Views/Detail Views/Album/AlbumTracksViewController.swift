@@ -13,7 +13,7 @@ class AlbumTracksViewController: UIViewController {
     var vm: AlbumTracksViewModel?
     
     private let albumTracksTableView: UITableView = UITableView()
-// This will show list of tracks from a playlist as well as an overview of the playlist
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground

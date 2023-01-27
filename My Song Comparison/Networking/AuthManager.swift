@@ -15,8 +15,6 @@ struct TokenStorageObject:Codable {
 
 actor AuthManager {
     
-    // All Keychain for the auth token access flows through here
-    
     private var currentToken: TokenStorageObject? {
         get {
             let service = KeychainHelper.tokenSeviceStr
@@ -27,7 +25,7 @@ actor AuthManager {
             }
             return result
         }
-    }// This should fetch the current token from the keychain
+    }
     private var refreshTask: Task<TokenStorageObject?, Error>?
 
     func validToken() async throws -> TokenStorageObject? {
@@ -47,7 +45,7 @@ actor AuthManager {
     }
 
     func refreshToken() async throws -> TokenStorageObject? {
-        //This is where we can set our new token values in the keychain
+        
         if let refreshTask = refreshTask {
                 return try await refreshTask.value
             }

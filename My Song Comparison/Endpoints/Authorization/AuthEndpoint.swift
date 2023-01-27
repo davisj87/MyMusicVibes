@@ -23,9 +23,9 @@ struct AuthEndpoint {
         return "/authorize"
     }
     
-    var codeChallenge: String? {    // This is what we will use to pass the code challenge to Request Token
-        return challenge
-    }
+//    var codeChallenge: String? {    // This is what we will use to pass the code challenge to Request Token
+//        return challenge
+//    }
     
     var codeVerifier:String? {
         return verifier

@@ -28,5 +28,5 @@ struct TracksDetailEndpoint: AuthorizedEndpoint {
         return qDict
     }
     
-    typealias ModelType = TrackAudioFeatures//<TrackFeaturesObject>
+    typealias ModelType = TrackAudioFeatures
 }
