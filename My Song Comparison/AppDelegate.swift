@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        // Eventually replace with Userdefaults
         let service = KeychainHelper.tokenSeviceStr
         if KeychainHelper.standard.read(service: service,
                                         type: TokenStorageObject.self) != nil {

@@ -15,20 +15,5 @@ struct Credentials {
     static let redirectURI: String = "https://taylordavisviolin.com/"
     static let scope: String = "user-top-read playlist-read-private user-follow-read user-read-recently-played user-library-read playlist-read-private"
     
-//    static var tokenExpiration:Date = Date()
-//    static var isTokenValid:Bool {
-//        let currentDateTime = Date()
-//        if currentDateTime >= self.tokenExpiration   {
-//            return false
-//        }
-//        return true
-//    }
-//    static var isSignedIn:Bool {
-//        if self.token != "" && self.token != "N/A" {
-//            return true
-//        }
-//        return false
-//    }
-    
     private init(){}
 }
