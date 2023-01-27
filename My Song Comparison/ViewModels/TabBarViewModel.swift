@@ -9,10 +9,4 @@ import Foundation
 
 struct TabBarViewModel {
 
-//    func refreshToken() async throws{
-//        let refreshEndpoint = RefreshTokenEndpoint()
-//        let authRequest = AuthRequest(endpoint: refreshEndpoint)
-//        let _ = try await authRequest.executeRequestWithPayload(refreshEndpoint.payloadData)
-//    }
-
 }

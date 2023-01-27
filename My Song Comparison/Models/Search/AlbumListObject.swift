@@ -18,6 +18,10 @@ struct Albums: Decodable {
 struct AlbumListObject: Decodable {
     var id: String
     var name: String
-//    var artist: String
+    var artists: [AlbumArtistListObject]
     var images: [ImageObject]
+}
+
+struct AlbumArtistListObject: Decodable {
+    var name: String
 }

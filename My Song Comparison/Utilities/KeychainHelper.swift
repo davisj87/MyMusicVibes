@@ -28,7 +28,7 @@ final class KeychainHelper {
         let status = SecItemAdd(query, nil)
 
         if status == errSecDuplicateItem {
-            // Item already exist, thus update it.
+            // Item already exists, update it.
             let query = [
                 kSecAttrService: service,
                 kSecAttrAccount: KeychainHelper.accountStr,
@@ -80,7 +80,7 @@ extension KeychainHelper {
             save(data, service: service)
             
         } catch {
-            assertionFailure("Fail to encode item for keychain: \(error)")
+            assertionFailure("Failed to encode item for keychain: \(error)")
         }
     }
     
@@ -96,7 +96,7 @@ extension KeychainHelper {
             let item = try JSONDecoder().decode(type, from: data)
             return item
         } catch {
-            assertionFailure("Fail to decode item for keychain: \(error)")
+            assertionFailure("Failed to decode item for keychain: \(error)")
             return nil
         }
     }
