@@ -10,7 +10,7 @@ import Foundation
 class SearchViewModel {
     
     private let authManager = AuthManager()
-    var searchViewModelCells:[SearchCellViewModel] = []
+    var searchViewModelCells:[SearchCellViewModelProtocol] = []
     
     func searchMusic(type:String, query:String) async throws {
         let filter = SearchType(rawValue: type)
@@ -33,18 +33,14 @@ class SearchViewModel {
 //        self.trackDetails = try await self.getTracksDetails(tracks: playlistTracks.items)
     }
     
-    private func getAlbum(query:String) async throws -> [SearchCellViewModel] {
+    private func getAlbum(query:String) async throws -> [SearchAlbumCellViewModel] {
         let searchAlbumEndpoint = SearchAlbumEndpoint(searchString: query)
         let searchAlbumRequest = APIRequest(endpoint: searchAlbumEndpoint, authManager: authManager)
         guard let searchAlbumResults = try await searchAlbumRequest.executeRequest() else { return []}
         let albums = searchAlbumResults.albums.items
-        var tempAlbumCells:[SearchCellViewModel] = []
+        var tempAlbumCells:[SearchAlbumCellViewModel] = []
         for eachAlbum in albums {
-            let name = eachAlbum.name
-            let id = eachAlbum.id
-            let artist = eachAlbum.artists.isEmpty ? "" : eachAlbum.artists[0].name
-            let imageUrl = eachAlbum.images.isEmpty ? "" : eachAlbum.images[0].url
-            let searchCell = SearchCellViewModel(primaryText: name, secondaryText: artist, imageUrl: imageUrl, id: id)
+            let searchCell = SearchAlbumCellViewModel(albumListObject: eachAlbum)
             tempAlbumCells.append(searchCell)
         }
         return tempAlbumCells

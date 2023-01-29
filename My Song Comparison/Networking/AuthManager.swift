@@ -36,7 +36,6 @@ actor AuthManager {
         guard let token = currentToken else {
             throw RequestError.missingToken
         }
-
         if Date() < token.expiresIn {
             return token
         }

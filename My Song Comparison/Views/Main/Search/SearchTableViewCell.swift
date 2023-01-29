@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchTableViewCell:ShadowTableViewCell {
-    var seachCellViewModel:SearchCellViewModel? {
+    var seachCellViewModel:SearchCellViewModelProtocol? {
         didSet {
             guard let seachCellViewModel = seachCellViewModel else { return }
             primaryLabel.text = seachCellViewModel.primaryText
