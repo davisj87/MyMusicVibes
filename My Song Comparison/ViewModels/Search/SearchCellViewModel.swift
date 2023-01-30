@@ -7,16 +7,10 @@
 
 import Foundation
 
-protocol SearchCellViewModelProtocol {
-    var primaryText:String { get }
-    var secondaryText:String { get }
-    var imageUrl:String { get }
-    var id:String { get }
-}
-
-struct SearchAlbumCellViewModel: SearchCellViewModelProtocol {
+struct SearchAlbumCellViewModel: ItemOverviewCellViewModelProtocol {
     var primaryText: String
     var secondaryText: String
+    var additionalDetailText: String
     var imageUrl: String
     var id: String
     
@@ -24,9 +18,8 @@ struct SearchAlbumCellViewModel: SearchCellViewModelProtocol {
         self.id = albumListObject.id
         self.primaryText = albumListObject.name
         self.secondaryText = albumListObject.artists.isEmpty ? "" : albumListObject.artists[0].name
+        self.additionalDetailText = ""
         self.imageUrl = albumListObject.images.isEmpty ? "" : albumListObject.images[0].url
     }
-    
-    
 }
 

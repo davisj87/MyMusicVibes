@@ -7,22 +7,20 @@
 
 import UIKit
 
-class TopArtistTableViewCell: ShadowTableViewCell {
+class HomeTableViewCell: ShadowTableViewCell {
     
-    var artist:TopArtistsObject? {
+    var homeCellViewModel:ItemOverviewCellViewModelProtocol? {
         didSet {
-            guard let artistObject = artist else { return }
-            nameLabel.text = artistObject.name
-            popLabel.text = "Pop:\n \(artistObject.popularity)"
+            guard let homeCellViewModel = homeCellViewModel else { return }
+            primaryLabel.text = homeCellViewModel.primaryText
+            popLabel.text = homeCellViewModel.additionalDetailText
             popLabel.numberOfLines = 2
-            let genres = artistObject.genres.joined(separator: ", ")
-            genreLabel.text = genres
-            genreLabel.numberOfLines = 2
-            guard !artistObject.images.isEmpty else { return }
-            let thumbUrl = artistObject.images[0].url
+            secondaryLabel.text = homeCellViewModel.secondaryText
+            secondaryLabel.numberOfLines = 2
+            guard homeCellViewModel.imageUrl != "" else { return }
             Task {
                 do {
-                    artistImageView.image = try await UIImage().loadImage(thumbUrl)
+                    pictureView.image = try await UIImage().loadImage(homeCellViewModel.imageUrl)
                 }catch {
                     print ("image didnt load")
                 }
@@ -30,7 +28,7 @@ class TopArtistTableViewCell: ShadowTableViewCell {
         }
     }
     
-    private let artistImageView:UIImageView = {
+    private let pictureView:UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
@@ -39,14 +37,14 @@ class TopArtistTableViewCell: ShadowTableViewCell {
         return img
     }()
     
-    private let nameLabel:UILabel = {
+    private let primaryLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let genreLabel:UILabel = {
+    private let secondaryLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,9 +62,9 @@ class TopArtistTableViewCell: ShadowTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-        self.containerView.addSubview(artistImageView)
-        self.containerView.addSubview(nameLabel)
-        self.containerView.addSubview(genreLabel)
+        self.containerView.addSubview(pictureView)
+        self.containerView.addSubview(primaryLabel)
+        self.containerView.addSubview(secondaryLabel)
         self.containerView.addSubview(popLabel)
 
         popLabel.widthAnchor.constraint(equalToConstant:30).isActive = true
@@ -74,18 +72,18 @@ class TopArtistTableViewCell: ShadowTableViewCell {
         popLabel.bottomAnchor.constraint(equalTo:self.containerView.bottomAnchor).isActive = true
         popLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
         
-        artistImageView.centerYAnchor.constraint(equalTo:containerView.centerYAnchor).isActive = true
-        artistImageView.leadingAnchor.constraint(equalTo:containerView.leadingAnchor, constant:10).isActive = true
-        artistImageView.widthAnchor.constraint(equalToConstant:70).isActive = true
-        artistImageView.heightAnchor.constraint(equalToConstant:70).isActive = true
+        pictureView.centerYAnchor.constraint(equalTo:containerView.centerYAnchor).isActive = true
+        pictureView.leadingAnchor.constraint(equalTo:containerView.leadingAnchor, constant:10).isActive = true
+        pictureView.widthAnchor.constraint(equalToConstant:70).isActive = true
+        pictureView.heightAnchor.constraint(equalToConstant:70).isActive = true
         
-        nameLabel.bottomAnchor.constraint(equalTo:self.containerView.centerYAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo:self.artistImageView.trailingAnchor, constant:10).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo:self.popLabel.leadingAnchor, constant:-10).isActive = true
+        primaryLabel.bottomAnchor.constraint(equalTo:self.containerView.centerYAnchor).isActive = true
+        primaryLabel.leadingAnchor.constraint(equalTo:self.pictureView.trailingAnchor, constant:10).isActive = true
+        primaryLabel.trailingAnchor.constraint(equalTo:self.popLabel.leadingAnchor, constant:-10).isActive = true
 
-        genreLabel.topAnchor.constraint(equalTo:self.nameLabel.bottomAnchor).isActive = true
-        genreLabel.leadingAnchor.constraint(equalTo:self.nameLabel.leadingAnchor).isActive = true
-        genreLabel.trailingAnchor.constraint(equalTo:self.popLabel.leadingAnchor, constant:-10).isActive = true
+        secondaryLabel.topAnchor.constraint(equalTo:self.primaryLabel.bottomAnchor).isActive = true
+        secondaryLabel.leadingAnchor.constraint(equalTo:self.primaryLabel.leadingAnchor).isActive = true
+        secondaryLabel.trailingAnchor.constraint(equalTo:self.popLabel.leadingAnchor, constant:-10).isActive = true
         
         
      }

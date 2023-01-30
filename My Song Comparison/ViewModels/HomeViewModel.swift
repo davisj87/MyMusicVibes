@@ -9,14 +9,36 @@ import Foundation
 
 class HomeViewModel {
     private let authManager = AuthManager()
-    private (set) var topItems:HomeViewModelTopItems = HomeViewModelTopItems(topArtists: [], topTracks: [], topPlaylists: [])
-    
+   // private (set) var topItems:HomeViewModelTopItems = HomeViewModelTopItems(topArtists: [], topTracks: [], topPlaylists: [])
+    private (set) var sections:[HomeSectionViewModel] = []
     
     func loadTopItems() async throws {
         async let tracks = getTopTracks()
         async let artists = getTopArtists()
         async let playlists = getTopPlaylists()
-        self.topItems = try await HomeViewModelTopItems(topArtists: artists, topTracks: tracks, topPlaylists: playlists)
+        self.sections = try await self.getTableViewModel(tracks: tracks, artists: artists, playlist: playlists)//try await HomeViewModelTopItems(topArtists: artists, topTracks: tracks, topPlaylists: playlists)
+    }
+    
+    private func getTableViewModel(tracks:[TracksObject], artists:[TopArtistsObject], playlist: [TopPlaylistsObject]) async -> [HomeSectionViewModel] {
+        let tracksViewModel = tracks.map{ TopTracksCellViewModel(topTracksObject: $0) }
+        let artistViewModel = artists.map{ TopArtistsCellViewModel(topArtistsObject: $0) }
+        let playlistViewModel = playlist.map{ TopPlaylistCellViewModel(topPlaylistObject: $0) }
+        
+        var sectionViewModelArr:[HomeSectionViewModel] = []
+        if !artistViewModel.isEmpty {
+            let artistSection = HomeSectionViewModel(title: "Artist", homeCells: artistViewModel)
+            sectionViewModelArr.append(artistSection)
+        }
+        if !tracksViewModel.isEmpty {
+            let tracksSection = HomeSectionViewModel(title: "Tracks", homeCells: tracksViewModel)
+            sectionViewModelArr.append(tracksSection)
+        }
+        if !playlistViewModel.isEmpty {
+            let playlistSection = HomeSectionViewModel(title: "Playlist", homeCells: playlistViewModel)
+            sectionViewModelArr.append(playlistSection)
+        }
+        
+        return sectionViewModelArr
     }
     
     private func getTopArtists() async throws -> [TopArtistsObject] {
@@ -54,5 +76,8 @@ extension HomeViewModel {
         let topArtists:[TopArtistsObject]
         let topTracks:[TracksObject]
         let topPlaylists:[TopPlaylistsObject]
+    }
+    
+    struct HomeTableViewModel {
     }
 }

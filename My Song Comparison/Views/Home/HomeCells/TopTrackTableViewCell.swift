@@ -8,18 +8,17 @@
 import UIKit
 
 class TopTrackTableViewCell: ShadowTableViewCell {
-    var track:TracksObject? {
+    var track:ItemOverviewCellViewModelProtocol? {
         didSet {
             guard let trackObject = track else { return }
-            nameLabel.text = trackObject.name
-            artistLabel.text = trackObject.artists.isEmpty ? "" : trackObject.artists[0].name
-            popLabel.text = "Pop:\n \(trackObject.popularity)"
+            nameLabel.text = trackObject.primaryText
+            artistLabel.text = trackObject.secondaryText
+            popLabel.text = trackObject.additionalDetailText
             popLabel.numberOfLines = 2
-            guard !trackObject.album.images.isEmpty else { return }
-            let thumbUrl = trackObject.album.images[0].url
+            guard trackObject.imageUrl != "" else { return }
             Task {
                 do {
-                    trackImageView.image = try await UIImage().loadImage(thumbUrl)
+                    trackImageView.image = try await UIImage().loadImage(trackObject.imageUrl)
                 }catch {
                     print ("image didnt load")
                 }

@@ -8,16 +8,15 @@
 import UIKit
 
 class TopPlaylistTableViewCell:ShadowTableViewCell {
-    var playlist:TopPlaylistsObject? {
+    var playlist:ItemOverviewCellViewModelProtocol? {
         didSet {
             guard let playlistObject = playlist else { return }
-            nameLabel.text = playlistObject.name
-            ownerLabel.text = playlistObject.owner.name
-            guard !playlistObject.images.isEmpty else { return }
-            let thumbUrl = playlistObject.images[0].url
+            nameLabel.text = playlistObject.primaryText
+            ownerLabel.text = playlistObject.secondaryText
+            guard playlistObject.imageUrl != "" else { return }
             Task {
                 do {
-                    playlistImageView.image = try await UIImage().loadImage(thumbUrl)
+                    playlistImageView.image = try await UIImage().loadImage(playlistObject.imageUrl)
                 }catch {
                     print ("image didnt load")
                 }

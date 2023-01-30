@@ -71,6 +71,8 @@
 		83A9748A298469DB003AEF81 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A97489298469DB003AEF81 /* SearchViewModel.swift */; };
 		83A9748D29846A12003AEF81 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */; };
 		83AE7C202988183A00FBE7EF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE7C1F2988183A00FBE7EF /* SearchResultsViewController.swift */; };
+		83AE7C222988269600FBE7EF /* HomeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE7C212988269600FBE7EF /* HomeTableViewModel.swift */; };
+		83AE7C242988345100FBE7EF /* ItemOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE7C232988345100FBE7EF /* ItemOverviewViewModel.swift */; };
 		83B09DFD2976E7350072CAE6 /* ShadowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B09DFC2976E7350072CAE6 /* ShadowTableViewCell.swift */; };
 		83B09DFF2976E85B0072CAE6 /* TopTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B09DFE2976E85B0072CAE6 /* TopTrackTableViewCell.swift */; };
 		83B09E012977041A0072CAE6 /* TopPlaylistsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B09E002977041A0072CAE6 /* TopPlaylistsObject.swift */; };
@@ -188,6 +190,8 @@
 		83A97489298469DB003AEF81 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		83AE7C1F2988183A00FBE7EF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		83AE7C212988269600FBE7EF /* HomeTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewModel.swift; sourceTree = "<group>"; };
+		83AE7C232988345100FBE7EF /* ItemOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOverviewViewModel.swift; sourceTree = "<group>"; };
 		83B09DFC2976E7350072CAE6 /* ShadowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowTableViewCell.swift; sourceTree = "<group>"; };
 		83B09DFE2976E85B0072CAE6 /* TopTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTrackTableViewCell.swift; sourceTree = "<group>"; };
 		83B09E002977041A0072CAE6 /* TopPlaylistsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPlaylistsObject.swift; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 				839F49A6296321D80054F660 /* TabBarViewModel.swift */,
 				839F49B629637AF00054F660 /* AuthViewModel.swift */,
 				8321E48E2970AC5700F534F0 /* HomeViewModel.swift */,
+				83AE7C232988345100FBE7EF /* ItemOverviewViewModel.swift */,
+				83AE7C212988269600FBE7EF /* HomeTableViewModel.swift */,
 				83AADCA02980042500876558 /* Albums */,
 				83AADCA12980046300876558 /* Artists */,
 				83AADCA22980048100876558 /* Playlists */,
@@ -842,11 +848,13 @@
 				839F49A329631FBC0054F660 /* RequestError.swift in Sources */,
 				83A3197E2975A9B300CC9D43 /* UIImage+Extension.swift in Sources */,
 				83B2A633296C5E7C002B703C /* WelcomeViewController.swift in Sources */,
+				83AE7C242988345100FBE7EF /* ItemOverviewViewModel.swift in Sources */,
 				83B09E0D29773ABD0072CAE6 /* TrackDetailsViewController+CollectionViewDelegates.swift in Sources */,
 				83D07FBB2979D84700B0D10A /* PlaylistTracksViewModel.swift in Sources */,
 				835E51A6296768250076F248 /* SearchTrackEndpoint.swift in Sources */,
 				835E519C2967475B0076F248 /* ImageObject.swift in Sources */,
 				83B2A630296C5E4E002B703C /* LibraryViewController.swift in Sources */,
+				83AE7C222988269600FBE7EF /* HomeTableViewModel.swift in Sources */,
 				839A51A729781C790045387E /* TrackDetailCollectionViewCell.swift in Sources */,
 				83AE7C202988183A00FBE7EF /* SearchResultsViewController.swift in Sources */,
 				83331A42295DD6AD00B23617 /* AppDelegate.swift in Sources */,

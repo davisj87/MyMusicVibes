@@ -10,7 +10,7 @@ import Foundation
 class SearchViewModel {
     
     private let authManager = AuthManager()
-    var searchViewModelCells:[SearchCellViewModelProtocol] = []
+    var searchViewModelCells:[ItemOverviewCellViewModelProtocol] = []
     
     func searchMusic(type:String, query:String) async throws {
         let filter = SearchType(rawValue: type)
