@@ -9,48 +9,37 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let vm: SearchViewModel = SearchViewModel()
-    let searchTableView: UITableView = UITableView()
+    
+   
     let activityView = UIActivityIndicatorView(style: .medium)
-    let searchController = UISearchController(searchResultsController: nil)
+    
+    let searchController: UISearchController = {
+        let results = SearchResultsViewController()
+        results.view.backgroundColor = .red
+        let vc = UISearchController(searchResultsController: results)
+        vc.searchBar.placeholder = "Search for Songs, Artists, Albums, or Genre"
+        vc.searchBar.searchBarStyle = .minimal
+        vc.searchBar.scopeButtonTitles = SearchType.allCases.map { $0.rawValue }
+        vc.definesPresentationContext = true
+        return vc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search"
         self.view.backgroundColor = .systemBackground
+        self.navigationItem.searchController = searchController
         
         self.activityView.center = self.view.center
         self.view.addSubview(activityView)
-        
-        self.addTableViewWithContraints()
-        self.addSearchBar()
-        
-    }
-    
-    func addTableViewWithContraints() {
-        self.view.addSubview(searchTableView)
-        
-        searchTableView.delegate = self
-        searchTableView.dataSource = self
-        searchTableView.separatorStyle = .none
-        
-        searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "searchTableViewCell")
-
-        
-        searchTableView.translatesAutoresizingMaskIntoConstraints = false
-        searchTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
-        searchTableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-        searchTableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        searchTableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
-    }
-    
-    func addSearchBar() {
+        self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
-        self.searchController.searchBar.placeholder = "Type the genre, album, track, or artist"
-        
-        searchController.searchBar.scopeButtonTitles = SearchType.allCases.map { $0.rawValue }//["Albums", "Genre", "Artists"]
         
         definesPresentationContext = true
-        searchTableView.tableHeaderView = searchController.searchBar
+        
     }
+    
+    
+
+    
 }

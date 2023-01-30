@@ -66,11 +66,11 @@
 		83A50AB4297F1F870047ABA3 /* AlbumTracksViewController+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A50AB3297F1F870047ABA3 /* AlbumTracksViewController+TableViewDelegates.swift */; };
 		83A6326D2978649F009546F0 /* TrackDetailHeaderAndFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6326C2978649F009546F0 /* TrackDetailHeaderAndFooterCollectionReusableView.swift */; };
 		83A6326F29787740009546F0 /* TrackCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6326E29787740009546F0 /* TrackCollectionReusableView.swift */; };
-		83A974842984568F003AEF81 /* SearchViewController+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A974832984568F003AEF81 /* SearchViewController+TableViewDelegates.swift */; };
 		83A9748629845700003AEF81 /* SearchViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9748529845700003AEF81 /* SearchViewController+SearchBar.swift */; };
 		83A974882984581A003AEF81 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A974872984581A003AEF81 /* SearchTableViewCell.swift */; };
 		83A9748A298469DB003AEF81 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A97489298469DB003AEF81 /* SearchViewModel.swift */; };
 		83A9748D29846A12003AEF81 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */; };
+		83AE7C202988183A00FBE7EF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE7C1F2988183A00FBE7EF /* SearchResultsViewController.swift */; };
 		83B09DFD2976E7350072CAE6 /* ShadowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B09DFC2976E7350072CAE6 /* ShadowTableViewCell.swift */; };
 		83B09DFF2976E85B0072CAE6 /* TopTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B09DFE2976E85B0072CAE6 /* TopTrackTableViewCell.swift */; };
 		83B09E012977041A0072CAE6 /* TopPlaylistsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B09E002977041A0072CAE6 /* TopPlaylistsObject.swift */; };
@@ -183,11 +183,11 @@
 		83A50AB3297F1F870047ABA3 /* AlbumTracksViewController+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumTracksViewController+TableViewDelegates.swift"; sourceTree = "<group>"; };
 		83A6326C2978649F009546F0 /* TrackDetailHeaderAndFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailHeaderAndFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		83A6326E29787740009546F0 /* TrackCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionReusableView.swift; sourceTree = "<group>"; };
-		83A974832984568F003AEF81 /* SearchViewController+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+TableViewDelegates.swift"; sourceTree = "<group>"; };
 		83A9748529845700003AEF81 /* SearchViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		83A974872984581A003AEF81 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		83A97489298469DB003AEF81 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
+		83AE7C1F2988183A00FBE7EF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		83B09DFC2976E7350072CAE6 /* ShadowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowTableViewCell.swift; sourceTree = "<group>"; };
 		83B09DFE2976E85B0072CAE6 /* TopTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTrackTableViewCell.swift; sourceTree = "<group>"; };
 		83B09E002977041A0072CAE6 /* TopPlaylistsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPlaylistsObject.swift; sourceTree = "<group>"; };
@@ -490,8 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				83B2A62D296C5E3A002B703C /* SearchViewController.swift */,
-				83A974832984568F003AEF81 /* SearchViewController+TableViewDelegates.swift */,
 				83A9748529845700003AEF81 /* SearchViewController+SearchBar.swift */,
+				83AE7C1F2988183A00FBE7EF /* SearchResultsViewController.swift */,
 				83A974872984581A003AEF81 /* SearchTableViewCell.swift */,
 			);
 			path = Search;
@@ -848,6 +848,7 @@
 				835E519C2967475B0076F248 /* ImageObject.swift in Sources */,
 				83B2A630296C5E4E002B703C /* LibraryViewController.swift in Sources */,
 				839A51A729781C790045387E /* TrackDetailCollectionViewCell.swift in Sources */,
+				83AE7C202988183A00FBE7EF /* SearchResultsViewController.swift in Sources */,
 				83331A42295DD6AD00B23617 /* AppDelegate.swift in Sources */,
 				8321E48D2970ABB900F534F0 /* TopArtistsEndpoint.swift in Sources */,
 				839F499F29631F940054F660 /* Endpoint.swift in Sources */,
@@ -895,7 +896,6 @@
 				83D07FB92979D6FE00B0D10A /* TracksDetailEndpoint.swift in Sources */,
 				835E5198296741DC0076F248 /* ArtistObject.swift in Sources */,
 				83D07FC02979E0A100B0D10A /* PlaylistTracksEndpoint.swift in Sources */,
-				83A974842984568F003AEF81 /* SearchViewController+TableViewDelegates.swift in Sources */,
 				835E51892967214E0076F248 /* ArtistListObject.swift in Sources */,
 				832ADA322971ABC300AAA44B /* AuthManager.swift in Sources */,
 				83A9748A298469DB003AEF81 /* SearchViewModel.swift in Sources */,

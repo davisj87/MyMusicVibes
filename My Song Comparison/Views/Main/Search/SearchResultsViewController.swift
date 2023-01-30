@@ -1,13 +1,51 @@
 //
-//  SearchViewController+TableViewDelegates.swift
+//  SearchResultsViewController.swift
 //  My Song Comparison
 //
-//  Created by Jarred Davis on 1/27/23.
+//  Created by Jarred Davis on 1/30/23.
 //
 
 import UIKit
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+    
+    private let vm: SearchViewModel = SearchViewModel()
+    private let searchTableView: UITableView = UITableView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .systemBackground
+        self.addTableViewWithContraints()
+    }
+    
+    func addTableViewWithContraints() {
+        self.view.addSubview(searchTableView)
+        searchTableView.delegate = self
+        searchTableView.dataSource = self
+        searchTableView.separatorStyle = .none
+    
+        searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "searchTableViewCell")
+
+        searchTableView.translatesAutoresizingMaskIntoConstraints = false
+        searchTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
+        searchTableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
+        searchTableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
+        searchTableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
+    }
+
+    func update(query:String, scope:String) {
+        Task {
+            do {
+//                self.activityView.startAnimating()
+                try await self.vm.searchMusic(type: scope, query: query)
+//                self.activityView.stopAnimating()
+                self.searchTableView.reloadData()
+            } catch {
+                print("didn't work")
+            }
+        }
+        self.searchTableView.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.vm.searchViewModelCells.count
@@ -49,5 +87,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 //            return
 //        }
     }
+    
     
 }

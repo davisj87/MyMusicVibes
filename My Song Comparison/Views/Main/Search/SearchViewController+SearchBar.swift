@@ -7,38 +7,19 @@
 
 import UIKit
 
-extension SearchViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating  {
      
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let currentScope = self.selectedScope()
-        if let cSearchText = searchBar.text {
-            Task {
-                do {
-                    self.activityView.startAnimating()
-                    try await self.vm.searchMusic(type: currentScope, query: cSearchText)
-                    self.activityView.stopAnimating()
-                    self.searchTableView.reloadData()
-                } catch {
-                    print("didn't work")
-                }
-            }
-        } else {}
-    }
+    func updateSearchResults(for searchController: UISearchController) {}
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if let cSearchText = searchBar.text {
-//            Task {
-//                do {
-////                    self.activityView.startAnimating()
-////                    try await self.vm
-//                    self.searchTableView.reloadData()
-////                    self.activityView.stopAnimating()
-//                } catch {
-//                    print("didn't work")
-//                }
-//            }
-//        } else {}
-//    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let resultsController = searchController.searchResultsController as? SearchResultsViewController,
+              let query = searchBar.text,
+                !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+                  return
+              }
+        let currentScope = self.selectedScope()
+        resultsController.update(query: query, scope: currentScope)
+    }
     
     func selectedScope() -> String {
       guard let scopeButtonTitles = searchController.searchBar.scopeButtonTitles else {
