@@ -10,18 +10,15 @@ import UIKit
 class TrackCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackHeaderCollectionReusableView"
     
-    var track:TracksObject? {
+    var track:TrackCellViewModel? {
         didSet {
             guard let track = track else { return }
-            if !track.artists.isEmpty {
-                artistLabel.text = track.artists[0].name
-            }
-            albumLabel.text = track.album.name
-            guard !track.album.images.isEmpty else { return }
-            let thumbUrl = track.album.images[0].url
+            artistLabel.text = track.secondaryText
+            albumLabel.text = track.additionalDetailText
+            guard track.imageUrl != "" else { return }
             Task {
                 do {
-                    trackImageView.image = try await UIImage().loadImage(thumbUrl)
+                    trackImageView.image = try await UIImage().loadImage(track.imageUrl)
                 }catch {
                     print ("image didnt load")
                 }

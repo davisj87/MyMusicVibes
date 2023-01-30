@@ -13,7 +13,7 @@ class HomeTableViewCell: ShadowTableViewCell {
         didSet {
             guard let homeCellViewModel = homeCellViewModel else { return }
             primaryLabel.text = homeCellViewModel.primaryText
-            popLabel.text = homeCellViewModel.additionalDetailText
+            popLabel.text = homeCellViewModel.popularity
             popLabel.numberOfLines = 2
             secondaryLabel.text = homeCellViewModel.secondaryText
             secondaryLabel.numberOfLines = 2

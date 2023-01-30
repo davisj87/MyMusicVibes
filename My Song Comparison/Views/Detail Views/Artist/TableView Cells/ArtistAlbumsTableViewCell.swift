@@ -8,16 +8,15 @@
 import UIKit
 
 class ArtistAlbumsTableViewCell: ShadowTableViewCell {
-    var album:AlbumObject? {
+    var album:AlbumCellViewModel? {
         didSet {
             guard let albumObject = album else { return }
             nameLabel.text = albumObject.name
-            releaseDateLabel.text = "Released: " + albumObject.releaseDate
-            guard !albumObject.images.isEmpty else { return }
-            let thumbUrl = albumObject.images[0].url
+            releaseDateLabel.text = albumObject.releaseDate
+            guard albumObject.imageUrl != "" else { return }
             Task {
                 do {
-                    albumImageView.image = try await UIImage().loadImage(thumbUrl)
+                    albumImageView.image = try await UIImage().loadImage(albumObject.imageUrl)
                 }catch {
                     print ("image didnt load")
                 }

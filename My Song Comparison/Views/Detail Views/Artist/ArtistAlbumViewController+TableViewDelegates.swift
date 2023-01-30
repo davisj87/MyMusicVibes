@@ -22,7 +22,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.vm?.rows.count ?? 0
+        return self.vm?.albumCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -32,16 +32,17 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumsTableViewCell", for: indexPath) as! ArtistAlbumsTableViewCell
         if let cVM = self.vm {
-            cell.album = cVM.rows[indexPath.row]
+            cell.album = cVM.getAlbumVM(at: indexPath.row)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cVM = self.vm else { return }
+        let album = cVM.getAlbumVM(at: indexPath.row)
         let albumTracksVC = AlbumTracksViewController()
-        albumTracksVC.title = cVM.rows[indexPath.row].name
-        albumTracksVC.vm = AlbumTracksViewModel(album: cVM.rows[indexPath.row])
+        albumTracksVC.title = album.name
+        albumTracksVC.vm = AlbumTracksViewModel(album: album)
         albumTracksVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(albumTracksVC, animated: true)
     }

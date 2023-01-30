@@ -9,7 +9,9 @@ import UIKit
 
 extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating  {
      
-    func updateSearchResults(for searchController: UISearchController) {}
+    func updateSearchResults(for searchController: UISearchController) {
+        return
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let resultsController = searchController.searchResultsController as? SearchResultsViewController,

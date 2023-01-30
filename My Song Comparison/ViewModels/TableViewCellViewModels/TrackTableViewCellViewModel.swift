@@ -8,7 +8,7 @@
 import Foundation
 
 struct TrackTableViewCellViewModel: TrackDetailViewFormatter {
-    private (set) var track:TracksObject?
+    private (set) var track:TrackCellViewModel?
     private (set) var trackDetail:TrackFeaturesObject?
     
     var name:String = ""
@@ -20,18 +20,14 @@ struct TrackTableViewCellViewModel: TrackDetailViewFormatter {
     var dancability:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
     var keyMode:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
     
-    init(track:TracksObject?, trackDetail:TrackFeaturesObject?) {
+    init(track:TrackCellViewModel?, trackDetail:TrackFeaturesObject?) {
         self.track = track
         self.trackDetail = trackDetail
         if let track = track {
-            self.name = track.name
-            self.artist = track.artists.isEmpty ? "" : track.artists[0].name
-            if track.popularity != -1 {
-                self.popularity = "Pop:\n \(track.popularity)"
-            }
-            if !track.album.images.isEmpty {
-                self.imageUrlString = track.album.images[0].url
-            }
+            self.name = track.primaryText
+            self.artist = track.secondaryText
+            self.popularity = track.popularity
+            self.imageUrlString = track.imageUrl
         }
         
         if let trackDetail = trackDetail {

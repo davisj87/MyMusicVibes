@@ -44,7 +44,6 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
                 print("didn't work")
             }
         }
-        self.searchTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

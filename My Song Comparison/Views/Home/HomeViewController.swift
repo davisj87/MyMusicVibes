@@ -29,8 +29,6 @@ class HomeViewController: UIViewController {
         homeTableView.separatorStyle = .none
         
         homeTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "homeTableViewCell")
-//        homeTableView.register(TopTrackTableViewCell.self, forCellReuseIdentifier: "trackCell")
-//        homeTableView.register(TopPlaylistTableViewCell.self, forCellReuseIdentifier: "playlistCell")
         
         homeTableView.translatesAutoresizingMaskIntoConstraints = false
         homeTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true

@@ -13,12 +13,15 @@ class SearchViewModel {
     var searchViewModelCells:[ItemOverviewCellViewModelProtocol] = []
     
     func searchMusic(type:String, query:String) async throws {
+        self.searchViewModelCells = []
         let filter = SearchType(rawValue: type)
         switch filter {
         case .album:
             self.searchViewModelCells = try await self.getAlbum(query: query)
         case .artist:
-            return
+            self.searchViewModelCells = try await self.getArtists(query: query)
+        case .playlist:
+            self.searchViewModelCells = try await self.getPlaylists(query: query)
         case .track:
             return
         case .genre:
@@ -26,11 +29,6 @@ class SearchViewModel {
         default:
             return
         }
-//        let playlistTracksEndpoint = PlaylistTracksEndpoint(id: id)
-//        let playlistTracksRequest = APIRequest(endpoint: playlistTracksEndpoint, authManager: authManager)
-//        guard let playlistTracks = try await playlistTracksRequest.executeRequest() else { return }
-//        self.playlistTracks = playlistTracks.items
-//        self.trackDetails = try await self.getTracksDetails(tracks: playlistTracks.items)
     }
     
     private func getAlbum(query:String) async throws -> [SearchAlbumCellViewModel] {
@@ -38,11 +36,22 @@ class SearchViewModel {
         let searchAlbumRequest = APIRequest(endpoint: searchAlbumEndpoint, authManager: authManager)
         guard let searchAlbumResults = try await searchAlbumRequest.executeRequest() else { return []}
         let albums = searchAlbumResults.albums.items
-        var tempAlbumCells:[SearchAlbumCellViewModel] = []
-        for eachAlbum in albums {
-            let searchCell = SearchAlbumCellViewModel(albumListObject: eachAlbum)
-            tempAlbumCells.append(searchCell)
-        }
-        return tempAlbumCells
+        return albums.map{ SearchAlbumCellViewModel(albumListObject: $0) }
+    }
+    
+    private func getArtists(query:String) async throws -> [SearchArtistCellViewModel] {
+        let searchArtistEndpoint = SearchArtistEndpoint(searchString: query)
+        let searchArtistRequest = APIRequest(endpoint: searchArtistEndpoint, authManager: authManager)
+        guard let searchArtistResults = try await searchArtistRequest.executeRequest() else { return []}
+        let artists = searchArtistResults.artists.items
+        return artists.map{ SearchArtistCellViewModel(artistListObject: $0) }
+    }
+    
+    private func getPlaylists(query:String) async throws -> [SearchPlaylistCellViewModel] {
+        let searchPlaylistEndpoint = SearchPlaylistEndpoint(searchString: query)
+        let searchPlaylistRequest = APIRequest(endpoint: searchPlaylistEndpoint, authManager: authManager)
+        guard let searchPlaylistResults = try await searchPlaylistRequest.executeRequest() else { return []}
+        let playlists = searchPlaylistResults.playlists.items
+        return playlists.map{ SearchPlaylistCellViewModel(playlistListObject: $0) }
     }
 }

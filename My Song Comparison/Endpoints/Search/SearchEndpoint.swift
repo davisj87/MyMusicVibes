@@ -39,6 +39,7 @@ extension SearchEndpoint {
 enum SearchType: String, CaseIterable {
     case album = "album"
     case artist = "artist"
+    case playlist = "playlist"
     case track = "track"
     case genre = "genre"
 }

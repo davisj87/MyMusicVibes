@@ -12,10 +12,10 @@ class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
     
     private (set) var trackSectionViewModel:[TrackCollectionViewSectionViewModel] = []
     
-    private (set) var track:TracksObject
+    private (set) var track:TrackCellViewModel
     private var trackDetail:TrackFeaturesObject?
     
-    init(track:TracksObject, trackDetail:TrackFeaturesObject? = nil) {
+    init(track:TrackCellViewModel, trackDetail:TrackFeaturesObject? = nil) {
         self.track = track
         self.trackDetail = trackDetail
     }

@@ -11,7 +11,7 @@ struct SearchPlaylistEndpoint: SearchEndpoint {
     var searchString: String
     
     var searchType: SearchType {
-        return .track
+        return .playlist
     }
 
     typealias ModelType = PlaylistWrapper

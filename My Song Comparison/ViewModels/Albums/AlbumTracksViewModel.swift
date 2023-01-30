@@ -12,7 +12,7 @@ class AlbumTracksViewModel {
     private let authManager = AuthManager()
     private var tracks:[TracksObject] = []
     private var trackDetails = Set<TrackFeaturesObject>()
-    private (set) var album:AlbumObject
+    private var album:AlbumCellViewModel
 
     var trackCount:Int {
         return tracks.count
@@ -20,14 +20,15 @@ class AlbumTracksViewModel {
     
     func getTrackAndDetailsVM(at index:Int) -> TrackTableViewCellViewModel {
         let track = tracks[index]
+        let trackCellViewModel = TrackCellViewModel(topTracksObject: track)
         if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: track.id)) {
-            return TrackTableViewCellViewModel(track: track, trackDetail: trackDetails[detailIndex])
+            return TrackTableViewCellViewModel(track: trackCellViewModel, trackDetail: trackDetails[detailIndex])
         }
-        return TrackTableViewCellViewModel(track: track, trackDetail: nil)
+        return TrackTableViewCellViewModel(track: trackCellViewModel, trackDetail: nil)
     }
 
     
-    init(album:AlbumObject) {
+    init(album:AlbumCellViewModel) {
         self.album = album
     }
     

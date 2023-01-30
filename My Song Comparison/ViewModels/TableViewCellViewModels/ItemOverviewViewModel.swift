@@ -15,6 +15,7 @@ protocol ItemOverviewCellViewModelProtocol {
     var primaryText:String { get }
     var secondaryText:String { get }
     var additionalDetailText:String { get }
+    var popularity:String { get }
     var imageUrl:String { get }
     var id:String { get }
 }
