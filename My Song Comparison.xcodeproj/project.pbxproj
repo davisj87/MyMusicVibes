@@ -263,6 +263,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		8311E6E229898B9F00563207 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8321E48E2970AC5700F534F0 /* HomeViewModel.swift */,
+				83AE7C212988269600FBE7EF /* HomeSectionViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		8321E4842970A3F700F534F0 /* UserTopItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,9 +423,8 @@
 			children = (
 				839F49A6296321D80054F660 /* TabBarViewModel.swift */,
 				839F49B629637AF00054F660 /* AuthViewModel.swift */,
-				8321E48E2970AC5700F534F0 /* HomeViewModel.swift */,
-				83AE7C212988269600FBE7EF /* HomeSectionViewModel.swift */,
-				83AE7C25298859B400FBE7EF /* CoreTVCellViewModels */,
+				83AE7C25298859B400FBE7EF /* CoreTVCellViewModel */,
+				8311E6E229898B9F00563207 /* Home */,
 				83AADCA02980042500876558 /* Albums */,
 				83AADCA12980046300876558 /* Artists */,
 				83AADCA22980048100876558 /* Playlists */,
@@ -511,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				83A97489298469DB003AEF81 /* SearchViewModel.swift */,
+				83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -567,13 +576,12 @@
 			path = "TableView Cells";
 			sourceTree = "<group>";
 		};
-		83AE7C25298859B400FBE7EF /* CoreTVCellViewModels */ = {
+		83AE7C25298859B400FBE7EF /* CoreTVCellViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				83AE7C232988345100FBE7EF /* ItemOverviewViewModel.swift */,
-				83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */,
 			);
-			path = CoreTVCellViewModels;
+			path = CoreTVCellViewModel;
 			sourceTree = "<group>";
 		};
 		83B09E0629771DBE0072CAE6 /* HomeCells */ = {
