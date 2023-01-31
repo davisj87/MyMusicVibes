@@ -16,9 +16,9 @@ struct TrackTableViewCellViewModel: TrackDetailViewFormatter {
     var popularity:String = ""
     var imageUrlString:String = ""
     
-    var valence:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
-    var dancability:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
-    var keyMode:TrackDetailAttribute = TrackDetailAttribute(name: "", value: "")
+    var valence:TrackDetailAttribute = TrackDetailAttribute(name: "Valence", value: "")
+    var dancability:TrackDetailAttribute = TrackDetailAttribute(name: "Dancability", value: "")
+    var keyMode:TrackDetailAttribute = TrackDetailAttribute(name: "Key", value: "")
     
     init(track:TrackCellViewModel?, trackDetail:TrackFeaturesObject?) {
         self.track = track

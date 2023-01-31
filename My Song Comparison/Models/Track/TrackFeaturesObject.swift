@@ -9,7 +9,7 @@ import Foundation
 
 // Needed when calling for multiple tracks
 struct TrackAudioFeatures: Decodable {      //<T:Decodable>
-    var audioFeatures: Set<TrackFeaturesObject>
+    var audioFeatures: Set<TrackFeaturesObject?>
     
     private enum CodingKeys: String, CodingKey {
         case audioFeatures = "audio_features"
@@ -18,7 +18,7 @@ struct TrackAudioFeatures: Decodable {      //<T:Decodable>
 extension TrackAudioFeatures {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.audioFeatures = try container.decodeIfPresent(Set<TrackFeaturesObject>.self, forKey: .audioFeatures) ?? Set<TrackFeaturesObject>()//((try container.decodeIfPresent(Set<TrackFeaturesObject?>.self, forKey: .audioFeatures)) ?? []).compactMap { $0 }
+        self.audioFeatures = try container.decodeIfPresent(Set<TrackFeaturesObject?>.self, forKey: .audioFeatures) ?? Set<TrackFeaturesObject>()
     }
 }
 

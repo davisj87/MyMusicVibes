@@ -11,7 +11,7 @@ class AlbumTracksViewModel {
     
     private let authManager = AuthManager()
     private var tracks:[TracksObject] = []
-    private var trackDetails = Set<TrackFeaturesObject>()
+    private var trackDetails = Set<TrackFeaturesObject?>()
     private var album:AlbumCellViewModel
 
     var trackCount:Int {
@@ -46,7 +46,7 @@ class AlbumTracksViewModel {
         self.trackDetails = result.trackDetails
     }
     
-    private func getTracksDetails(ids:String) async throws -> Set<TrackFeaturesObject> {
+    private func getTracksDetails(ids:String) async throws -> Set<TrackFeaturesObject?> {
         let tracksDetailsEndpoint = TracksDetailEndpoint(ids: ids)
         let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
         guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
@@ -67,5 +67,5 @@ class AlbumTracksViewModel {
 
 fileprivate struct TrackAndDetailsResponse {
     var tracks:[TracksObject]
-    var trackDetails = Set<TrackFeaturesObject>()
+    var trackDetails:Set<TrackFeaturesObject?>
 }

@@ -12,7 +12,7 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
     
     private let authManager = AuthManager()
     private var playlistTracks:[PlaylistTrackObject] = []
-    private var trackDetails = Set<TrackFeaturesObject>()
+    private var trackDetails = Set<TrackFeaturesObject?>()
     
     var trackCount:Int {
         return playlistTracks.count
@@ -41,7 +41,7 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
         self.trackDetails = try await self.getTracksDetails(tracks: playlistTracks.items)
     }
     
-    private func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject> {
+    private func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject?> {
         let trackIds = tracks.map{ $0.track.id }
         let trackIdsString = trackIds.joined(separator: ",")
         let tracksDetailsEndpoint = TracksDetailEndpoint(ids: trackIdsString)
