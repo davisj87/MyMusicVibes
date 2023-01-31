@@ -416,7 +416,7 @@
 				839F49B629637AF00054F660 /* AuthViewModel.swift */,
 				8321E48E2970AC5700F534F0 /* HomeViewModel.swift */,
 				83AE7C212988269600FBE7EF /* HomeSectionViewModel.swift */,
-				83AE7C25298859B400FBE7EF /* TableViewCellViewModels */,
+				83AE7C25298859B400FBE7EF /* CoreTVCellViewModels */,
 				83AADCA02980042500876558 /* Albums */,
 				83AADCA12980046300876558 /* Artists */,
 				83AADCA22980048100876558 /* Playlists */,
@@ -519,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				838F9E23297D67A80073F1CC /* AlbumTracksViewModel.swift */,
+				83AE7C2C29885F2100FBE7EF /* AlbumCellViewModel.swift */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -527,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				8389CB81297C408D006F95AE /* ArtistAlbumsViewModel.swift */,
+				83AE7C26298859DB00FBE7EF /* ArtistCellViewModel.swift */,
 			);
 			path = Artists;
 			sourceTree = "<group>";
@@ -535,6 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				83D07FBA2979D84700B0D10A /* PlaylistTracksViewModel.swift */,
+				83AE7C2A29885A1100FBE7EF /* PlaylistCellViewModel.swift */,
 			);
 			path = Playlists;
 			sourceTree = "<group>";
@@ -564,18 +567,13 @@
 			path = "TableView Cells";
 			sourceTree = "<group>";
 		};
-		83AE7C25298859B400FBE7EF /* TableViewCellViewModels */ = {
+		83AE7C25298859B400FBE7EF /* CoreTVCellViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				83AE7C232988345100FBE7EF /* ItemOverviewViewModel.swift */,
-				83AE7C2C29885F2100FBE7EF /* AlbumCellViewModel.swift */,
-				83AE7C26298859DB00FBE7EF /* ArtistCellViewModel.swift */,
-				83AE7C2A29885A1100FBE7EF /* PlaylistCellViewModel.swift */,
 				83A9748C29846A12003AEF81 /* SearchCellViewModel.swift */,
-				83AE7C28298859F000FBE7EF /* TrackCellViewModel.swift */,
-				83BEA2F0297B08CD00D0F8A2 /* TrackTableViewCellViewModel.swift */,
 			);
-			path = TableViewCellViewModels;
+			path = CoreTVCellViewModels;
 			sourceTree = "<group>";
 		};
 		83B09E0629771DBE0072CAE6 /* HomeCells */ = {
@@ -654,6 +652,8 @@
 			isa = PBXGroup;
 			children = (
 				83B09E09297729FB0072CAE6 /* TrackDetailsCollectionViewModel.swift */,
+				83AE7C28298859F000FBE7EF /* TrackCellViewModel.swift */,
+				83BEA2F0297B08CD00D0F8A2 /* TrackTableViewCellViewModel.swift */,
 			);
 			path = Tracks;
 			sourceTree = "<group>";

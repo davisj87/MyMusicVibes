@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct TrackListObject: Decodable {
-    var id: String
-    var name: String
-    var artist: String
-//    var picUrl: String
-    
+struct TracksWrapper: Decodable {
+    var tracks: Tracks
+}
+
+struct Tracks: Decodable {
+    var items: [TracksObject]
 }

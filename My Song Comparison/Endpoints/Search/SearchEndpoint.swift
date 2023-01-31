@@ -41,5 +41,4 @@ enum SearchType: String, CaseIterable {
     case artist = "artist"
     case playlist = "playlist"
     case track = "track"
-    case genre = "genre"
 }

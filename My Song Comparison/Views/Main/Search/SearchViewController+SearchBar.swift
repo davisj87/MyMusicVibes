@@ -30,9 +30,9 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating  {
       return scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
     }
     
-//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        print("New scope index is now \(selectedScope)")
-//    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print("New scope index is now \(selectedScope)")
+    }
     
     
 }

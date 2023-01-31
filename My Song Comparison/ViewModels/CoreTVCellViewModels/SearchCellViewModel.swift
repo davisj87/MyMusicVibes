@@ -32,7 +32,7 @@ struct SearchArtistCellViewModel: ItemOverviewCellViewModelProtocol {
     var imageUrl: String
     var id: String
     
-    init(artistListObject: ArtistListObject) {
+    init(artistListObject: ArtistObject) {
         self.id = artistListObject.id
         self.primaryText = artistListObject.name
         self.secondaryText = "Followers: \(artistListObject.followers.total)"
@@ -55,6 +55,23 @@ struct SearchPlaylistCellViewModel: ItemOverviewCellViewModelProtocol {
         self.secondaryText = playlistListObject.owner.name
         self.additionalDetailText = ""
         self.imageUrl = playlistListObject.images.isEmpty ? "" : playlistListObject.images[0].url
+    }
+}
+
+struct SearchTrackCellViewModel: ItemOverviewCellViewModelProtocol {
+    var popularity: String = ""
+    var primaryText: String
+    var secondaryText: String
+    var additionalDetailText: String
+    var imageUrl: String
+    var id: String
+    
+    init(trackObject: TracksObject) {
+        self.id = trackObject.id
+        self.primaryText = trackObject.name
+        self.secondaryText = trackObject.artists.isEmpty ? "" : trackObject.artists[0].name
+        self.additionalDetailText = ""
+        self.imageUrl = trackObject.album.images.isEmpty ? "" : trackObject.album.images[0].url
     }
 }
 

@@ -12,12 +12,30 @@ struct ArtistWrapper: Decodable {
 }
 
 struct Artists: Decodable {
-    var items: [ArtistListObject]
+    var items: [ArtistObject]
 }
 
-struct ArtistListObject: Decodable {
-    var id: String
-    var name: String
-    var followers: ArtistFollowersObject
-    var images: [ImageObject]
-}
+//struct ArtistListObject: Decodable {
+//    var id: String
+//    var name: String
+//    var followers: ArtistFollowersObject
+//    var images: [ImageObject]
+//}
+
+
+/**
+ 
+ struct ArtistObject: Decodable {
+     var id: String
+     var name: String
+     var genres: [String]
+     var followers: ArtistFollowersObject
+     var images: [ImageObject]
+     var popularity: Int
+ }
+
+ struct ArtistFollowersObject: Decodable {
+     var total: Int
+ }
+ 
+ */

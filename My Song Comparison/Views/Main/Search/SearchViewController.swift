@@ -8,9 +8,6 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
-    
-   
     let activityView = UIActivityIndicatorView(style: .medium)
     
     let searchController: UISearchController = {

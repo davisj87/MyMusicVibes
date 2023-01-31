@@ -18,13 +18,13 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
         return playlistTracks.count
     }
     
-    func getTrackAndDetailsVM(at index:Int) -> TrackTableViewCellViewModel {
+    func getTrackAndDetailsVM(at index:Int) -> TrackDetailTableViewCellViewModel {
         let playlistTrack = playlistTracks[index]
         let trackCellViewModel = TrackCellViewModel(topTracksObject: playlistTracks[index].track)
         if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: playlistTrack.track.id)) {
-            return TrackTableViewCellViewModel(track: trackCellViewModel, trackDetail: trackDetails[detailIndex])
+            return TrackDetailTableViewCellViewModel(track: trackCellViewModel, trackDetail: trackDetails[detailIndex])
         }
-        return TrackTableViewCellViewModel(track: trackCellViewModel, trackDetail: nil)
+        return TrackDetailTableViewCellViewModel(track: trackCellViewModel, trackDetail: nil)
     }
     
     private var id:String

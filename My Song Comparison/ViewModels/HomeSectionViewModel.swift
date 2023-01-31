@@ -1,5 +1,5 @@
 //
-//  HomeTableViewModel.swift
+//  HomeSectionViewModel.swift
 //  My Song Comparison
 //
 //  Created by Jarred Davis on 1/30/23.

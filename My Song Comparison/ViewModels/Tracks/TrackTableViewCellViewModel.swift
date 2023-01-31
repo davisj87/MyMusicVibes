@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrackTableViewCellViewModel: TrackDetailViewFormatter {
+struct TrackDetailTableViewCellViewModel: TrackDetailViewFormatter {
     private (set) var track:TrackCellViewModel?
     private (set) var trackDetail:TrackFeaturesObject?
     

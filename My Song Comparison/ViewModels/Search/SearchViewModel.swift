@@ -23,8 +23,7 @@ class SearchViewModel {
         case .playlist:
             self.searchViewModelCells = try await self.getPlaylists(query: query)
         case .track:
-            return
-        case .genre:
+            self.searchViewModelCells = try await self.getTracks(query: query)
             return
         default:
             return
@@ -53,5 +52,13 @@ class SearchViewModel {
         guard let searchPlaylistResults = try await searchPlaylistRequest.executeRequest() else { return []}
         let playlists = searchPlaylistResults.playlists.items
         return playlists.map{ SearchPlaylistCellViewModel(playlistListObject: $0) }
+    }
+    
+    private func getTracks(query:String) async throws -> [SearchTrackCellViewModel] {
+        let searchTrackEndpoint = SearchTrackEndpoint(searchString: query)
+        let searchTrackRequest = APIRequest(endpoint: searchTrackEndpoint, authManager: authManager)
+        guard let searchTrackResults = try await searchTrackRequest.executeRequest() else { return []}
+        let tracks = searchTrackResults.tracks.items
+        return tracks.map{ SearchTrackCellViewModel(trackObject: $0) }
     }
 }

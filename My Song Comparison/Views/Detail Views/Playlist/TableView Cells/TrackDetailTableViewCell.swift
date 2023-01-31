@@ -8,7 +8,7 @@
 import UIKit
 
 class TrackDetailTableViewCell: ShadowTableViewCell {
-    var track:TrackTableViewCellViewModel? {
+    var track:TrackDetailTableViewCellViewModel? {
         didSet {
             guard let track = track else { return }
             nameLabel.text = track.name
