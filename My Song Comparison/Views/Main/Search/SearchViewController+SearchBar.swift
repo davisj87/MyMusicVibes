@@ -39,11 +39,12 @@ extension SearchViewController: SearchResultsViewControllerDelegate {
         guard let filter = SearchType(rawValue: self.selectedScope()) else { return }
         switch filter {
         case .album:
-            let artistAlbumsVC = ArtistAlbumsViewController()
-            artistAlbumsVC.title = result.primaryText
-            artistAlbumsVC.vm = ArtistAlbumsViewModel(artistId: result.id)
-            artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
-            navigationController?.pushViewController(artistAlbumsVC, animated: true)
+            guard let album = result as? AlbumCellViewModel else { return }
+            let albumTracksVC = AlbumTracksViewController()
+            albumTracksVC.title = result.primaryText
+            albumTracksVC.vm = AlbumTracksViewModel(album: album)
+            albumTracksVC.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(albumTracksVC, animated: true)
         case .artist:
             let artistAlbumsVC = ArtistAlbumsViewController()
             artistAlbumsVC.title = result.primaryText

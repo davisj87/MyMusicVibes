@@ -7,17 +7,18 @@
 
 import Foundation
 
-struct AlbumCellViewModel {
-    var id:String
-    var name:String
-    var releaseDate:String
+struct AlbumCellViewModel: ItemOverviewCellViewModelProtocol {
+    var primaryText: String
+    var secondaryText: String
+    var additionalDetailText: String = ""
+    var popularity: String = ""
     var imageUrl:String = ""
+    var id:String
     
     init(albumObject:AlbumObject) {
         self.id = albumObject.id
-        self.name = albumObject.name
-        self.releaseDate = "Released: " + albumObject.releaseDate
-        guard !albumObject.images.isEmpty else { return }
-        self.imageUrl = albumObject.images[0].url
+        self.primaryText = albumObject.name
+        self.secondaryText = albumObject.artists.isEmpty ? "" : albumObject.artists[0].name//"Released: " + albumObject.releaseDate
+        self.imageUrl = albumObject.images.isEmpty ? "" : albumObject.images[0].url
     }
 }

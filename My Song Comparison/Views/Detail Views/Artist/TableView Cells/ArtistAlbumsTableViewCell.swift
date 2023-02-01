@@ -11,8 +11,8 @@ class ArtistAlbumsTableViewCell: ShadowTableViewCell {
     var album:AlbumCellViewModel? {
         didSet {
             guard let albumObject = album else { return }
-            nameLabel.text = albumObject.name
-            releaseDateLabel.text = albumObject.releaseDate
+            nameLabel.text = albumObject.primaryText
+            releaseDateLabel.text = albumObject.secondaryText
             guard albumObject.imageUrl != "" else { return }
             Task {
                 do {

@@ -28,12 +28,12 @@ class SearchViewModel {
         }
     }
     
-    private func getAlbum(query:String) async throws -> [SearchAlbumCellViewModel] {
+    private func getAlbum(query:String) async throws -> [AlbumCellViewModel] {
         let searchAlbumEndpoint = SearchAlbumEndpoint(searchString: query)
         let searchAlbumRequest = APIRequest(endpoint: searchAlbumEndpoint, authManager: authManager)
         guard let searchAlbumResults = try await searchAlbumRequest.executeRequest() else { return []}
         let albums = searchAlbumResults.albums.items
-        return albums.map{ SearchAlbumCellViewModel(albumListObject: $0) }
+        return albums.map{ AlbumCellViewModel(albumObject: $0) }
     }
     
     private func getArtists(query:String) async throws -> [ArtistCellViewModel] {
