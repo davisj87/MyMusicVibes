@@ -27,6 +27,6 @@ struct TopPlaylistsEndpoint: AuthorizedEndpoint {
         return qDict
     }
     
-    typealias ModelType = ObjectItemWrapper<TopPlaylistsObject>
+    typealias ModelType = ObjectItemWrapper<PlaylistObject>
 }
 

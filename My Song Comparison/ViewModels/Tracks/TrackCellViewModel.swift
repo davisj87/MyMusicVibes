@@ -15,12 +15,12 @@ struct TrackCellViewModel: ItemOverviewCellViewModelProtocol {
     var imageUrl: String
     var id: String
     
-    init(topTracksObject: TracksObject) {
-        self.id = topTracksObject.id
-        self.primaryText = topTracksObject.name
-        self.secondaryText = topTracksObject.artists.isEmpty ? "" : topTracksObject.artists[0].name
-        self.additionalDetailText = topTracksObject.album.name
-        self.popularity = "Pop:\n \(topTracksObject.popularity)"
-        self.imageUrl = topTracksObject.album.images.isEmpty ? "" : topTracksObject.album.images[0].url
+    init(tracksObject: TracksObject) {
+        self.id = tracksObject.id
+        self.primaryText = tracksObject.name
+        self.secondaryText = tracksObject.artists.isEmpty ? "" : tracksObject.artists[0].name
+        self.additionalDetailText = tracksObject.album.name
+        self.popularity = "Pop:\n \(tracksObject.popularity)"
+        self.imageUrl = tracksObject.album.images.isEmpty ? "" : tracksObject.album.images[0].url
     }
 }

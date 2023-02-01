@@ -20,7 +20,7 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
     
     func getTrackAndDetailsVM(at index:Int) -> TrackDetailTableViewCellViewModel {
         let playlistTrack = playlistTracks[index]
-        let trackCellViewModel = TrackCellViewModel(topTracksObject: playlistTracks[index].track)
+        let trackCellViewModel = TrackCellViewModel(tracksObject: playlistTracks[index].track)
         if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: playlistTrack.track.id)) {
             return TrackDetailTableViewCellViewModel(track: trackCellViewModel, trackDetail: trackDetails[detailIndex])
         }

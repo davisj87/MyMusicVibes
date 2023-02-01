@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol SearchResultsViewControllerDelegate: AnyObject {
+    func didTapSearchResult(result:ItemOverviewCellViewModelProtocol)
+}
+
 class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+    
+    weak var delegate: SearchResultsViewControllerDelegate?
     
     private let vm: SearchViewModel = SearchViewModel()
     private let searchTableView: UITableView = UITableView()
@@ -63,28 +69,7 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch indexPath.section {
-//        case 0:
-//            let artistAlbumsVC = ArtistAlbumsViewController()
-//            artistAlbumsVC.title = self.vm.topItems.topArtists[indexPath.row].name
-//            artistAlbumsVC.vm = ArtistAlbumsViewModel(artistId: self.vm.topItems.topArtists[indexPath.row].id)
-//            artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
-//            navigationController?.pushViewController(artistAlbumsVC, animated: true)
-//        case 1:
-//            let trackVC = TrackDetailsViewController()
-//            trackVC.title = self.vm.topItems.topTracks[indexPath.row].name
-//            trackVC.vm = TrackDetailsCollectionViewModel(track: self.vm.topItems.topTracks[indexPath.row])
-//            trackVC.navigationItem.largeTitleDisplayMode = .never
-//            navigationController?.pushViewController(trackVC, animated: true)
-//        case 2:
-//            let playlistVC = PlaylistViewController()
-//            playlistVC.title = self.vm.topItems.topPlaylists[indexPath.row].name
-//            playlistVC.vm = PlaylistTracksViewModel(id: self.vm.topItems.topPlaylists[indexPath.row].id)
-//            playlistVC.navigationItem.largeTitleDisplayMode = .never
-//            navigationController?.pushViewController(playlistVC, animated: true)
-//        default:
-//            return
-//        }
+        self.delegate?.didTapSearchResult(result: self.vm.searchViewModelCells[indexPath.row])
     }
     
     

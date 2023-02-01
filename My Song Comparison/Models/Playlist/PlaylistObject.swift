@@ -6,14 +6,14 @@
 //
 
 import Foundation
-struct TopPlaylistsObject: Decodable {
+struct PlaylistObject: Decodable {
     var name: String
     var id: String
-    var owner: TopPlaylistOwner
+    var owner: PlaylistOwnerObject
     var images: [ImageObject]
 }
 
-struct TopPlaylistOwner: Decodable {
+struct PlaylistOwnerObject: Decodable {
     var name: String
     
     private enum CodingKeys: String, CodingKey {

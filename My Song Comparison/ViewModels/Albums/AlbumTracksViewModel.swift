@@ -20,7 +20,7 @@ class AlbumTracksViewModel {
     
     func getTrackAndDetailsVM(at index:Int) -> TrackDetailTableViewCellViewModel {
         let track = tracks[index]
-        let trackCellViewModel = TrackCellViewModel(topTracksObject: track)
+        let trackCellViewModel = TrackCellViewModel(tracksObject: track)
         if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: track.id)) {
             return TrackDetailTableViewCellViewModel(track: trackCellViewModel, trackDetail: trackDetails[detailIndex])
         }

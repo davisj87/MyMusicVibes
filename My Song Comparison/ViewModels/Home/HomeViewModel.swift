@@ -18,10 +18,10 @@ class HomeViewModel {
         self.sections = try await self.getTableViewModel(tracks: tracks, artists: artists, playlist: playlists)
     }
     
-    private func getTableViewModel(tracks:[TracksObject], artists:[TopArtistsObject], playlist: [TopPlaylistsObject]) async -> [HomeSectionViewModel] {
-        let tracksViewModel = tracks.map{ TrackCellViewModel(topTracksObject: $0) }
-        let artistViewModel = artists.map{ ArtistCellViewModel(topArtistsObject: $0) }
-        let playlistViewModel = playlist.map{ PlaylistCellViewModel(topPlaylistObject: $0) }
+    private func getTableViewModel(tracks:[TracksObject], artists:[ArtistObject], playlist: [PlaylistObject]) async -> [HomeSectionViewModel] {
+        let tracksViewModel = tracks.map{ TrackCellViewModel(tracksObject: $0) }
+        let artistViewModel = artists.map{ ArtistCellViewModel(artistsObject: $0) }
+        let playlistViewModel = playlist.map{ PlaylistCellViewModel(playlistObject: $0) }
         
         var sectionViewModelArr:[HomeSectionViewModel] = []
         if !artistViewModel.isEmpty {
@@ -40,7 +40,7 @@ class HomeViewModel {
         return sectionViewModelArr
     }
     
-    private func getTopArtists() async throws -> [TopArtistsObject] {
+    private func getTopArtists() async throws -> [ArtistObject] {
         let topArtistsEndpoint = TopArtistsEndpoint()
         let topArtistsRequest = APIRequest(endpoint: topArtistsEndpoint, authManager: authManager)
         
@@ -59,7 +59,7 @@ class HomeViewModel {
         return topTracksWrapper.items
     }
     
-    private func getTopPlaylists() async throws -> [TopPlaylistsObject] {
+    private func getTopPlaylists() async throws -> [PlaylistObject] {
         let topPlaylistsEndpoint = TopPlaylistsEndpoint()
         let topPlaylistsRequest = APIRequest(endpoint: topPlaylistsEndpoint, authManager: authManager)
         print("get playlists")

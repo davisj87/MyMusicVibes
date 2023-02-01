@@ -15,11 +15,11 @@ struct PlaylistCellViewModel: ItemOverviewCellViewModelProtocol {
     var imageUrl: String
     var id: String
     
-    init(topPlaylistObject: TopPlaylistsObject) {
-        self.id = topPlaylistObject.id
-        self.primaryText = topPlaylistObject.name
-        self.secondaryText = topPlaylistObject.owner.name
+    init(playlistObject: PlaylistObject) {
+        self.id = playlistObject.id
+        self.primaryText = playlistObject.name
+        self.secondaryText = playlistObject.owner.name
         self.additionalDetailText = ""
-        self.imageUrl = topPlaylistObject.images.isEmpty ? "" : topPlaylistObject.images[0].url
+        self.imageUrl = playlistObject.images.isEmpty ? "" : playlistObject.images[0].url
     }
 }

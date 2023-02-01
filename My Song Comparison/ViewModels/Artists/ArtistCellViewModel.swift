@@ -15,15 +15,15 @@ struct ArtistCellViewModel: ItemOverviewCellViewModelProtocol {
     var imageUrl: String
     var id: String
     
-    init(topArtistsObject: TopArtistsObject) {
-        self.id = topArtistsObject.id
-        self.primaryText = topArtistsObject.name
+    init(artistsObject: ArtistObject) {
+        self.id = artistsObject.id
+        self.primaryText = artistsObject.name
         self.secondaryText = ""
-        if !topArtistsObject.genres.isEmpty {
-            let genres = topArtistsObject.genres.joined(separator: ", ")
+        if !artistsObject.genres.isEmpty {
+            let genres = artistsObject.genres.joined(separator: ", ")
             self.secondaryText = genres
         }
-        self.popularity = "Pop:\n \(topArtistsObject.popularity)"
-        self.imageUrl = topArtistsObject.images.isEmpty ? "" : topArtistsObject.images[0].url
+        self.popularity = "Pop:\n \(artistsObject.popularity)"
+        self.imageUrl = artistsObject.images.isEmpty ? "" : artistsObject.images[0].url
     }
 }
