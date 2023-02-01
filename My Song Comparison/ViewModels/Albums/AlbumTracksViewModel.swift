@@ -12,7 +12,7 @@ class AlbumTracksViewModel {
     private let authManager = AuthManager()
     private var tracks:[TracksObject] = []
     private var trackDetails = Set<TrackFeaturesObject?>()
-    private var album:AlbumCellViewModel
+    let album:AlbumCellViewModel
 
     var trackCount:Int {
         return tracks.count

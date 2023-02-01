@@ -43,7 +43,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         guard let cVM = self.vm else { return }
         let album = cVM.getAlbumVM(at: indexPath.row)
         let albumTracksVC = AlbumTracksViewController()
-        albumTracksVC.title = album.primaryText 
+        albumTracksVC.title = "Album"
         albumTracksVC.vm = AlbumTracksViewModel(album: album)
         albumTracksVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(albumTracksVC, animated: true)

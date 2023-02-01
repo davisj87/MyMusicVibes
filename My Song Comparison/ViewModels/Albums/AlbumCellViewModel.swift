@@ -18,7 +18,8 @@ struct AlbumCellViewModel: ItemOverviewCellViewModelProtocol {
     init(albumObject:AlbumObject) {
         self.id = albumObject.id
         self.primaryText = albumObject.name
-        self.secondaryText = albumObject.artists.isEmpty ? "" : albumObject.artists[0].name//"Released: " + albumObject.releaseDate
+        self.secondaryText = albumObject.artists.isEmpty ? "" : albumObject.artists[0].name
+        self.additionalDetailText = albumObject.releaseDate
         self.imageUrl = albumObject.images.isEmpty ? "" : albumObject.images[0].url
     }
 }

@@ -73,14 +73,6 @@ class ArtistAlbumTableViewHeader: UIView {
         return label
         
     }()
-
-    private let borderView: UIView = {
-        let boader = UIView()
-        boader.backgroundColor = .lightGray
-        boader.translatesAutoresizingMaskIntoConstraints = false
-        return boader
-        
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,7 +83,6 @@ class ArtistAlbumTableViewHeader: UIView {
         addSubview(trackImageView)
         addSubview(genreLabel)
         addSubview(popularityLabel)
-        addSubview(borderView)
         
         
         artistLabel.topAnchor.constraint(equalTo:self.topAnchor, constant: 10).isActive = true
@@ -115,11 +106,9 @@ class ArtistAlbumTableViewHeader: UIView {
         popularityLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant:10).isActive = true
         popularityLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant:-10).isActive = true
         
-        borderView.bottomAnchor.constraint(equalTo:self.bottomAnchor).isActive = true
-        borderView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        borderView.leadingAnchor.constraint(equalTo:self.leadingAnchor).isActive = true
-        borderView.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
-        
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.layer.shadowRadius = 2
         
     }
     

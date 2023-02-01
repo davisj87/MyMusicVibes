@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83043C5A298053F8000E5D89 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83043C59298053F8000E5D89 /* Credentials.swift */; };
 		83065DA1298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83065DA0298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift */; };
+		83065DA3298B078500EF5DA2 /* AlbumTracksTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83065DA2298B078500EF5DA2 /* AlbumTracksTableViewHeader.swift */; };
 		830CF78029687A5800B82F8F /* AuthorizedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830CF77F29687A5800B82F8F /* AuthorizedEndpoint.swift */; };
 		830CF7822968B81700B82F8F /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830CF7812968B81700B82F8F /* RefreshTokenEndpoint.swift */; };
 		8321E4862970A54600F534F0 /* ObjectItemWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321E4852970A54600F534F0 /* ObjectItemWrapper.swift */; };
@@ -124,6 +125,7 @@
 /* Begin PBXFileReference section */
 		83043C59298053F8000E5D89 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		83065DA0298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumTableViewHeader.swift; sourceTree = "<group>"; };
+		83065DA2298B078500EF5DA2 /* AlbumTracksTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksTableViewHeader.swift; sourceTree = "<group>"; };
 		830CF77F29687A5800B82F8F /* AuthorizedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedEndpoint.swift; sourceTree = "<group>"; };
 		830CF7812968B81700B82F8F /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		8321E4852970A54600F534F0 /* ObjectItemWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectItemWrapper.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 			children = (
 				83A50AB0297F1F4D0047ABA3 /* AlbumTracksViewController.swift */,
 				83A50AB3297F1F870047ABA3 /* AlbumTracksViewController+TableViewDelegates.swift */,
+				83065DA2298B078500EF5DA2 /* AlbumTracksTableViewHeader.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 			files = (
 				83B309482964CA1600D7AB75 /* TokenPostEndpoint.swift in Sources */,
 				8389CB7E297C3D79006F95AE /* ArtistAlbumsEndpoint.swift in Sources */,
+				83065DA3298B078500EF5DA2 /* AlbumTracksTableViewHeader.swift in Sources */,
 				835E518C296721990076F248 /* AlbumListWrapper.swift in Sources */,
 				839F49B5296379860054F660 /* AuthViewController.swift in Sources */,
 				8321E48F2970AC5700F534F0 /* HomeViewModel.swift in Sources */,
