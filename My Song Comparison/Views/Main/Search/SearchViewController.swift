@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     
     let searchController: UISearchController = {
         let results = SearchResultsViewController()
-        results.view.backgroundColor = .red
+        results.view.backgroundColor = .white
         let vc = UISearchController(searchResultsController: results)
         vc.searchBar.placeholder = "Search for Songs, Artists, Albums, or Genre"
         vc.searchBar.searchBarStyle = .minimal
