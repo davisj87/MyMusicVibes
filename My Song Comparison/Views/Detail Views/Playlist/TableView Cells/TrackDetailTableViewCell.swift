@@ -13,7 +13,7 @@ class TrackDetailTableViewCell: ShadowTableViewCell {
             guard let track = track else { return }
             nameLabel.text = track.name
             artistLabel.text = track.artist
-            popLabel.text = track.popularity
+            popLabel.text = track.popularity == "" ? "" : "Pop:\n" + track.popularity
             popLabel.numberOfLines = 2
             
             valenceValueLabel.text = track.valence.value

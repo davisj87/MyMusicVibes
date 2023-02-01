@@ -27,14 +27,14 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
         return TrackDetailTableViewCellViewModel(track: trackCellViewModel, trackDetail: nil)
     }
     
-    private var id:String
+    let playlist:PlaylistCellViewModel
     
-    init(id:String) {
-        self.id = id
+    init(playlist:PlaylistCellViewModel) {
+        self.playlist = playlist
     }
     
     func getTracks() async throws {
-        let playlistTracksEndpoint = PlaylistTracksEndpoint(id: id)
+        let playlistTracksEndpoint = PlaylistTracksEndpoint(id: self.playlist.id)
         let playlistTracksRequest = APIRequest(endpoint: playlistTracksEndpoint, authManager: authManager)
         guard let playlistTracks = try await playlistTracksRequest.executeRequest() else { return }
         self.playlistTracks = playlistTracks.items

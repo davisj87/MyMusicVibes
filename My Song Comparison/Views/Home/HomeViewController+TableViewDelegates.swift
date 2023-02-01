@@ -38,21 +38,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .artist:
             guard let artist = section.homeCells[indexPath.row] as? ArtistCellViewModel else { return }
             let artistAlbumsVC = ArtistAlbumsViewController()
-            artistAlbumsVC.title = section.title.rawValue
+            artistAlbumsVC.title = "Artist"
             artistAlbumsVC.vm = ArtistAlbumsViewModel(artist: artist)
             artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(artistAlbumsVC, animated: true)
         case .track:
             guard let track = section.homeCells[indexPath.row] as? TrackCellViewModel else { return }
             let trackVC = TrackDetailsViewController()
-            trackVC.title = section.title.rawValue
+            trackVC.title = "Track"
             trackVC.vm = TrackDetailsCollectionViewModel(track: track)
             trackVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(trackVC, animated: true)
         case .playlist:
+            guard let playlist = section.homeCells[indexPath.row] as? PlaylistCellViewModel else { return }
             let playlistVC = PlaylistViewController()
-            playlistVC.title = section.title.rawValue
-            playlistVC.vm = PlaylistTracksViewModel(id: section.homeCells[indexPath.row].id)
+            playlistVC.title = "Playlist"
+            playlistVC.vm = PlaylistTracksViewModel(playlist: playlist)
             playlistVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(playlistVC, animated: true)
         }
