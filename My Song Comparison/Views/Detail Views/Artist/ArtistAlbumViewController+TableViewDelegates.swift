@@ -12,14 +12,16 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Albums"
-        default:
-            return ""
-        }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        280
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = ArtistAlbumTableViewHeader.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 280))
+        headerView.artist = self.vm?.artist
+        return headerView
+    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.vm?.albumCount ?? 0

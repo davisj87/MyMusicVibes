@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83043C5A298053F8000E5D89 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83043C59298053F8000E5D89 /* Credentials.swift */; };
+		83065DA1298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83065DA0298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift */; };
 		830CF78029687A5800B82F8F /* AuthorizedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830CF77F29687A5800B82F8F /* AuthorizedEndpoint.swift */; };
 		830CF7822968B81700B82F8F /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830CF7812968B81700B82F8F /* RefreshTokenEndpoint.swift */; };
 		8321E4862970A54600F534F0 /* ObjectItemWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321E4852970A54600F534F0 /* ObjectItemWrapper.swift */; };
@@ -49,8 +50,6 @@
 		839F499F29631F940054F660 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F499E29631F940054F660 /* Endpoint.swift */; };
 		839F49A329631FBC0054F660 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49A229631FBC0054F660 /* RequestError.swift */; };
 		839F49A529631FD40054F660 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49A429631FD40054F660 /* NetworkRequest.swift */; };
-		839F49A7296321D80054F660 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49A6296321D80054F660 /* TabBarViewModel.swift */; };
-		839F49A8296321D80054F660 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49A6296321D80054F660 /* TabBarViewModel.swift */; };
 		839F49AE296322D30054F660 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49AD296322D30054F660 /* AuthEndpoint.swift */; };
 		839F49B1296323CB0054F660 /* TokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49B0296323CB0054F660 /* TokenObject.swift */; };
 		839F49B5296379860054F660 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F49B4296379860054F660 /* AuthViewController.swift */; };
@@ -124,6 +123,7 @@
 
 /* Begin PBXFileReference section */
 		83043C59298053F8000E5D89 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		83065DA0298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumTableViewHeader.swift; sourceTree = "<group>"; };
 		830CF77F29687A5800B82F8F /* AuthorizedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedEndpoint.swift; sourceTree = "<group>"; };
 		830CF7812968B81700B82F8F /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		8321E4852970A54600F534F0 /* ObjectItemWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectItemWrapper.swift; sourceTree = "<group>"; };
@@ -169,7 +169,6 @@
 		839F499E29631F940054F660 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		839F49A229631FBC0054F660 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		839F49A429631FD40054F660 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		839F49A6296321D80054F660 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		839F49AD296322D30054F660 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		839F49B0296323CB0054F660 /* TokenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenObject.swift; sourceTree = "<group>"; };
 		839F49B4296379860054F660 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +248,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83065D9E298AF8F300EF5DA2 /* Welcome And Auth */ = {
+			isa = PBXGroup;
+			children = (
+				83B2A632296C5E7C002B703C /* WelcomeViewController.swift */,
+				839F49B4296379860054F660 /* AuthViewController.swift */,
+			);
+			path = "Welcome And Auth";
+			sourceTree = "<group>";
+		};
+		83065D9F298AF90E00EF5DA2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				839F49B629637AF00054F660 /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		830CF7832968BA7800B82F8F /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +393,7 @@
 			children = (
 				83B2A638296C5ED4002B703C /* ArtistAlbumsViewController.swift */,
 				8389CB83297C4635006F95AE /* ArtistAlbumViewController+TableViewDelegates.swift */,
+				83065DA0298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift */,
 				83AADCA4298004FC00876558 /* TableView Cells */,
 			);
 			path = Artist;
@@ -395,8 +412,7 @@
 		839F49A9296322290054F660 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				83B2A632296C5E7C002B703C /* WelcomeViewController.swift */,
-				839F49B4296379860054F660 /* AuthViewController.swift */,
+				83065D9E298AF8F300EF5DA2 /* Welcome And Auth */,
 				83B2A631296C5E5F002B703C /* Main */,
 				83A3197829759D2900CC9D43 /* Home */,
 				83B2A642296C62AE002B703C /* Detail Views */,
@@ -408,8 +424,7 @@
 		839F49AA296322330054F660 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				839F49A6296321D80054F660 /* TabBarViewModel.swift */,
-				839F49B629637AF00054F660 /* AuthViewModel.swift */,
+				83065D9F298AF90E00EF5DA2 /* Auth */,
 				83AE7C25298859B400FBE7EF /* CoreTVCellViewModel */,
 				8311E6E229898B9F00563207 /* Home */,
 				83AADCA02980042500876558 /* Albums */,
@@ -896,7 +911,6 @@
 				839F49B729637AF00054F660 /* AuthViewModel.swift in Sources */,
 				83B2A635296C5E8A002B703C /* SettingsViewController.swift in Sources */,
 				839F49B1296323CB0054F660 /* TokenObject.swift in Sources */,
-				839F49A7296321D80054F660 /* TabBarViewModel.swift in Sources */,
 				83B2A637296C5E9D002B703C /* ProfileViewController.swift in Sources */,
 				8389CB80297C3E69006F95AE /* AlbumObject.swift in Sources */,
 				83B2A641296C5F2A002B703C /* TrackDetailsViewController.swift in Sources */,
@@ -905,6 +919,7 @@
 				83B09DFD2976E7350072CAE6 /* ShadowTableViewCell.swift in Sources */,
 				83A3197A29759D5700CC9D43 /* HomeViewController+TableViewDelegates.swift in Sources */,
 				83043C5A298053F8000E5D89 /* Credentials.swift in Sources */,
+				83065DA1298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift in Sources */,
 				83D07FBD2979E02300B0D10A /* PlaylistTrackObject.swift in Sources */,
 				835E518E296721E90076F248 /* PlaylistListWrapper.swift in Sources */,
 				83D07FB92979D6FE00B0D10A /* TracksDetailEndpoint.swift in Sources */,
@@ -933,7 +948,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				839F49A8296321D80054F660 /* TabBarViewModel.swift in Sources */,
 				83331A59295DD6AF00B23617 /* My_Song_ComparisonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,14 +21,14 @@ class ArtistAlbumsViewModel  {
         return AlbumCellViewModel(albumObject: album)
     }
     
-    private var artistId:String
+    let artist:ArtistCellViewModel
 
-    init(artistId:String) {
-        self.artistId = artistId
+    init(artist:ArtistCellViewModel) {
+        self.artist = artist
     }
     
     func getAlbumsFromArtist() async throws {
-        let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artistId)
+        let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artist.id)
         let artistAlbumsRequest = APIRequest(endpoint: artistAlbumsEndpoint, authManager: authManager)
         guard let artistAlbums = try await artistAlbumsRequest.executeRequest() else { return }
         self.albums = artistAlbums.items

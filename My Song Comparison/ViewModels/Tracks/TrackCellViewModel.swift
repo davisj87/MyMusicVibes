@@ -20,7 +20,7 @@ struct TrackCellViewModel: ItemOverviewCellViewModelProtocol {
         self.primaryText = tracksObject.name
         self.secondaryText = tracksObject.artists.isEmpty ? "" : tracksObject.artists[0].name
         self.additionalDetailText = tracksObject.album.name
-        self.popularity = "Pop:\n \(tracksObject.popularity)"
+        self.popularity = String(tracksObject.popularity)
         self.imageUrl = tracksObject.album.images.isEmpty ? "" : tracksObject.album.images[0].url
     }
 }

@@ -46,9 +46,10 @@ extension SearchViewController: SearchResultsViewControllerDelegate {
             albumTracksVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(albumTracksVC, animated: true)
         case .artist:
+            guard let artist = result as? ArtistCellViewModel else { return }
             let artistAlbumsVC = ArtistAlbumsViewController()
             artistAlbumsVC.title = result.primaryText
-            artistAlbumsVC.vm = ArtistAlbumsViewModel(artistId: result.id)
+            artistAlbumsVC.vm = ArtistAlbumsViewModel(artist: artist)
             artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(artistAlbumsVC, animated: true)
         case .track:

@@ -36,9 +36,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let section = self.vm.sections[indexPath.section]
         switch section.title {
         case .artist:
+            guard let artist = section.homeCells[indexPath.row] as? ArtistCellViewModel else { return }
             let artistAlbumsVC = ArtistAlbumsViewController()
             artistAlbumsVC.title = section.title.rawValue
-            artistAlbumsVC.vm = ArtistAlbumsViewModel(artistId: section.homeCells[indexPath.row].id)
+            artistAlbumsVC.vm = ArtistAlbumsViewModel(artist: artist)
             artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(artistAlbumsVC, animated: true)
         case .track:

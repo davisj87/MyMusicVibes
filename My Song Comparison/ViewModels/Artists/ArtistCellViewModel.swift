@@ -23,7 +23,8 @@ struct ArtistCellViewModel: ItemOverviewCellViewModelProtocol {
             let genres = artistsObject.genres.joined(separator: ", ")
             self.secondaryText = genres
         }
-        self.popularity = "Pop:\n \(artistsObject.popularity)"
+        self.additionalDetailText = String(artistsObject.followers.total)
+        self.popularity = String(artistsObject.popularity)
         self.imageUrl = artistsObject.images.isEmpty ? "" : artistsObject.images[0].url
     }
 }
