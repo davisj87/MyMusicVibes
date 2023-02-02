@@ -105,6 +105,8 @@
 		83D07FBD2979E02300B0D10A /* PlaylistTrackObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D07FBC2979E02300B0D10A /* PlaylistTrackObject.swift */; };
 		83D07FC02979E0A100B0D10A /* PlaylistTracksEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D07FBF2979E0A100B0D10A /* PlaylistTracksEndpoint.swift */; };
 		83D5C3E4298C0EB4000CC68D /* ShadowHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5C3E3298C0EB4000CC68D /* ShadowHeaderTableViewCell.swift */; };
+		83D5C3E7298C173E000CC68D /* PlaylistTracksChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5C3E6298C173E000CC68D /* PlaylistTracksChart.swift */; };
+		83D5C3E9298C18EC000CC68D /* PlaylistTracksChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5C3E8298C18EC000CC68D /* PlaylistTracksChartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +229,8 @@
 		83D07FBC2979E02300B0D10A /* PlaylistTrackObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTrackObject.swift; sourceTree = "<group>"; };
 		83D07FBF2979E0A100B0D10A /* PlaylistTracksEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksEndpoint.swift; sourceTree = "<group>"; };
 		83D5C3E3298C0EB4000CC68D /* ShadowHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		83D5C3E6298C173E000CC68D /* PlaylistTracksChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksChart.swift; sourceTree = "<group>"; };
+		83D5C3E8298C18EC000CC68D /* PlaylistTracksChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,6 +558,7 @@
 			children = (
 				83D07FBA2979D84700B0D10A /* PlaylistTracksViewModel.swift */,
 				83AE7C2A29885A1100FBE7EF /* PlaylistCellViewModel.swift */,
+				83D5C3E8298C18EC000CC68D /* PlaylistTracksChartViewModel.swift */,
 			);
 			path = Playlists;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				83BEA2ED297AF5EB00D0F8A2 /* PlaylistViewController+TableViewDelegates.swift */,
 				83065DA4298B0C2100EF5DA2 /* PlaylistTableViewHeaderCell.swift */,
 				83AADCA52980051600876558 /* TableView Cells */,
+				83D5C3E5298C170C000CC68D /* Playlist SwiftUI Chart */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
@@ -690,6 +696,15 @@
 				83D07FBF2979E0A100B0D10A /* PlaylistTracksEndpoint.swift */,
 			);
 			path = Playlists;
+			sourceTree = "<group>";
+		};
+		83D5C3E5298C170C000CC68D /* Playlist SwiftUI Chart */ = {
+			isa = PBXGroup;
+			children = (
+				83D5C3E6298C173E000CC68D /* PlaylistTracksChart.swift */,
+			);
+			name = "Playlist SwiftUI Chart";
+			path = "TableView Cells";
 			sourceTree = "<group>";
 		};
 		83F282FD2965E86000F6AC31 /* Tracks */ = {
@@ -886,6 +901,7 @@
 				835E519C2967475B0076F248 /* ImageObject.swift in Sources */,
 				83B2A630296C5E4E002B703C /* LibraryViewController.swift in Sources */,
 				83AE7C222988269600FBE7EF /* HomeSectionViewModel.swift in Sources */,
+				83D5C3E7298C173E000CC68D /* PlaylistTracksChart.swift in Sources */,
 				839A51A729781C790045387E /* TrackDetailCollectionViewCell.swift in Sources */,
 				83AE7C202988183A00FBE7EF /* SearchResultsViewController.swift in Sources */,
 				83331A42295DD6AD00B23617 /* AppDelegate.swift in Sources */,
@@ -915,6 +931,7 @@
 				835E5185296713760076F248 /* TrackFeaturesObject.swift in Sources */,
 				8389CB84297C4635006F95AE /* ArtistAlbumViewController+TableViewDelegates.swift in Sources */,
 				83B09E0A297729FB0072CAE6 /* TrackDetailsCollectionViewModel.swift in Sources */,
+				83D5C3E9298C18EC000CC68D /* PlaylistTracksChartViewModel.swift in Sources */,
 				83B09E03297705430072CAE6 /* TopPlaylistsEndpoint.swift in Sources */,
 				8321E4862970A54600F534F0 /* ObjectItemWrapper.swift in Sources */,
 				83D5C3E4298C0EB4000CC68D /* ShadowHeaderTableViewCell.swift in Sources */,
@@ -1228,6 +1245,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9AN46ZLAUD;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jarred.My-Song-ComparisonUITests";
@@ -1245,6 +1263,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9AN46ZLAUD;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jarred.My-Song-ComparisonUITests";

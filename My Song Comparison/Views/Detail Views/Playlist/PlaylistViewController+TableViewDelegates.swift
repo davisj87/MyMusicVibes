@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,6 +80,9 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cVM = self.vm else { return }
         switch indexPath.section {
         case 0:
+            let playlistTracksChartVM = PlaylistTracksChartViewModel(tracksDetailArr: cVM.trackDetailsArr)
+            let playlistTracksChartSwiftUIController = UIHostingController(rootView: PlaylistTracksChart(vm:playlistTracksChartVM))
+            navigationController?.pushViewController(playlistTracksChartSwiftUIController, animated: true)
             return
         case 1:
             let trackViewModel = cVM.getTrackAndDetailsVM(at: indexPath.row)
