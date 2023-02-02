@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaylistTableViewHeader: UIView {
+class PlaylistTableViewHeaderCell: ShadowTableViewCell {
             
     var playlist:PlaylistCellViewModel? {
         didSet {
@@ -53,36 +53,36 @@ class PlaylistTableViewHeader: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //backgroundColor = .white
 
-        addSubview(nameLabel)
-        addSubview(trackImageView)
-        addSubview(ownerLabel)
+        self.containerView.addSubview(nameLabel)
+        self.containerView.addSubview(trackImageView)
+        self.containerView.addSubview(ownerLabel)
         
         
-        nameLabel.topAnchor.constraint(equalTo:self.topAnchor, constant: 10).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant:10).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant:-10).isActive = true
+        nameLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor, constant: 20).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor, constant:10).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:-10).isActive = true
         
         trackImageView.topAnchor.constraint(equalTo:self.nameLabel.bottomAnchor, constant: 10).isActive = true
-        trackImageView.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
+        trackImageView.centerXAnchor.constraint(equalTo:self.containerView.centerXAnchor).isActive = true
         trackImageView.widthAnchor.constraint(equalToConstant:100).isActive = true
         trackImageView.heightAnchor.constraint(equalToConstant:100).isActive = true
         
         ownerLabel.topAnchor.constraint(equalTo:self.trackImageView.bottomAnchor, constant: 20).isActive = true
-        ownerLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant:10).isActive = true
-        ownerLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant:-10).isActive = true
+        ownerLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor, constant:10).isActive = true
+        ownerLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:-10).isActive = true
         
-        self.layer.shadowOpacity = 0.1
-        self.layer.shadowOffset = CGSize(width: 0, height: 3)
-        self.layer.shadowRadius = 2
+//        self.layer.shadowOpacity = 0.1
+//        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+//        self.layer.shadowRadius = 2
         
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+   }
 
 }

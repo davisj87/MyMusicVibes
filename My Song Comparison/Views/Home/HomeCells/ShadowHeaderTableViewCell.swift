@@ -1,13 +1,13 @@
 //
-//  HomeTableViewCell.swift
+//  ShadowHeaderTableViewCell.swift
 //  My Song Comparison
 //
-//  Created by Jarred Davis on 1/17/23.
+//  Created by Jarred Davis on 2/2/23.
 //
 
 import UIKit
 
-class ShadowTableViewCell: UITableViewCell {
+class ShadowHeaderTableViewCell: UITableViewCell {
 
     let containerView:UIView = {
         let view = UIView()
@@ -33,16 +33,16 @@ class ShadowTableViewCell: UITableViewCell {
         self.containerView.layer.masksToBounds = true
         
        // containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo:self.contentView.topAnchor, constant: 10).isActive = true
-        containerView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
-        containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
+        containerView.topAnchor.constraint(equalTo:self.contentView.topAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo:self.contentView.bottomAnchor, constant: -10).isActive = true
    //     containerView.heightAnchor.constraint(equalToConstant:100).isActive = true
         
         //shadowView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        shadowView.topAnchor.constraint(equalTo:self.contentView.topAnchor, constant: 10).isActive = true
-        shadowView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
-        shadowView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
+        shadowView.topAnchor.constraint(equalTo:self.contentView.topAnchor).isActive = true
+        shadowView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor).isActive = true
+        shadowView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor).isActive = true
         shadowView.bottomAnchor.constraint(equalTo:self.contentView.bottomAnchor, constant: -10).isActive = true
      //   shadowView.heightAnchor.constraint(equalToConstant:100).isActive = true
     }

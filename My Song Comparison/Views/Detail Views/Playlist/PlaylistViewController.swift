@@ -26,6 +26,7 @@ class PlaylistViewController: UIViewController {
         playlistTableView.separatorStyle = .none
 
         playlistTableView.register(TrackDetailTableViewCell.self, forCellReuseIdentifier: "trackDetailTableViewCell")
+        playlistTableView.register(PlaylistTableViewHeaderCell.self, forCellReuseIdentifier: "playlistTableViewHeaderCell")
         
         playlistTableView.translatesAutoresizingMaskIntoConstraints = false
         playlistTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true

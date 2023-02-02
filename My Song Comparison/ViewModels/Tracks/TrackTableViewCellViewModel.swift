@@ -58,25 +58,25 @@ extension TrackDetailViewFormatter {
         case 0:
             return "C"
         case 1:
-            return "C# or Db"
+            return "Db"
         case 2:
             return "D"
         case 3:
-            return "D# or Eb"
+            return "Eb"
         case 4:
             return "E"
         case 5:
             return "F"
         case 6:
-            return "F# or Gb"
+            return "F#"
         case 7:
             return "G"
         case 8:
-            return "G# or Ab"
+            return "Ab"
         case 9:
             return "A"
         case 10:
-            return "A# or Bb"
+            return "Bb"
         case 11:
             return "B"
         default:
