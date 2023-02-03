@@ -80,8 +80,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cVM = self.vm else { return }
         switch indexPath.section {
         case 0:
-            let playlistTracksDetailArray = cVM.getSortedTracksDetailsArray()
-            let playlistTracksChartVM = PlaylistTracksChartViewModel(tracksDetailArr: playlistTracksDetailArray)
+            let playlistTracksChartVM = PlaylistTracksChartViewModel(playlistTracks: cVM.playlistTracks, trackDetails: cVM.trackDetailsArr)
             let playlistTracksChartSwiftUIController = UIHostingController(rootView: PlaylistTracksChart(vm:playlistTracksChartVM))
             navigationController?.pushViewController(playlistTracksChartSwiftUIController, animated: true)
             return

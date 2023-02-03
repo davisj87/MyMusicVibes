@@ -15,7 +15,7 @@ struct PlaylistTracksChart: View {
             MusicalPositivityChart(musicalPositivityArr: self.vm.musicalPositivityArr)
             EnergyChart(energyArr: self.vm.energyArr)
         }
-        .onAppear{self.vm.getMusicalPositivityData()}
+        .onAppear{self.vm.getChartData()}
     }
 }
 

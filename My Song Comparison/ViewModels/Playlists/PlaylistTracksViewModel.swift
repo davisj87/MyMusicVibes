@@ -11,7 +11,7 @@ import Foundation
 class PlaylistTracksViewModel: TrackDetailViewFormatter {
     
     private let authManager = AuthManager()
-    private var playlistTracks:[PlaylistTrackObject] = []
+    private (set) var playlistTracks:[PlaylistTrackObject] = []
     private (set) var trackDetailsArr = Set<TrackFeaturesObject?>()
     
     var trackCount:Int {
@@ -51,16 +51,16 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
         return trackDetails.audioFeatures
     }
     
-    func getSortedTracksDetailsArray() -> [TrackFeaturesObject] {
-        var trackFeaturesArr:[TrackFeaturesObject] = []
-        for eachTrack in self.playlistTracks {
-            if let detailIndex = self.trackDetailsArr.firstIndex(of: TrackFeaturesObject(withId: eachTrack.track.id)),
-                let detailObj = self.trackDetailsArr[detailIndex] {
-                trackFeaturesArr.append(detailObj)
-            }
-        }
-        return trackFeaturesArr
-    }
+//    func getSortedTracksDetailsArray(playlistTracks:[PlaylistTrackObject], trackDetails:Set<TrackFeaturesObject?>) -> [TrackFeaturesObject] {
+//        var trackFeaturesArr:[TrackFeaturesObject] = []
+//        for eachTrack in playlistTracks {
+//            if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: eachTrack.track.id)),
+//                let detailObj = trackDetails[detailIndex] {
+//                trackFeaturesArr.append(detailObj)
+//            }
+//        }
+//        return trackFeaturesArr
+//    }
     
 }
 
