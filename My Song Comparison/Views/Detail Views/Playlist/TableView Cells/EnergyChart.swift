@@ -15,7 +15,7 @@ struct EnergyChart: View {
             Chart {
                 ForEach(energyArr.energyData) {
                     LineMark(
-                        x: .value("", $0.track),
+                        x: .value("", $0.id),
                         y: .value("Energy", $0.energy)
                     )
                     .lineStyle(.init(lineWidth: 10, lineCap: .round, lineJoin: .round))

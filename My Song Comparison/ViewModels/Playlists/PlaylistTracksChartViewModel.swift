@@ -36,7 +36,7 @@ class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter {
         
         for(i, eachTrack) in tracksDetailArr.enumerated() {
     
-            tempEnergyArr.append(EnergyChartViewModel(track: i + 1, energy: Int(eachTrack.energy)))
+            tempEnergyArr.append(EnergyChartViewModel(id:eachTrack.id, energy: Int(eachTrack.energy)))
             maxEnergy = eachTrack.energy > maxEnergy ? eachTrack.energy : maxEnergy
             minEnergy = eachTrack.energy < minEnergy ? eachTrack.energy : minEnergy
             
@@ -73,7 +73,7 @@ class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter {
     func getColorForFeature(minValue:Float, maxValue:Float) -> [Color] {
         var minIndex = 0
         var maxIndex = 4
-        var colorArr:[Color] = [.gray, .purple, .blue, .teal, .green]
+        let colorArr:[Color] = [.gray, .purple, .blue, .teal, .green]
         var finalColorArr:[Color] = []
 
         switch Int(minValue) {
@@ -140,8 +140,8 @@ extension UIColor {
 }
 
 struct EnergyChartViewModel:Identifiable {
-    let id = UUID()
-    let track:Int
+    let id:String
+   // let track:Int
     let energy:Int
     let color:UIColor = .random
 }
