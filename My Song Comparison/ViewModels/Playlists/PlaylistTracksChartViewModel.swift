@@ -5,20 +5,18 @@
 //  Created by Jarred Davis on 2/2/23.
 //
 
-import Foundation
+import SwiftUI
 
-struct PlaylistTracksChartViewModel: TrackDetailViewFormatter {
+class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter {
     
     private let tracksDetailArr: Set<TrackFeaturesObject?>
-    var musicalPositivityArr:[MusicalPositivity] {
-        return self.getMusicalPositivityData()
-    }
+    @Published var musicalPositivityArr:[MusicalPositivity] = []
     
     init(tracksDetailArr:Set<TrackFeaturesObject?>) {
         self.tracksDetailArr = tracksDetailArr
     }
     
-    func getMusicalPositivityData() -> [MusicalPositivity] {
+    func getMusicalPositivityData() {
         var lowCount = 0
         var midLowCount = 0
         var neutralCount = 0
@@ -42,14 +40,13 @@ struct PlaylistTracksChartViewModel: TrackDetailViewFormatter {
                 }
             }
         }
-        let musicalPosArr:[MusicalPositivity] = [
+        self.musicalPositivityArr = [
             MusicalPositivity(positivity: "Sad", numTracks: lowCount),
             MusicalPositivity(positivity: "Gloomy", numTracks: midLowCount),
             MusicalPositivity(positivity: "Neutral", numTracks: neutralCount),
             MusicalPositivity(positivity: "Upbeat", numTracks: midHighCount),
             MusicalPositivity(positivity: "Happy", numTracks: highCount)
         ]
-        return musicalPosArr
     }
     
 }
