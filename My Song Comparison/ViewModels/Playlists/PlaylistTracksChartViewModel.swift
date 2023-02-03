@@ -14,7 +14,6 @@ class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter {
     
     @Published var musicalPositivityArr:[MusicalPositivity] = []
     @Published var energyArr:(energyData:[EnergyChartViewModel], energyColorArr:[Color]) = (energyData:[], energyColorArr:[])
-    @Published var energyColorArr:[Color] = []
     
     init(playlistTracks:[PlaylistTrackObject], trackDetails:Set<TrackFeaturesObject?>) {
         self.playlistTracks = playlistTracks
