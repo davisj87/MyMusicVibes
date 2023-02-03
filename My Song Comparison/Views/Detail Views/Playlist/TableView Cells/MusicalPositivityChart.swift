@@ -14,14 +14,12 @@ struct MusicalPositivityChart: View {
         GroupBox ("Musicial Positivity") {
             Chart {
                 ForEach(musicalPositivityArr) {
-                    LineMark(
+                    BarMark(
                         x: .value("Positivity", $0.positivity),
                         y: .value("# of Tracks", $0.numTracks)
                     )
-                    .lineStyle(.init(lineWidth: 10, lineCap: .round, lineJoin: .round))
                 }
                 .foregroundStyle(Gradient(colors: [.pink, .orange, .yellow]))
-                .interpolationMethod(.monotone)
             }
             //.frame(height:300)
             .chartYAxis {

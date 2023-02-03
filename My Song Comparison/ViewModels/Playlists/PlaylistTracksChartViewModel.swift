@@ -9,53 +9,67 @@ import SwiftUI
 
 class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter {
     
-    private let tracksDetailArr: Set<TrackFeaturesObject?>
+    private let tracksDetailArr: [TrackFeaturesObject]
     @Published var musicalPositivityArr:[MusicalPositivity] = []
+    @Published var energyArr:[EnergyChartViewModel] = []
     
-    init(tracksDetailArr:Set<TrackFeaturesObject?>) {
+    init(tracksDetailArr:[TrackFeaturesObject]) {
         self.tracksDetailArr = tracksDetailArr
     }
     
     func getMusicalPositivityData() {
-        var lowCount = 0
-        var midLowCount = 0
-        var neutralCount = 0
-        var midHighCount = 0
-        var highCount = 0
-        for eachTrack in self.tracksDetailArr {
-            if let trackDetails = eachTrack {
-                switch intValencetoString(valence: trackDetails.valence){
-                case "Sad":
-                    lowCount += 1
-                case "Gloomy":
-                    midLowCount += 1
-                case "Neutral":
-                    neutralCount += 1
-                case "Upbeat":
-                    midHighCount += 1
-                case "Happy":
-                    highCount += 1
-                default:
-                    continue
-                }
+        
+        var tempEnergyArr:[EnergyChartViewModel] = []
+        
+        var lowValCount = 0
+        var midLowValCount = 0
+        var neutralValCount = 0
+        var midHighValCount = 0
+        var highValCount = 0
+        
+        for(i, eachTrack) in self.tracksDetailArr.enumerated() {
+            tempEnergyArr.append(EnergyChartViewModel(track: i + 1, energy: Int(eachTrack.energy)))
+            switch intValencetoString(valence: eachTrack.valence) {
+            case "Sad":
+                lowValCount += 1
+            case "Gloomy":
+                midLowValCount += 1
+            case "Neutral":
+                neutralValCount += 1
+            case "Upbeat":
+                midHighValCount += 1
+            case "Happy":
+                highValCount += 1
+            default:
+                continue
             }
         }
+        
+        self.energyArr = tempEnergyArr
+        
         self.musicalPositivityArr = [
-            MusicalPositivity(positivity: "Sad", numTracks: lowCount),
-            MusicalPositivity(positivity: "Gloomy", numTracks: midLowCount),
-            MusicalPositivity(positivity: "Neutral", numTracks: neutralCount),
-            MusicalPositivity(positivity: "Upbeat", numTracks: midHighCount),
-            MusicalPositivity(positivity: "Happy", numTracks: highCount)
+            MusicalPositivity(positivity: "Sad", numTracks: lowValCount),
+            MusicalPositivity(positivity: "Gloomy", numTracks: midLowValCount),
+            MusicalPositivity(positivity: "Neutral", numTracks: neutralValCount),
+            MusicalPositivity(positivity: "Upbeat", numTracks: midHighValCount),
+            MusicalPositivity(positivity: "Happy", numTracks: highValCount)
         ]
+        
+        
     }
     
+}
+
+struct EnergyChartViewModel:Identifiable {
+    let id = UUID()
+    let track:Int
+    let energy:Int
 }
 
 struct MusicalPositivity:Identifiable {
     let id = UUID()
     let positivity:String
     let numTracks:Int
-    
 }
 
 struct MusicalPositivityDisplayData {

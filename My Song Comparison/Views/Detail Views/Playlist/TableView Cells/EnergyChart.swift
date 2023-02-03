@@ -8,24 +8,28 @@
 import SwiftUI
 import Charts
 
-struct KeyChart: View {
-    var musicalPositivityArr:[MusicalPositivity]
+struct EnergyChart: View {
+    var energyArr:[EnergyChartViewModel]
     var body: some View {
-        GroupBox ("Key") {
+        GroupBox ("Energy") {
             Chart {
-                ForEach(musicalPositivityArr) {
-                    BarMark(
-                        x: .value("Key", $0.positivity),
-                        y: .value("# of Tracks", $0.numTracks)
+                ForEach(energyArr) {
+                    LineMark(
+                        x: .value("", $0.track),
+                        y: .value("Energy", $0.energy)
                     )
+                    .lineStyle(.init(lineWidth: 10, lineCap: .round, lineJoin: .round))
                 }
+                .foregroundStyle(Gradient(colors: [.green, .blue, .gray]))
+                .interpolationMethod(.monotone)
             }
+            .chartXAxis(.hidden)
            // .frame(height:300)
             .chartYAxis {
                 AxisMarks(position: .leading)
             }
             .chartYAxisLabel(position: .leading, alignment: .center) {
-                Text("# of Tracks")
+                Text("Energy")
             }
         }
     }

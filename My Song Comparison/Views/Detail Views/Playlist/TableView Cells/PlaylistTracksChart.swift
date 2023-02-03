@@ -9,11 +9,11 @@ import SwiftUI
 import Charts
 
 struct PlaylistTracksChart: View {
-    @ObservedObject var vm:PlaylistTracksChartViewModel
+    @StateObject var vm:PlaylistTracksChartViewModel
     var body: some View {
         VStack {
             MusicalPositivityChart(musicalPositivityArr: self.vm.musicalPositivityArr)
-            KeyChart(musicalPositivityArr: self.vm.musicalPositivityArr)
+            EnergyChart(energyArr: self.vm.energyArr)
         }
         .onAppear{self.vm.getMusicalPositivityData()}
     }

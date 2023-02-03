@@ -51,5 +51,16 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
         return trackDetails.audioFeatures
     }
     
+    func getSortedTracksDetailsArray() -> [TrackFeaturesObject] {
+        var trackFeaturesArr:[TrackFeaturesObject] = []
+        for eachTrack in self.playlistTracks {
+            if let detailIndex = self.trackDetailsArr.firstIndex(of: TrackFeaturesObject(withId: eachTrack.track.id)),
+                let detailObj = self.trackDetailsArr[detailIndex] {
+                trackFeaturesArr.append(detailObj)
+            }
+        }
+        return trackFeaturesArr
+    }
+    
 }
 
