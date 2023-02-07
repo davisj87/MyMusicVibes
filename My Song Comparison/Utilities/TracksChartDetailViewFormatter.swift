@@ -47,7 +47,6 @@ extension TracksChartDetailViewFormatter {
         }
         
         for i in (minIndex...maxIndex).reversed() {
-            print(colorArr[i])
             finalColorArr.append(colorArr[i])
         }
         return finalColorArr

@@ -55,7 +55,7 @@ class PlaylistTableViewHeaderCell: ShadowTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         //backgroundColor = .white
-
+        self.selectionStyle = .none
         self.containerView.addSubview(nameLabel)
         self.containerView.addSubview(trackImageView)
         self.containerView.addSubview(ownerLabel)
