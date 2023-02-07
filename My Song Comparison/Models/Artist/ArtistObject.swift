@@ -24,7 +24,7 @@ struct ArtistObject: Decodable {
 extension ArtistObject {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? "N/A"
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
         self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "N/A"
         self.genres = try container.decodeIfPresent([String].self, forKey: .genres) ?? []
         self.followers = try container.decodeIfPresent(ArtistFollowersObject.self, forKey: .followers) ?? ArtistFollowersObject(total: -1)

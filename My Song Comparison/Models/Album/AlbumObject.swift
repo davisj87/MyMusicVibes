@@ -21,9 +21,34 @@ struct AlbumObject:Decodable {
     }
 }
 
+extension AlbumObject {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
+        self.artists = try container.decodeIfPresent([AlbumArtistObject].self, forKey: .artists) ?? []
+        self.images = try container.decodeIfPresent([ImageObject].self, forKey: .images) ?? []
+        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "N/A"
+        self.releaseDate = try container.decodeIfPresent(String.self, forKey: .releaseDate) ?? "N/A"
+        
+        
+    }
+}
+
 struct AlbumArtistObject:Decodable  {
     var id:String
     var name:String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name
+    }
+}
+
+extension AlbumArtistObject {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
+        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "N/A"
+    }
 }
 
 

@@ -19,6 +19,16 @@ struct AlbumTracksObject: Decodable {
     }
     
 }
+
+extension AlbumTracksObject {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
+        self.artists = try container.decodeIfPresent([AlbumArtistObject].self, forKey: .artists) ?? []
+        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "N/A"
+        self.trackNumber = try container.decodeIfPresent(Int.self, forKey: .trackNumber) ?? -1
+    }
+}
 /*
  
  "items": [
