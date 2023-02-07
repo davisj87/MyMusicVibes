@@ -8,9 +8,24 @@
 import Foundation
 
 struct ArtistWrapper: Decodable {
-    var artists: Artists
+    var artists: ItemsWrapper<ArtistObject>
+    
+    private enum CodingKeys: String, CodingKey {
+        case artists
+    }
 }
 
-struct Artists: Decodable {
-    var items: [ArtistObject]
+extension ArtistWrapper {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.artists = try container.decodeIfPresent(ItemsWrapper.self, forKey: .artists) ?? ItemsWrapper(items: [])
+    }
 }
+
+//struct Artists<T:Decodable>: Decodable {
+//    var items: [T]
+//
+//    private enum CodingKeys: String, CodingKey {
+//        case items
+//    }
+//}

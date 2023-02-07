@@ -8,9 +8,20 @@
 import Foundation
 
 struct PlaylistWrapper: Decodable {
-    var playlists: Playlists
+    var playlists: ItemsWrapper<PlaylistObject>
+    
+    private enum CodingKeys: String, CodingKey {
+        case playlists
+    }
 }
 
-struct Playlists: Decodable {
-    var items: [PlaylistObject]
+extension PlaylistWrapper {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.playlists = try container.decodeIfPresent(ItemsWrapper.self, forKey: .playlists) ?? ItemsWrapper(items: [])
+    }
 }
+
+//struct Playlists: Decodable {
+//    var items: [PlaylistObject]
+//}
