@@ -114,6 +114,7 @@
 		83DCE3932992C16B00195310 /* AlbumTracksChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE3922992C16B00195310 /* AlbumTracksChartViewModel.swift */; };
 		83DCE3972992C2A700195310 /* TracksChartDetailViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE3962992C2A700195310 /* TracksChartDetailViewFormatter.swift */; };
 		83DCE3992992C3CE00195310 /* AlbumTracksChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE3982992C3CE00195310 /* AlbumTracksChart.swift */; };
+		83DCE39C2992D92200195310 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE39B2992D92200195310 /* ViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +246,7 @@
 		83DCE3922992C16B00195310 /* AlbumTracksChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksChartViewModel.swift; sourceTree = "<group>"; };
 		83DCE3962992C2A700195310 /* TracksChartDetailViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksChartDetailViewFormatter.swift; sourceTree = "<group>"; };
 		83DCE3982992C3CE00195310 /* AlbumTracksChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksChart.swift; sourceTree = "<group>"; };
+		83DCE39B2992D92200195310 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,6 +672,7 @@
 			isa = PBXGroup;
 			children = (
 				83DCE3962992C2A700195310 /* TracksChartDetailViewFormatter.swift */,
+				83DCE39B2992D92200195310 /* ViewController+Extension.swift */,
 				83B3094A2964CDA700D7AB75 /* JSONUtilities.swift */,
 				83A3197D2975A9B300CC9D43 /* UIImage+Extension.swift */,
 				83DCE38E2992C0E100195310 /* UIColor+Extension.swift */,
@@ -973,6 +976,7 @@
 				839F49B1296323CB0054F660 /* TokenObject.swift in Sources */,
 				83B2A637296C5E9D002B703C /* ProfileViewController.swift in Sources */,
 				8389CB80297C3E69006F95AE /* AlbumObject.swift in Sources */,
+				83DCE39C2992D92200195310 /* ViewController+Extension.swift in Sources */,
 				83B2A641296C5F2A002B703C /* TrackDetailsViewController.swift in Sources */,
 				83A50AAF297F19D20047ABA3 /* TracksArrayEndpoint.swift in Sources */,
 				83A3197C2975A4AE00CC9D43 /* HomeTableViewCell.swift in Sources */,

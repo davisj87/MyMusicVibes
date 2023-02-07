@@ -40,8 +40,10 @@ class ArtistAlbumsViewController: UIViewController {
         Task {
             do {
                 guard let cVM = self.vm else { return }
+                self.showSpinner()
                 try await cVM.getAlbumsFromArtist()
                 self.albumTableView.reloadData()
+                self.removeSpinner()
             } catch {
                 print("Error getting playlist tracks")
             }

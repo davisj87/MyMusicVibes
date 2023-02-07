@@ -70,8 +70,10 @@ class TrackDetailsViewController: UIViewController {
         Task {
             do {
                 guard let cVM = self.vm else { return }
+                self.showSpinner()
                 try await cVM.getTrack()
                 self.trackCollectionView?.reloadData()
+                self.removeSpinner()
             } catch {
                 print("Error getting track details")
             }

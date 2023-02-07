@@ -42,10 +42,10 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
     func update(query:String, scope:String) {
         Task {
             do {
-//                self.activityView.startAnimating()
+                self.showSpinner()
                 try await self.vm.searchMusic(type: scope, query: query)
-//                self.activityView.stopAnimating()
                 self.searchTableView.reloadData()
+                self.removeSpinner()
             } catch {
                 print("didn't work")
             }

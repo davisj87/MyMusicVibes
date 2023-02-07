@@ -40,8 +40,10 @@ class HomeViewController: UIViewController {
     func getTopObjects() {
         Task {
             do {
+                self.showSpinner()
                 try await self.vm.loadTopItems()
                 self.homeTableView.reloadData()
+                self.removeSpinner()
             } catch {
                 print("Error getting top artists")
             }

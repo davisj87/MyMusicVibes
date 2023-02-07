@@ -8,7 +8,7 @@
 import Foundation
 
 // Use this protocol for the view models that give a small overview of an item.
-// TableViewCell and HeaderViews for Albums, Artists, PLaylists, and Tracks should all use this protocol
+// TableViewCell and HeaderViews for Albums, Artists, Playlists, and Tracks should all use this protocol
 
 
 protocol ItemOverviewCellViewModelProtocol {

@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    let activityView = UIActivityIndicatorView(style: .medium)
     
     let searchController: UISearchController = {
         let results = SearchResultsViewController()
@@ -27,8 +26,6 @@ class SearchViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.navigationItem.searchController = searchController
         
-        self.activityView.center = self.view.center
-        self.view.addSubview(activityView)
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
         
