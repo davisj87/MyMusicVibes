@@ -17,7 +17,6 @@ class HomeTableViewCell: ShadowTableViewCell {
             popLabel.numberOfLines = 2
             secondaryLabel.text = homeCellViewModel.secondaryText
             secondaryLabel.numberOfLines = 2
-            guard homeCellViewModel.imageUrl != "" else { return }
             Task {
                 do {
                     pictureView.image = try await UIImage().loadImage(homeCellViewModel.imageUrl)

@@ -16,7 +16,6 @@ class ArtistAlbumTableViewHeader: UIView {
             genreLabel.text = "Genres: " + artist.secondaryText
             popularityLabel.text = "Popularity: " + artist.popularity
             followerLabel.text = "Followers: " + artist.additionalDetailText
-            guard artist.imageUrl != "" else { return }
             Task {
                 do {
                     trackImageView.image = try await UIImage().loadImage(artist.imageUrl)

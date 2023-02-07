@@ -15,7 +15,6 @@ class TrackCollectionReusableView: UICollectionReusableView {
             guard let track = track else { return }
             artistLabel.text = track.secondaryText
             albumLabel.text = track.additionalDetailText
-            guard track.imageUrl != "" else { return }
             Task {
                 do {
                     trackImageView.image = try await UIImage().loadImage(track.imageUrl)

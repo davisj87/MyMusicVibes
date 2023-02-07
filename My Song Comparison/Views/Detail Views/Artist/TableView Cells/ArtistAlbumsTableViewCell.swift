@@ -13,7 +13,6 @@ class ArtistAlbumsTableViewCell: ShadowTableViewCell {
             guard let albumObject = album else { return }
             nameLabel.text = albumObject.primaryText
             releaseDateLabel.text = albumObject.secondaryText
-            guard albumObject.imageUrl != "" else { return }
             Task {
                 do {
                     albumImageView.image = try await UIImage().loadImage(albumObject.imageUrl)

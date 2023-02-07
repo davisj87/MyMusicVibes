@@ -14,7 +14,6 @@ class PlaylistTableViewHeaderCell: ShadowTableViewCell {
             guard let playlist = playlist else { return }
             nameLabel.text = playlist.primaryText
             ownerLabel.text = playlist.secondaryText
-            guard playlist.imageUrl != "" else { return }
             Task {
                 do {
                     trackImageView.image = try await UIImage().loadImage(playlist.imageUrl)

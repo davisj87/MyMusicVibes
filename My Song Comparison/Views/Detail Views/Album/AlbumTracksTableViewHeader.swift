@@ -15,7 +15,6 @@ class AlbumTracksTableViewHeader: UIView {
             albumLabel.text = album.primaryText
             artistLabel.text = album.secondaryText
             releaseLabel.text = "Released: " + album.additionalDetailText
-            guard album.imageUrl != "" else { return }
             Task {
                 do {
                     trackImageView.image = try await UIImage().loadImage(album.imageUrl)

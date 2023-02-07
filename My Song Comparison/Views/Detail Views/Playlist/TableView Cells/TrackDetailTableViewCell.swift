@@ -19,8 +19,6 @@ class TrackDetailTableViewCell: ShadowTableViewCell {
             valenceValueLabel.text = track.valence.value
             dancabilityValueLabel.text = track.dancability.value
             keyValueLabel.text = track.keyMode.value
-    
-            guard track.imageUrlString != "" else { return }
             Task {
                 do {
                     trackImageView.image = try await UIImage().loadImage(track.imageUrlString)
