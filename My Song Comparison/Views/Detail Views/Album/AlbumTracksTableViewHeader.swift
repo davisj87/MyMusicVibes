@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumTracksTableViewHeader: UIView {
+class AlbumTracksTableViewHeaderCell: ShadowTableViewCell {
         
     var album:AlbumCellViewModel? {
         didSet {
@@ -63,9 +63,8 @@ class AlbumTracksTableViewHeader: UIView {
         
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubview(albumLabel)
         addSubview(trackImageView)
@@ -73,26 +72,26 @@ class AlbumTracksTableViewHeader: UIView {
         addSubview(releaseLabel)
         
         
-        albumLabel.topAnchor.constraint(equalTo:self.topAnchor, constant: 10).isActive = true
-        albumLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant:10).isActive = true
-        albumLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant:-10).isActive = true
+        albumLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor, constant: 10).isActive = true
+        albumLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor, constant:10).isActive = true
+        albumLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:-10).isActive = true
         
         trackImageView.topAnchor.constraint(equalTo:self.albumLabel.bottomAnchor, constant: 10).isActive = true
-        trackImageView.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
+        trackImageView.centerXAnchor.constraint(equalTo:self.containerView.centerXAnchor).isActive = true
         trackImageView.widthAnchor.constraint(equalToConstant:100).isActive = true
         trackImageView.heightAnchor.constraint(equalToConstant:100).isActive = true
         
         artistLabel.topAnchor.constraint(equalTo:self.trackImageView.bottomAnchor, constant: 20).isActive = true
-        artistLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant:10).isActive = true
-        artistLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant:-10).isActive = true
+        artistLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor, constant:10).isActive = true
+        artistLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:-10).isActive = true
         
         releaseLabel.topAnchor.constraint(equalTo:self.artistLabel.bottomAnchor, constant: 4).isActive = true
-        releaseLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant:10).isActive = true
-        releaseLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant:-10).isActive = true
+        releaseLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor, constant:10).isActive = true
+        releaseLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:-10).isActive = true
         
-        self.layer.shadowOpacity = 0.1
-        self.layer.shadowOffset = CGSize(width: 0, height: 3)
-        self.layer.shadowRadius = 2
+//        self.layer.shadowOpacity = 0.1
+//        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+//        self.layer.shadowRadius = 2
         
     }
     

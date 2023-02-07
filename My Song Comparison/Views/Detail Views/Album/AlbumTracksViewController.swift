@@ -29,6 +29,7 @@ class AlbumTracksViewController: UIViewController {
         albumTracksTableView.separatorStyle = .none
 
         albumTracksTableView.register(TrackDetailTableViewCell.self, forCellReuseIdentifier: "trackDetailTableViewCell")
+        albumTracksTableView.register(AlbumTracksTableViewHeaderCell.self, forCellReuseIdentifier: "albumTracksTableViewHeaderCell")
         
         albumTracksTableView.translatesAutoresizingMaskIntoConstraints = false
         albumTracksTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true

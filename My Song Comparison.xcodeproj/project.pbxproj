@@ -110,6 +110,10 @@
 		83D5C3E7298C173E000CC68D /* PlaylistTracksChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5C3E6298C173E000CC68D /* PlaylistTracksChart.swift */; };
 		83D5C3E9298C18EC000CC68D /* PlaylistTracksChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5C3E8298C18EC000CC68D /* PlaylistTracksChartViewModel.swift */; };
 		83DCE38D2992A11B00195310 /* ItemsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE38C2992A11B00195310 /* ItemsWrapper.swift */; };
+		83DCE38F2992C0E100195310 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE38E2992C0E100195310 /* UIColor+Extension.swift */; };
+		83DCE3932992C16B00195310 /* AlbumTracksChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE3922992C16B00195310 /* AlbumTracksChartViewModel.swift */; };
+		83DCE3972992C2A700195310 /* TracksChartDetailViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE3962992C2A700195310 /* TracksChartDetailViewFormatter.swift */; };
+		83DCE3992992C3CE00195310 /* AlbumTracksChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DCE3982992C3CE00195310 /* AlbumTracksChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +241,10 @@
 		83D5C3E6298C173E000CC68D /* PlaylistTracksChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksChart.swift; sourceTree = "<group>"; };
 		83D5C3E8298C18EC000CC68D /* PlaylistTracksChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksChartViewModel.swift; sourceTree = "<group>"; };
 		83DCE38C2992A11B00195310 /* ItemsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsWrapper.swift; sourceTree = "<group>"; };
+		83DCE38E2992C0E100195310 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		83DCE3922992C16B00195310 /* AlbumTracksChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksChartViewModel.swift; sourceTree = "<group>"; };
+		83DCE3962992C2A700195310 /* TracksChartDetailViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksChartDetailViewFormatter.swift; sourceTree = "<group>"; };
+		83DCE3982992C3CE00195310 /* AlbumTracksChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -509,6 +517,7 @@
 				83A50AB0297F1F4D0047ABA3 /* AlbumTracksViewController.swift */,
 				83A50AB3297F1F870047ABA3 /* AlbumTracksViewController+TableViewDelegates.swift */,
 				83065DA2298B078500EF5DA2 /* AlbumTracksTableViewHeader.swift */,
+				83DCE39A2992C42D00195310 /* AlbumTrack SwiftUI Chart */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -547,6 +556,7 @@
 			children = (
 				838F9E23297D67A80073F1CC /* AlbumTracksViewModel.swift */,
 				83AE7C2C29885F2100FBE7EF /* AlbumCellViewModel.swift */,
+				83DCE3922992C16B00195310 /* AlbumTracksChartViewModel.swift */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -659,8 +669,10 @@
 		83B309492964CD7C00D7AB75 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				83DCE3962992C2A700195310 /* TracksChartDetailViewFormatter.swift */,
 				83B3094A2964CDA700D7AB75 /* JSONUtilities.swift */,
 				83A3197D2975A9B300CC9D43 /* UIImage+Extension.swift */,
+				83DCE38E2992C0E100195310 /* UIColor+Extension.swift */,
 				832ADA332971FA2900AAA44B /* KeychainHelper.swift */,
 			);
 			path = Utilities;
@@ -714,6 +726,14 @@
 			);
 			name = "Playlist SwiftUI Chart";
 			path = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		83DCE39A2992C42D00195310 /* AlbumTrack SwiftUI Chart */ = {
+			isa = PBXGroup;
+			children = (
+				83DCE3982992C3CE00195310 /* AlbumTracksChart.swift */,
+			);
+			path = "AlbumTrack SwiftUI Chart";
 			sourceTree = "<group>";
 		};
 		83F282FD2965E86000F6AC31 /* Tracks */ = {
@@ -934,6 +954,7 @@
 				83B2A63F296C5F08002B703C /* TopTracksViewController.swift in Sources */,
 				83B09E08297727360072CAE6 /* SingleTrackDetailEndpoint.swift in Sources */,
 				83331A44295DD6AD00B23617 /* SceneDelegate.swift in Sources */,
+				83DCE38F2992C0E100195310 /* UIColor+Extension.swift in Sources */,
 				83BEA2F4297B0C8600D0F8A2 /* TrackDetailTableViewCell.swift in Sources */,
 				83A50AB1297F1F4D0047ABA3 /* AlbumTracksViewController.swift in Sources */,
 				83BEA2EE297AF5EB00D0F8A2 /* PlaylistViewController+TableViewDelegates.swift in Sources */,
@@ -961,6 +982,7 @@
 				83065DA1298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift in Sources */,
 				83D07FBD2979E02300B0D10A /* PlaylistTrackObject.swift in Sources */,
 				835E518E296721E90076F248 /* PlaylistListWrapper.swift in Sources */,
+				83DCE3932992C16B00195310 /* AlbumTracksChartViewModel.swift in Sources */,
 				83D07FB92979D6FE00B0D10A /* TracksDetailEndpoint.swift in Sources */,
 				835E5198296741DC0076F248 /* ArtistObject.swift in Sources */,
 				83D07FC02979E0A100B0D10A /* PlaylistTracksEndpoint.swift in Sources */,
@@ -976,9 +998,11 @@
 				835E51A2296767720076F248 /* SearchArtistEndpoint.swift in Sources */,
 				83A974882984581A003AEF81 /* SearchTableViewCell.swift in Sources */,
 				835E5190296722090076F248 /* TrackListWrapper.swift in Sources */,
+				83DCE3992992C3CE00195310 /* AlbumTracksChart.swift in Sources */,
 				830CF78029687A5800B82F8F /* AuthorizedEndpoint.swift in Sources */,
 				838F9E24297D67A80073F1CC /* AlbumTracksViewModel.swift in Sources */,
 				83A9748629845700003AEF81 /* SearchViewController+SearchBar.swift in Sources */,
+				83DCE3972992C2A700195310 /* TracksChartDetailViewFormatter.swift in Sources */,
 				835A36FA298D67C4009C01AA /* MusicalPositivityChart.swift in Sources */,
 				839F49AE296322D30054F660 /* AuthEndpoint.swift in Sources */,
 				83AE7C27298859DB00FBE7EF /* ArtistCellViewModel.swift in Sources */,

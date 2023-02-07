@@ -13,16 +13,6 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        250
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = PlaylistTableViewHeader.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 250))
-//        headerView.playlist = self.vm?.playlist
-//        return headerView
-//    }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:

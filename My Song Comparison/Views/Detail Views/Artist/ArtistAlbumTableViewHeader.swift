@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtistAlbumTableViewHeader: UIView {
+class ArtistAlbumTableViewHeaderCell: UITableViewCell {
     
     var artist:ArtistCellViewModel? {
         didSet {
@@ -73,9 +73,8 @@ class ArtistAlbumTableViewHeader: UIView {
         
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubview(artistLabel)
         addSubview(followerLabel)

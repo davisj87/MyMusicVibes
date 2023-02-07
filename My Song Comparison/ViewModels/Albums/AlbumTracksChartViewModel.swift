@@ -1,22 +1,22 @@
 //
-//  PlaylistTracksChartViewModel.swift
+//  AlbumTracksChartViewModel.swift
 //  My Song Comparison
 //
-//  Created by Jarred Davis on 2/2/23.
+//  Created by Jarred Davis on 2/7/23.
 //
 
 import SwiftUI
 
-class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter, TracksChartDetailViewFormatter {
+class AlbumTracksChartViewModel: ObservableObject, TrackDetailViewFormatter, TracksChartDetailViewFormatter {
     
-    private var playlistTracks:[PlaylistTrackObject]
+    private var albumTracks:[TracksObject]
     private var trackDetails:Set<TrackFeaturesObject?>
     
     @Published var musicalPositivityArr:[MusicalPositivity] = []
     @Published var energyArr:(energyData:[EnergyChartViewModel], energyColorArr:[Color]) = (energyData:[], energyColorArr:[])
     
-    init(playlistTracks:[PlaylistTrackObject], trackDetails:Set<TrackFeaturesObject?>) {
-        self.playlistTracks = playlistTracks
+    init(albumTracks:[TracksObject], trackDetails:Set<TrackFeaturesObject?>) {
+        self.albumTracks = albumTracks
         self.trackDetails = trackDetails
     }
     
@@ -70,62 +70,15 @@ class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter, 
     
     private func getSortedTracksDetailsArray() -> [TrackFeaturesObject] {
         var trackFeaturesArr:[TrackFeaturesObject] = []
-        for eachTrack in playlistTracks {
-            if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: eachTrack.track.id)),
+        for eachTrack in albumTracks {
+            if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: eachTrack.id)),
                 let detailObj = trackDetails[detailIndex] {
                 trackFeaturesArr.append(detailObj)
             }
         }
         self.trackDetails = []
-        self.playlistTracks = []
+        self.albumTracks = []
         return trackFeaturesArr
     }
     
 }
-
-
-
-struct EnergyChartViewModel:Identifiable {
-    let id:String
-    let energy:Int
-    let color:UIColor = .random
-}
-
-struct MusicalPositivity:Identifiable {
-    let id = UUID()
-    let positivity:String
-    let numTracks:Int
-}
-
-struct MusicalPositivityDisplayData {
-    static let musicalPosArr:[MusicalPositivity] = [
-        MusicalPositivity(positivity: "Sad", numTracks: 1),
-        MusicalPositivity(positivity: "Gloomy", numTracks: 2),
-        MusicalPositivity(positivity: "Neutral", numTracks: 3),
-        MusicalPositivity(positivity: "Upbeat", numTracks: 2),
-        MusicalPositivity(positivity: "Happy", numTracks: 1)
-    ]
-}
-/**
- 
- func intValencetoString(valence:Float) -> String {
-     /* A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
-     Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric),
-     while tracks with low valence sound more negative (e.g. sad, depressed, angry). */
-     switch Int(valence) {
-     case 0...20:
-         return "Sad"
-     case 21...45:
-         return "Gloomy"
-     case 46...55:
-         return "Neutral"
-     case 56...79:
-         return "Upbeat"
-     case 80...100:
-         return "Happy"
-     default:
-         return "Undefined"
-     }
- }
- 
- */

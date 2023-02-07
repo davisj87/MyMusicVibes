@@ -27,6 +27,7 @@ class ArtistAlbumsViewController: UIViewController {
         albumTableView.separatorStyle = .none
 
         albumTableView.register(ArtistAlbumsTableViewCell.self, forCellReuseIdentifier: "artistAlbumsTableViewCell")
+        albumTableView.register(ArtistAlbumTableViewHeaderCell.self, forCellReuseIdentifier: "artistAlbumTableViewHeaderCell")
         
         albumTableView.translatesAutoresizingMaskIntoConstraints = false
         albumTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true

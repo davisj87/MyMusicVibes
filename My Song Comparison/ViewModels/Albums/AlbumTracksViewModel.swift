@@ -10,8 +10,8 @@ import Foundation
 class AlbumTracksViewModel {
     
     private let authManager = AuthManager()
-    private var tracks:[TracksObject] = []
-    private var trackDetails = Set<TrackFeaturesObject?>()
+    private (set) var tracks:[TracksObject] = []
+    private (set) var trackDetails = Set<TrackFeaturesObject?>()
     let album:AlbumCellViewModel
 
     var trackCount:Int {
