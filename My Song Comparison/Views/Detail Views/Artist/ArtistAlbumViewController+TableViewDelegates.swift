@@ -85,14 +85,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    private func createSpinnerFooter() -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        let spinner = UIActivityIndicatorView()
-        spinner.center = footerView.center
-        footerView.addSubview(spinner)
-        spinner.startAnimating()
-        return footerView
-    }
+
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let cVM = self.vm, cVM.albumTotal > cVM.albumCount else { return }
@@ -101,7 +94,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         if position > (albumTableView.contentSize.height - 100 - scrollView.frame.size.height) {
             Task{
                 do {
-                    self.albumTableView.tableFooterView = createSpinnerFooter()
+                    self.albumTableView.tableFooterView = self.createSpinnerFooter()
                     try await cVM.getMoreAlbumsFromArtist()
                     self.albumTableView.reloadData()
                     self.albumTableView.tableFooterView = nil

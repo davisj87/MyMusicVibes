@@ -10,6 +10,8 @@ import Foundation
 protocol SearchEndpoint: AuthorizedEndpoint {
     var searchString:String { get }
     var searchType: SearchType? { get }
+    var limit:Int { get }
+    var offset:Int { get }
 }
 
 extension SearchEndpoint {
@@ -35,6 +37,8 @@ extension SearchEndpoint {
                 qDict["type"] = searchType.rawValue
             }
         }
+        qDict["limit"] = String(self.limit)
+        qDict["offset"] = String(self.offset)
         qDict["market"] = "US"
         qDict["q"] = self.searchString
         return qDict

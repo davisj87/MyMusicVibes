@@ -11,7 +11,7 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
     func didTapSearchResult(result:ItemOverviewCellViewModelProtocol)
 }
 
-class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     weak var delegate: SearchResultsViewControllerDelegate?
     
@@ -72,6 +72,28 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didTapSearchResult(result: self.vm.searchViewModelCells[indexPath.row])
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        guard !self.vm.isSearching || self.vm.currentSearchScope != .all  else { return }
+//
+//      //  guard let cVM = self.vm, cVM.albumTotal > cVM.albumCount else { return }
+//
+//        let position = scrollView.contentOffset.y
+//        if position > (searchTableView.contentSize.height - 100 - scrollView.frame.size.height) {
+//            Task{
+//                do {
+//                    self.searchTableView.tableFooterView = createSpinnerFooter()
+//                   // try await cVM.getMoreAlbumsFromArtist()
+//                    self.searchTableView.reloadData()
+//                    self.searchTableView.tableFooterView = nil
+//                } catch {
+//                    self.searchTableView.tableFooterView = nil
+//                    print("Error getting more albums")
+//                }
+//            }
+//        }
+//    }
     
     
 }

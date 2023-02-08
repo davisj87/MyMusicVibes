@@ -8,7 +8,12 @@
 import Foundation
 
 struct SearchPlaylistEndpoint: SearchEndpoint {
+
     var searchString: String
+    
+    var limit: Int
+    
+    var offset: Int
     
     var searchType: SearchType? {
         return .playlist

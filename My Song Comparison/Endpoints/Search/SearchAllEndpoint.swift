@@ -8,6 +8,10 @@
 import Foundation
 
 struct SearchAllEndpoint: SearchEndpoint {
+    var limit: Int = 20
+    
+    var offset: Int = 0
+    
     var searchString: String
     
     var searchType: SearchType? {
