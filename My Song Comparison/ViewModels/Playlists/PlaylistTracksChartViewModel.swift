@@ -56,7 +56,7 @@ class PlaylistTracksChartViewModel: ObservableObject, TrackDetailViewFormatter, 
             }
         }
 
-        energyColorArr = getColorArrForEnergy(minValue: minEnergy, maxValue: maxEnergy)
+        energyColorArr = self.getColorArrForEnergy(minValue: minEnergy, maxValue: maxEnergy)
         self.energyArr = (energyData:tempEnergyArr, energyColorArr:energyColorArr)
         self.musicalPositivityArr = [
             MusicalPositivity(positivity: "Sad", numTracks: lowValCount),

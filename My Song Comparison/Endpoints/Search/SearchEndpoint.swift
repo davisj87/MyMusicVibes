@@ -28,8 +28,12 @@ extension SearchEndpoint {
     
     var queryItems: [String : String]? {
         var qDict:[String:String] = [:]
-        if let searchType = self.searchType, searchType != .all {
-            qDict["type"] = searchType.rawValue
+        if let searchType = self.searchType {
+            if searchType == .all{
+                qDict["type"] = "track,album,artist,playlist"
+            } else {
+                qDict["type"] = searchType.rawValue
+            }
         }
         qDict["market"] = "US"
         qDict["q"] = self.searchString

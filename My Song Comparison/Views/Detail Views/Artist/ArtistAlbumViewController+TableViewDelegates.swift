@@ -106,6 +106,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
                     self.albumTableView.reloadData()
                     self.albumTableView.tableFooterView = nil
                 } catch {
+                    self.albumTableView.tableFooterView = nil
                     print("Error getting more albums")
                 }
             }

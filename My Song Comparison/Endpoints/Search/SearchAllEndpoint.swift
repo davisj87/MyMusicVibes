@@ -11,7 +11,7 @@ struct SearchAllEndpoint: SearchEndpoint {
     var searchString: String
     
     var searchType: SearchType? {
-        return nil
+        return .all
     }
     
     typealias ModelType = SearchAllWrapper

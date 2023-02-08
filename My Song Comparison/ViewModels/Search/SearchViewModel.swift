@@ -31,20 +31,20 @@ class SearchViewModel {
     }
     
     
-    private func getAll(query:String) async throws -> [AlbumCellViewModel] {
+    private func getAll(query:String) async throws -> [SearchAllCellViewModel] {
         let searchAllEndpoint = SearchAllEndpoint(searchString: query)
         let searchAllRequest = APIRequest(endpoint: searchAllEndpoint, authManager: authManager)
         guard let searchAllResults = try await searchAllRequest.executeRequest() else { return []}
         let albums = searchAllResults.albums.items
-        let albumCellVM = albums.map{ AlbumCellViewModel(albumObject: $0) }
+        let albumCellVM = albums.map{ SearchAllCellViewModel(albumObject: $0) }
         let playlists = searchAllResults.playlists.items
-        let playlistCellVM = playlists.map{ PlaylistCellViewModel(playlistObject: $0) }
+        let playlistCellVM = playlists.map{ SearchAllCellViewModel(playlistObject: $0) }
         let tracks = searchAllResults.tracks.items
-        let tracksCellVM = tracks.map{ TrackCellViewModel(tracksObject: $0) }
+        let tracksCellVM = tracks.map{ SearchAllCellViewModel(tracksObject: $0) }
         let artists = searchAllResults.artists.items
-        let artistCellVM = artists.map{ ArtistCellViewModel(artistsObject:$0) }
+        let artistCellVM = artists.map{ SearchAllCellViewModel(artistsObject:$0) }
         
-        return //albumCellVM + playlistCellVM + tracksCellVM + artistCellVM
+        return albumCellVM + playlistCellVM + tracksCellVM + artistCellVM
     }
     
     private func getAlbum(query:String) async throws -> [AlbumCellViewModel] {
