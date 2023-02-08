@@ -40,6 +40,7 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
     }
 
     func update(query:String, scope:String) {
+        guard !self.vm.isSearching else { return }
         Task {
             do {
                 self.showSpinner()
@@ -61,7 +62,7 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+    
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchTableViewCell", for: indexPath) as! SearchTableViewCell
         cell.seachCellViewModel = self.vm.searchViewModelCells[indexPath.row]
         return cell

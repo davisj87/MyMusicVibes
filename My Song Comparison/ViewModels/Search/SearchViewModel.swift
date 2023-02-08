@@ -8,13 +8,15 @@
 import Foundation
 
 class SearchViewModel {
-    
+    private (set) var isSearching:Bool = false
     private let authManager = AuthManager()
     var searchViewModelCells:[ItemOverviewCellViewModelProtocol] = []
     
     func searchMusic(type:String, query:String) async throws {
-        self.searchViewModelCells = []
+        guard !isSearching else { return }
         guard let filter = SearchType(rawValue: type) else { return }
+        self.isSearching = true
+        self.searchViewModelCells = []
         switch filter {
         case .all:
             self.searchViewModelCells = try await self.getAll(query: query)
@@ -28,6 +30,7 @@ class SearchViewModel {
             self.searchViewModelCells = try await self.getTracks(query: query)
      
         }
+        self.isSearching = false
     }
     
     
