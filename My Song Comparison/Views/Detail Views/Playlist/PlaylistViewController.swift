@@ -42,10 +42,10 @@ class PlaylistViewController: UIViewController {
                 self.showSpinner()
                 try await cVM.getTracks()
                 self.playlistTableView.reloadData()
-                self.removeSpinner()
             } catch {
                 print("Error getting playlist tracks")
             }
+            self.removeSpinner()
         }
     }
     

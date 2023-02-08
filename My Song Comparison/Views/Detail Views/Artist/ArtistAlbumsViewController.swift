@@ -43,10 +43,10 @@ class ArtistAlbumsViewController: UIViewController {
                 self.showSpinner()
                 try await cVM.getAlbumsFromArtist()
                 self.albumTableView.reloadData()
-                self.removeSpinner()
             } catch {
                 print("Error getting playlist tracks")
             }
+            self.removeSpinner()
         }
     }
     

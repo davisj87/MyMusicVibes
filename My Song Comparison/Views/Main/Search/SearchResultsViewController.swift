@@ -45,10 +45,10 @@ class SearchResultsViewController: UIViewController,  UITableViewDelegate, UITab
                 self.showSpinner()
                 try await self.vm.searchMusic(type: scope, query: query)
                 self.searchTableView.reloadData()
-                self.removeSpinner()
             } catch {
                 print("didn't work")
             }
+            self.removeSpinner()
         }
     }
     

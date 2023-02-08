@@ -45,10 +45,10 @@ class AlbumTracksViewController: UIViewController {
                 self.showSpinner()
                 try await cVM.getAlbumTracks()
                 self.albumTracksTableView.reloadData()
-                self.removeSpinner()
             } catch {
                 print("Error getting playlist tracks")
             }
+            self.removeSpinner()
         }
     }
 
