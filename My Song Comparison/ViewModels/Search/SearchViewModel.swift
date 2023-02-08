@@ -16,7 +16,6 @@ class SearchViewModel {
         guard !isSearching else { return }
         guard let filter = SearchType(rawValue: type) else { return }
         self.isSearching = true
-        self.searchViewModelCells = []
         switch filter {
         case .all:
             self.searchViewModelCells = try await self.getAll(query: query)
