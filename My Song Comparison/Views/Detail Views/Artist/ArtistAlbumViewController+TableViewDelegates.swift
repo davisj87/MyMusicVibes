@@ -7,14 +7,10 @@
 
 import UIKit
 
-extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource {
+extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        280
-//    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
@@ -41,7 +37,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 250
+            return 280
         case 1:
             return 120
         default:
@@ -86,6 +82,33 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
             navigationController?.pushViewController(albumTracksVC, animated: true)
         default:
             return
+        }
+    }
+    
+    private func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        return footerView
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let cVM = self.vm, cVM.albumTotal > cVM.albumCount else { return }
+        
+        let position = scrollView.contentOffset.y
+        if position > (albumTableView.contentSize.height - 100 - scrollView.frame.size.height) {
+            Task{
+                do {
+                    self.albumTableView.tableFooterView = createSpinnerFooter()
+                    try await cVM.getMoreAlbumsFromArtist()
+                    self.albumTableView.reloadData()
+                    self.albumTableView.tableFooterView = nil
+                } catch {
+                    print("Error getting more albums")
+                }
+            }
         }
     }
 }

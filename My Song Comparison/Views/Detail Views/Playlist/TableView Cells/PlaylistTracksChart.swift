@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct PlaylistTracksChart: View {
-    @StateObject var vm:PlaylistTracksChartViewModel
+    @ObservedObject  var vm:PlaylistTracksChartViewModel
     var body: some View {
         VStack {
             MusicalPositivityChart(musicalPositivityArr: self.vm.musicalPositivityArr)

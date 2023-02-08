@@ -8,9 +8,10 @@
 import Foundation
 
 class ArtistAlbumsViewModel  {
-    
+    private var isPaginating:Bool = false
     private let authManager = AuthManager()
     private var albums:[AlbumObject] = []
+    private (set) var albumTotal:Int = 0
     
     var albumCount:Int {
         return albums.count
@@ -28,9 +29,27 @@ class ArtistAlbumsViewModel  {
     }
     
     func getAlbumsFromArtist() async throws {
-        let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artist.id)
+        let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artist.id, limit: 20, offset: 0)
         let artistAlbumsRequest = APIRequest(endpoint: artistAlbumsEndpoint, authManager: authManager)
-        guard let artistAlbums = try await artistAlbumsRequest.executeRequest() else { return }
+        guard let artistAlbums = try await artistAlbumsRequest.executeRequest(),
+        artistAlbums.total > 0 else { return }
+        
+        self.albumTotal = artistAlbums.total
         self.albums = artistAlbums.items
     }
+    
+    func getMoreAlbumsFromArtist() async throws {
+        guard self.albumTotal > self.albums.count else { return }
+        if !isPaginating {
+            self.isPaginating = true
+            let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artist.id, limit: 20, offset: self.albumCount)
+            let artistAlbumsRequest = APIRequest(endpoint: artistAlbumsEndpoint, authManager: authManager)
+            guard let artistAlbums = try await artistAlbumsRequest.executeRequest(), artistAlbums.total > 0 else { return }
+            
+            self.albums.append(contentsOf: artistAlbums.items)
+            self.isPaginating = false
+        }
+    }
+    
+    
 }

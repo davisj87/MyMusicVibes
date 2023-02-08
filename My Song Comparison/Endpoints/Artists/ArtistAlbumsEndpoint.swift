@@ -9,6 +9,8 @@ import Foundation
 
 struct ArtistAlbumsEndpoint: AuthorizedEndpoint {
     var id:String
+    var limit:Int
+    var offset:Int
     
     var host: String {
         return "https://api.spotify.com"
@@ -23,7 +25,11 @@ struct ArtistAlbumsEndpoint: AuthorizedEndpoint {
     }
     
     var queryItems: [String : String]? {
-        return nil
+        var qDict:[String:String] = [:]
+        qDict["market"] = "US"
+        qDict["limit"] = String(self.limit)
+        qDict["offset"] = String(self.offset)
+        return qDict
     }
     
     typealias ModelType = ObjectItemWrapper<AlbumObject>

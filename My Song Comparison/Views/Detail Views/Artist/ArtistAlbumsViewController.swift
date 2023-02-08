@@ -10,7 +10,7 @@ import UIKit
 class ArtistAlbumsViewController: UIViewController {
     
     var vm: ArtistAlbumsViewModel?
-    private let albumTableView: UITableView = UITableView()
+    let albumTableView: UITableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

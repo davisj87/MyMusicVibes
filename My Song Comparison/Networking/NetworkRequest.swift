@@ -24,6 +24,7 @@ extension NetworkRequest {
                 throw RequestError.noResponse
             }
             print(response.statusCode)
+            print(data.JSONObject)
             switch response.statusCode {
             case 200...299:
                 guard let decodedResponse = self.decode(data) else {
