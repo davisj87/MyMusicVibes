@@ -16,6 +16,8 @@ class SearchViewModel {
         self.searchViewModelCells = []
         guard let filter = SearchType(rawValue: type) else { return }
         switch filter {
+        case .all:
+            self.searchViewModelCells = try await self.getAll(query: query)
         case .album:
             self.searchViewModelCells = try await self.getAlbum(query: query)
         case .artist:
@@ -24,8 +26,25 @@ class SearchViewModel {
             self.searchViewModelCells = try await self.getPlaylists(query: query)
         case .track:
             self.searchViewModelCells = try await self.getTracks(query: query)
-            return
+     
         }
+    }
+    
+    
+    private func getAll(query:String) async throws -> [AlbumCellViewModel] {
+        let searchAllEndpoint = SearchAllEndpoint(searchString: query)
+        let searchAllRequest = APIRequest(endpoint: searchAllEndpoint, authManager: authManager)
+        guard let searchAllResults = try await searchAllRequest.executeRequest() else { return []}
+        let albums = searchAllResults.albums.items
+        let albumCellVM = albums.map{ AlbumCellViewModel(albumObject: $0) }
+        let playlists = searchAllResults.playlists.items
+        let playlistCellVM = playlists.map{ PlaylistCellViewModel(playlistObject: $0) }
+        let tracks = searchAllResults.tracks.items
+        let tracksCellVM = tracks.map{ TrackCellViewModel(tracksObject: $0) }
+        let artists = searchAllResults.artists.items
+        let artistCellVM = artists.map{ ArtistCellViewModel(artistsObject:$0) }
+        
+        return //albumCellVM + playlistCellVM + tracksCellVM + artistCellVM
     }
     
     private func getAlbum(query:String) async throws -> [AlbumCellViewModel] {

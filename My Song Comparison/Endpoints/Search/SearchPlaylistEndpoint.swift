@@ -10,7 +10,7 @@ import Foundation
 struct SearchPlaylistEndpoint: SearchEndpoint {
     var searchString: String
     
-    var searchType: SearchType {
+    var searchType: SearchType? {
         return .playlist
     }
     typealias ModelType = PlaylistWrapper

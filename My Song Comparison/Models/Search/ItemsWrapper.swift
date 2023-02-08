@@ -11,4 +11,5 @@ import Foundation
 
 struct ItemsWrapper<T:Decodable>: Decodable {
     var items: [T]
+    var total:Int
 }

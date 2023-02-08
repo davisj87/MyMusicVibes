@@ -10,7 +10,7 @@ import Foundation
 struct SearchTrackEndpoint: SearchEndpoint {
     var searchString: String
 
-    var searchType: SearchType {
+    var searchType: SearchType? {
         return .track
     }
     typealias ModelType = TracksWrapper

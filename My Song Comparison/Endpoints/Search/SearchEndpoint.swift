@@ -9,7 +9,7 @@ import Foundation
 
 protocol SearchEndpoint: AuthorizedEndpoint {
     var searchString:String { get }
-    var searchType: SearchType { get }
+    var searchType: SearchType? { get }
 }
 
 extension SearchEndpoint {
@@ -28,8 +28,9 @@ extension SearchEndpoint {
     
     var queryItems: [String : String]? {
         var qDict:[String:String] = [:]
-        
-        qDict["type"] = self.searchType.rawValue
+        if let searchType = self.searchType, searchType != .all {
+            qDict["type"] = searchType.rawValue
+        }
         qDict["market"] = "US"
         qDict["q"] = self.searchString
         return qDict
@@ -37,6 +38,7 @@ extension SearchEndpoint {
 }
 
 enum SearchType: String, CaseIterable {
+    case all = "all"
     case album = "album"
     case artist = "artist"
     case playlist = "playlist"

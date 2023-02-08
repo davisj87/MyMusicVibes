@@ -18,7 +18,7 @@ struct ArtistWrapper: Decodable {
 extension ArtistWrapper {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.artists = try container.decodeIfPresent(ItemsWrapper.self, forKey: .artists) ?? ItemsWrapper(items: [])
+        self.artists = try container.decodeIfPresent(ItemsWrapper.self, forKey: .artists) ?? ItemsWrapper(items: [], total:0)
     }
 }
 

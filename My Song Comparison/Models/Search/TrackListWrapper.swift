@@ -18,7 +18,7 @@ struct TracksWrapper: Decodable {
 extension TracksWrapper {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.tracks = try container.decodeIfPresent(ItemsWrapper.self, forKey: .tracks) ?? ItemsWrapper(items: [])
+        self.tracks = try container.decodeIfPresent(ItemsWrapper.self, forKey: .tracks) ?? ItemsWrapper(items: [], total:0)
     }
 }
 

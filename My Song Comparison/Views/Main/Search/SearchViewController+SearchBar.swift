@@ -38,6 +38,8 @@ extension SearchViewController: SearchResultsViewControllerDelegate {
     func didTapSearchResult(result: ItemOverviewCellViewModelProtocol) {
         guard let filter = SearchType(rawValue: self.selectedScope()) else { return }
         switch filter {
+        case .all:
+            return
         case .album:
             guard let album = result as? AlbumCellViewModel else { return }
             let albumTracksVC = AlbumTracksViewController()

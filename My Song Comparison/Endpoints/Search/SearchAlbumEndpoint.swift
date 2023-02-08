@@ -10,7 +10,7 @@ import Foundation
 struct SearchAlbumEndpoint: SearchEndpoint {
     var searchString: String
     
-    var searchType: SearchType {
+    var searchType: SearchType? {
         return .album
     }
     

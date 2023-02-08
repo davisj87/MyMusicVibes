@@ -18,7 +18,7 @@ struct AlbumWrapper: Decodable {
 extension AlbumWrapper {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.albums = try container.decodeIfPresent(ItemsWrapper.self, forKey: .albums) ?? ItemsWrapper(items: [])
+        self.albums = try container.decodeIfPresent(ItemsWrapper.self, forKey: .albums) ?? ItemsWrapper(items: [], total:0)
     }
 }
 
