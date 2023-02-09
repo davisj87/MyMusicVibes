@@ -17,7 +17,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     private let vm: SearchViewModel = SearchViewModel()
     private let searchTableView: UITableView = UITableView()
-    private let imageLoader = ImageLoader()
+    private var imageLoader = ImageLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
 
     func update(query:String, scope:String) {
         guard !self.vm.isSearching else { return }
+        self.imageLoader = ImageLoader()
         Task {
             do {
                 self.showSpinner()
