@@ -8,12 +8,12 @@
 import UIKit
 
 class ImageLoader {
-    private var loadedImages = [URL: UIImage]()
+    private var loadedImages = NSCache<NSString, UIImage>()//[URL: UIImage]()
     private var runningRequests = [UUID: URLSessionDataTask]()
     
-    func loadImage(_ url: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
-        guard let url = URL(string: url) else { return nil }
-        if let image = loadedImages[url] {
+    func loadImage(_ urlString: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
+        guard let url = URL(string: urlString) else { return nil }
+        if let image = loadedImages.object(forKey: urlString as NSString){//loadedImages[url] {
             completion(.success(image))
             return nil
         }
@@ -23,7 +23,8 @@ class ImageLoader {
             defer {self.runningRequests.removeValue(forKey: uuid) }
           
             if let data = data, let image = UIImage(data: data) {
-                self.loadedImages[url] = image
+                self.loadedImages.setObject(image, forKey: urlString as NSString)
+                    //self.loadedImages[url] = image
                 completion(.success(image))
                 return
             }
