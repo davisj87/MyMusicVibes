@@ -13,17 +13,18 @@ class SearchTableViewCell:ShadowTableViewCell {
             guard let seachCellViewModel = seachCellViewModel else { return }
             primaryLabel.text = seachCellViewModel.primaryText
             secondaryLabel.text = seachCellViewModel.secondaryText
-            Task {
-                do {
-                    pictureView.image = try await UIImage().loadImage(seachCellViewModel.imageUrl)
-                }catch {
-                    print ("image didnt load")
-                }
-            }
+//            Task {
+//                do {
+//                    pictureView.image = try await UIImage().loadImage(seachCellViewModel.imageUrl)
+//                    //try await pictureView.loadImageWithUrl(urlString: seachCellViewModel.imageUrl)
+//                }catch {
+//                    print ("image didnt load")
+//                }
+//            }
         }
     }
     
-    private let pictureView:UIImageView = {
+    var pictureView:UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
@@ -46,6 +47,13 @@ class SearchTableViewCell:ShadowTableViewCell {
         return label
     }()
     
+    var onReuse: () -> Void = {}
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        onReuse()
+        pictureView.image = nil
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

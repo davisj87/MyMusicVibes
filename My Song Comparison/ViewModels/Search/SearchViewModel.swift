@@ -11,6 +11,7 @@ class SearchViewModel {
     private (set) var isSearching:Bool = false
     
     private (set) var currentSearchScope:SearchType = .all
+    private (set) var currentScopeTotal:Int = 0
     
     private var currentScopeCountOffset:Int {
         if self.currentSearchScope == .all {
@@ -19,7 +20,6 @@ class SearchViewModel {
         return self.searchViewModelCells.count
     }
     
-    private var currentScopeTotal:Int = 0
     private var currentQuery:String = ""
     
     private let authManager = AuthManager()
@@ -47,20 +47,24 @@ class SearchViewModel {
         self.isSearching = false
     }
     
-    func searchMoreMusic(query:String) async throws {
+    func searchMoreMusic() async throws {
         guard !isSearching else { return }
         self.isSearching = true
         switch self.currentSearchScope {
         case .all:
             break
         case .album:
-            self.searchViewModelCells = try await self.getAlbum(query: query, limit: 20, offset: self.currentScopeCountOffset)
+            let additionalAlbums = try await self.getAlbum(query: currentQuery, limit: 20, offset: self.currentScopeCountOffset)
+            self.searchViewModelCells.append(contentsOf: additionalAlbums)
         case .artist:
-            self.searchViewModelCells = try await self.getArtists(query: query, limit: 20, offset: self.currentScopeCountOffset)
+            let additionalArtists = try await self.getArtists(query: currentQuery, limit: 20, offset: self.currentScopeCountOffset)
+            self.searchViewModelCells.append(contentsOf: additionalArtists)
         case .playlist:
-            self.searchViewModelCells = try await self.getPlaylists(query: query, limit: 20, offset: self.currentScopeCountOffset)
+            let additionalPlaylists = try await self.getPlaylists(query: currentQuery, limit: 20, offset: self.currentScopeCountOffset)
+            self.searchViewModelCells.append(contentsOf: additionalPlaylists)
         case .track:
-            self.searchViewModelCells = try await self.getTracks(query: query, limit: 20, offset: self.currentScopeCountOffset)
+            let additionalTracks = try await self.getTracks(query: currentQuery, limit: 20, offset: self.currentScopeCountOffset)
+            self.searchViewModelCells.append(contentsOf: additionalTracks)
      
         }
         self.isSearching = false
@@ -92,6 +96,7 @@ class SearchViewModel {
         let searchAlbumRequest = APIRequest(endpoint: searchAlbumEndpoint, authManager: authManager)
         guard let searchAlbumResults = try await searchAlbumRequest.executeRequest() else { return []}
         let albums = searchAlbumResults.albums.items
+        self.currentScopeTotal = searchAlbumResults.albums.total
         return albums.map{ AlbumCellViewModel(albumObject: $0) }
     }
     
@@ -100,6 +105,7 @@ class SearchViewModel {
         let searchArtistRequest = APIRequest(endpoint: searchArtistEndpoint, authManager: authManager)
         guard let searchArtistResults = try await searchArtistRequest.executeRequest() else { return []}
         let artists = searchArtistResults.artists.items
+        self.currentScopeTotal = searchArtistResults.artists.total
         return artists.map{ ArtistCellViewModel(artistsObject:$0) }
     }
     
@@ -108,6 +114,7 @@ class SearchViewModel {
         let searchPlaylistRequest = APIRequest(endpoint: searchPlaylistEndpoint, authManager: authManager)
         guard let searchPlaylistResults = try await searchPlaylistRequest.executeRequest() else { return []}
         let playlists = searchPlaylistResults.playlists.items
+        self.currentScopeTotal = searchPlaylistResults.playlists.total
         return playlists.map{ PlaylistCellViewModel(playlistObject: $0) }
     }
     
@@ -116,6 +123,7 @@ class SearchViewModel {
         let searchTrackRequest = APIRequest(endpoint: searchTrackEndpoint, authManager: authManager)
         guard let searchTrackResults = try await searchTrackRequest.executeRequest() else { return []}
         let tracks = searchTrackResults.tracks.items
+        self.currentScopeTotal = searchTrackResults.tracks.total
         return tracks.map{ TrackCellViewModel(tracksObject: $0) }
     }
 }

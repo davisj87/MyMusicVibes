@@ -17,6 +17,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     private let vm: SearchViewModel = SearchViewModel()
     private let searchTableView: UITableView = UITableView()
+    private let imageLoader = ImageLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,35 +66,49 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchTableViewCell", for: indexPath) as! SearchTableViewCell
         cell.seachCellViewModel = self.vm.searchViewModelCells[indexPath.row]
+        let token = imageLoader.loadImage(self.vm.searchViewModelCells[indexPath.row].imageUrl) { result in
+          do {
+            let image = try result.get()
+            DispatchQueue.main.async {
+              cell.pictureView.image = image
+            }
+          } catch {
+            print(error)
+          }
+        }
+        cell.onReuse = {
+          if let token = token {
+            self.imageLoader.cancelLoad(token)
+          }
+        }
         return cell
-
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didTapSearchResult(result: self.vm.searchViewModelCells[indexPath.row])
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        guard !self.vm.isSearching || self.vm.currentSearchScope != .all  else { return }
-//
-//      //  guard let cVM = self.vm, cVM.albumTotal > cVM.albumCount else { return }
-//
-//        let position = scrollView.contentOffset.y
-//        if position > (searchTableView.contentSize.height - 100 - scrollView.frame.size.height) {
-//            Task{
-//                do {
-//                    self.searchTableView.tableFooterView = createSpinnerFooter()
-//                   // try await cVM.getMoreAlbumsFromArtist()
-//                    self.searchTableView.reloadData()
-//                    self.searchTableView.tableFooterView = nil
-//                } catch {
-//                    self.searchTableView.tableFooterView = nil
-//                    print("Error getting more albums")
-//                }
-//            }
-//        }
-//    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        guard !self.vm.isSearching || self.vm.currentSearchScope != .all  else { return }
+
+        guard self.vm.currentScopeTotal > self.vm.searchViewModelCells.count else { return }
+
+        let position = scrollView.contentOffset.y
+        if position > (searchTableView.contentSize.height - 100 - scrollView.frame.size.height) {
+            Task{
+                do {
+                    self.searchTableView.tableFooterView = createSpinnerFooter()
+                    try await self.vm.searchMoreMusic()
+                    self.searchTableView.reloadData()
+                    self.searchTableView.tableFooterView = nil
+                } catch {
+                    self.searchTableView.tableFooterView = nil
+                    print("Error getting more albums")
+                }
+            }
+        }
+    }
     
     
 }
