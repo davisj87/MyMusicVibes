@@ -66,7 +66,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchTableViewCell", for: indexPath) as! SearchTableViewCell
-        cell.seachCellViewModel = self.vm.searchViewModelCells[indexPath.row]
+        cell.configure(self.vm.searchViewModelCells[indexPath.row])
         let token = imageLoader.loadImage(self.vm.searchViewModelCells[indexPath.row].imageUrl) { result in
           do {
             let image = try result.get()

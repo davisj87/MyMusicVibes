@@ -12,7 +12,7 @@ class ImageLoader {
     private var runningRequests = [UUID: URLSessionDataTask]()
     
     func loadImage(_ url: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
-        guard let url = URL(string: url) else {return nil}
+        guard let url = URL(string: url) else { return nil }
         if let image = loadedImages[url] {
             completion(.success(image))
             return nil

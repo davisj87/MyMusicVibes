@@ -8,20 +8,11 @@
 import UIKit
 
 class SearchTableViewCell:ShadowTableViewCell {
-    var seachCellViewModel:ItemOverviewCellViewModelProtocol? {
-        didSet {
-            guard let seachCellViewModel = seachCellViewModel else { return }
-            primaryLabel.text = seachCellViewModel.primaryText
-            secondaryLabel.text = seachCellViewModel.secondaryText
-//            Task {
-//                do {
-//                    pictureView.image = try await UIImage().loadImage(seachCellViewModel.imageUrl)
-//                    //try await pictureView.loadImageWithUrl(urlString: seachCellViewModel.imageUrl)
-//                }catch {
-//                    print ("image didnt load")
-//                }
-//            }
-        }
+    
+    func configure(_ seachCellViewModel:ItemOverviewCellViewModelProtocol?) {
+        guard let seachCellViewModel = seachCellViewModel else { return }
+        primaryLabel.text = seachCellViewModel.primaryText
+        secondaryLabel.text = seachCellViewModel.secondaryText
     }
     
     var pictureView:UIImageView = {
