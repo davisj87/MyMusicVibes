@@ -8,19 +8,16 @@
 import UIKit
 
 class AlbumTracksTableViewHeaderCell: ShadowTableViewCell {
-        
-    var album:AlbumCellViewModel? {
-        didSet {
-            guard let album = album else { return }
-            albumLabel.text = album.primaryText
-            artistLabel.text = album.secondaryText
-            releaseLabel.text = "Released: " + album.additionalDetailText
-            Task {
-                do {
-                    trackImageView.image = try await UIImage().loadImage(album.imageUrl)
-                }catch {
-                    print ("image didnt load")
-                }
+    func configure(_ albumCellViewModel:AlbumCellViewModel?) {
+        guard let album = albumCellViewModel else { return }
+        albumLabel.text = album.primaryText
+        artistLabel.text = album.secondaryText
+        releaseLabel.text = "Released: " + album.additionalDetailText
+        Task {
+            do {
+                trackImageView.image = try await UIImage().loadImage(album.imageUrl)
+            }catch {
+                print ("image didnt load")
             }
         }
     }

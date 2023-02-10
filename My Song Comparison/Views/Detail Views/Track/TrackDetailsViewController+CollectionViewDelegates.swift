@@ -44,9 +44,9 @@ extension TrackDetailsViewController: UICollectionViewDelegate, UICollectionView
                                                                          withReuseIdentifier: TrackCollectionReusableView.identifier,
                                                                          for: indexPath) as! TrackCollectionReusableView
             let track = cVM.track
-            header.track = track
+            header.configure(track)
             let section = cVM.trackSectionViewModel[indexPath.section]
-            header.section = section
+            header.configureSection(section)
             return header
         }
         
@@ -54,7 +54,7 @@ extension TrackDetailsViewController: UICollectionViewDelegate, UICollectionView
                                                                      withReuseIdentifier: TrackDetailHeaderCollectionReusableView.identifier,
                                                                      for: indexPath) as! TrackDetailHeaderCollectionReusableView
         let section = cVM.trackSectionViewModel[indexPath.section]
-        header.section = section
+        header.configureSection(section)
         return header
     }
     

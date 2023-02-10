@@ -10,11 +10,9 @@ import UIKit
 class TrackDetailHeaderCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackDetailHeaderCollectionReusableView"
     
-    var section:TrackCollectionViewSectionViewModel? {
-        didSet {
-            guard let section = section else { return }
-            sectionLabel.text = section.title
-        }
+    func configureSection(_ sectionViewModel:TrackCollectionViewSectionViewModel?) {
+        guard let section = sectionViewModel else { return }
+        sectionLabel.text = section.title
     }
     
     private let sectionLabel: UILabel = {

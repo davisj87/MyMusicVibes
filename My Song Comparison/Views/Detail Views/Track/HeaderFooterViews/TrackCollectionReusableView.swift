@@ -10,26 +10,22 @@ import UIKit
 class TrackCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackHeaderCollectionReusableView"
     
-    var track:TrackCellViewModel? {
-        didSet {
-            guard let track = track else { return }
-            artistLabel.text = track.secondaryText
-            albumLabel.text = track.additionalDetailText
-            Task {
-                do {
-                    trackImageView.image = try await UIImage().loadImage(track.imageUrl)
-                }catch {
-                    print ("image didnt load")
-                }
+    func configure(_ trackCellViewModel:TrackCellViewModel?) {
+        guard let track = trackCellViewModel else { return }
+        artistLabel.text = track.secondaryText
+        albumLabel.text = track.additionalDetailText
+        Task {
+            do {
+                trackImageView.image = try await UIImage().loadImage(track.imageUrl)
+            }catch {
+                print ("image didnt load")
             }
         }
     }
     
-    var section:TrackCollectionViewSectionViewModel? {
-        didSet {
-            guard let section = section else { return }
-            sectionLabel.text = section.title
-        }
+    func configureSection(_ sectionViewModel:TrackCollectionViewSectionViewModel?) {
+        guard let section = sectionViewModel else { return }
+        sectionLabel.text = section.title
     }
     
     private let trackImageView:UIImageView = {

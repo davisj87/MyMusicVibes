@@ -27,7 +27,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableViewCell", for: indexPath) as! HomeTableViewCell
-        cell.homeCellViewModel = self.vm.sections[indexPath.section].homeCells[indexPath.row]
+        cell.configure(self.vm.sections[indexPath.section].homeCells[indexPath.row])
         return cell
    
     }

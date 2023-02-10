@@ -51,13 +51,13 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumTableViewHeaderCell", for: indexPath) as! ArtistAlbumTableViewHeaderCell
             if let cVM = self.vm {
-                cell.artist = cVM.artist
+                cell.configure(cVM.artist)
             }
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumsTableViewCell", for: indexPath) as! ArtistAlbumsTableViewCell
             if let cVM = self.vm {
-                cell.album = cVM.getAlbumVM(at: indexPath.row)
+                cell.configure(cVM.getAlbumVM(at: indexPath.row))
             }
             return cell
         default:

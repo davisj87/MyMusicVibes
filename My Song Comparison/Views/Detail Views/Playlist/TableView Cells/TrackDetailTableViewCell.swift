@@ -8,25 +8,23 @@
 import UIKit
 
 class TrackDetailTableViewCell: ShadowTableViewCell {
-    var track:TrackDetailTableViewCellViewModel? {
-        didSet {
-            guard let track = track else { return }
-            nameLabel.text = track.name
-            artistLabel.text = track.artist
-            popLabel.text = track.popularity == "" ? "" : "Pop:\n" + track.popularity
-            popLabel.numberOfLines = 2
-            
-            valenceValueLabel.text = track.valence.value
-            dancabilityValueLabel.text = track.dancability.value
-            keyValueLabel.text = track.keyMode.value
-            Task {
-                do {
-                    trackImageView.image = try await UIImage().loadImage(track.imageUrlString)
-                }catch {
-                    print ("image didnt load")
-                }
+    
+    func configure(_ trackDetailViewModel:TrackDetailTableViewCellViewModel?) {
+        guard let track = trackDetailViewModel else { return }
+        nameLabel.text = track.name
+        artistLabel.text = track.artist
+        popLabel.text = track.popularity == "" ? "" : "Pop:\n" + track.popularity
+        popLabel.numberOfLines = 2
+        
+        valenceValueLabel.text = track.valence.value
+        dancabilityValueLabel.text = track.dancability.value
+        keyValueLabel.text = track.keyMode.value
+        Task {
+            do {
+                trackImageView.image = try await UIImage().loadImage(track.imageUrlString)
+            }catch {
+                print ("image didnt load")
             }
-            
         }
     }
     

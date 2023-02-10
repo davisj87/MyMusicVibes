@@ -95,7 +95,6 @@
 		83B2A637296C5E9D002B703C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A636296C5E9D002B703C /* ProfileViewController.swift */; };
 		83B2A639296C5ED4002B703C /* ArtistAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A638296C5ED4002B703C /* ArtistAlbumsViewController.swift */; };
 		83B2A63B296C5EE1002B703C /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A63A296C5EE1002B703C /* PlaylistViewController.swift */; };
-		83B2A63D296C5EF3002B703C /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A63C296C5EF3002B703C /* ArtistViewController.swift */; };
 		83B2A63F296C5F08002B703C /* TopTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A63E296C5F08002B703C /* TopTracksViewController.swift */; };
 		83B2A641296C5F2A002B703C /* TrackDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A640296C5F2A002B703C /* TrackDetailsViewController.swift */; };
 		83B3094629649B6000D7AB75 /* TokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3094529649B6000D7AB75 /* TokenEndpoint.swift */; };
@@ -230,7 +229,6 @@
 		83B2A636296C5E9D002B703C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		83B2A638296C5ED4002B703C /* ArtistAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumsViewController.swift; sourceTree = "<group>"; };
 		83B2A63A296C5EE1002B703C /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
-		83B2A63C296C5EF3002B703C /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		83B2A63E296C5F08002B703C /* TopTracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTracksViewController.swift; sourceTree = "<group>"; };
 		83B2A640296C5F2A002B703C /* TrackDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewController.swift; sourceTree = "<group>"; };
 		83B3094529649B6000D7AB75 /* TokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEndpoint.swift; sourceTree = "<group>"; };
@@ -656,7 +654,6 @@
 		83B2A642296C62AE002B703C /* Detail Views */ = {
 			isa = PBXGroup;
 			children = (
-				83B2A63C296C5EF3002B703C /* ArtistViewController.swift */,
 				83B2A63E296C5F08002B703C /* TopTracksViewController.swift */,
 				83A50AB2297F1F6B0047ABA3 /* Album */,
 				8389CB85297C47DA006F95AE /* Artist */,
@@ -926,7 +923,6 @@
 				8321E48F2970AC5700F534F0 /* HomeViewModel.swift in Sources */,
 				83B3094B2964CDA700D7AB75 /* JSONUtilities.swift in Sources */,
 				83A319822975ED4900CC9D43 /* TopTracksEndpoint.swift in Sources */,
-				83B2A63D296C5EF3002B703C /* ArtistViewController.swift in Sources */,
 				83B09E012977041A0072CAE6 /* PlaylistObject.swift in Sources */,
 				83B3094629649B6000D7AB75 /* TokenEndpoint.swift in Sources */,
 				83331A46295DD6AD00B23617 /* HomeViewController.swift in Sources */,

@@ -9,20 +9,18 @@ import UIKit
 
 class HomeTableViewCell: ShadowTableViewCell {
     
-    var homeCellViewModel:ItemOverviewCellViewModelProtocol? {
-        didSet {
-            guard let homeCellViewModel = homeCellViewModel else { return }
-            primaryLabel.text = homeCellViewModel.primaryText
-            popLabel.text = homeCellViewModel.popularity == "" ? "" : "Pop:\n" + homeCellViewModel.popularity
-            popLabel.numberOfLines = 2
-            secondaryLabel.text = homeCellViewModel.secondaryText
-            secondaryLabel.numberOfLines = 2
-            Task {
-                do {
-                    pictureView.image = try await UIImage().loadImage(homeCellViewModel.imageUrl)
-                }catch {
-                    print ("image didnt load")
-                }
+    func configure(_ homeCellViewModel:ItemOverviewCellViewModelProtocol?) {
+        guard let homeCellViewModel = homeCellViewModel else { return }
+        primaryLabel.text = homeCellViewModel.primaryText
+        popLabel.text = homeCellViewModel.popularity == "" ? "" : "Pop:\n" + homeCellViewModel.popularity
+        popLabel.numberOfLines = 2
+        secondaryLabel.text = homeCellViewModel.secondaryText
+        secondaryLabel.numberOfLines = 2
+        Task {
+            do {
+                pictureView.image = try await UIImage().loadImage(homeCellViewModel.imageUrl)
+            }catch {
+                print ("image didnt load")
             }
         }
     }

@@ -52,13 +52,13 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "albumTracksTableViewHeaderCell", for: indexPath) as! AlbumTracksTableViewHeaderCell
             if let cVM = self.vm {
-                cell.album = cVM.album
+                cell.configure(cVM.album)
             }
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "trackDetailTableViewCell", for: indexPath) as! TrackDetailTableViewCell
             if let cVM = self.vm {
-                cell.track = cVM.getTrackAndDetailsVM(at: indexPath.row)
+                cell.configure(cVM.getTrackAndDetailsVM(at: indexPath.row))
             }
             return cell
         default:

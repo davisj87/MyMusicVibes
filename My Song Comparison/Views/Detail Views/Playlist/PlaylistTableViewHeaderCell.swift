@@ -8,18 +8,16 @@
 import UIKit
 
 class PlaylistTableViewHeaderCell: ShadowTableViewCell {
-            
-    var playlist:PlaylistCellViewModel? {
-        didSet {
-            guard let playlist = playlist else { return }
-            nameLabel.text = playlist.primaryText
-            ownerLabel.text = playlist.secondaryText
-            Task {
-                do {
-                    trackImageView.image = try await UIImage().loadImage(playlist.imageUrl)
-                }catch {
-                    print ("image didnt load")
-                }
+    
+    func configure(_ playlistCellViewModel:PlaylistCellViewModel?) {
+        guard let playlist = playlistCellViewModel else { return }
+        nameLabel.text = playlist.primaryText
+        ownerLabel.text = playlist.secondaryText
+        Task {
+            do {
+                trackImageView.image = try await UIImage().loadImage(playlist.imageUrl)
+            }catch {
+                print ("image didnt load")
             }
         }
     }

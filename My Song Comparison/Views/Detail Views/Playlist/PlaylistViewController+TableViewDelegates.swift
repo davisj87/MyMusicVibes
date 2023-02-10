@@ -52,13 +52,13 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "playlistTableViewHeaderCell", for: indexPath) as! PlaylistTableViewHeaderCell
             if let cVM = self.vm {
-                cell.playlist = cVM.playlist
+                cell.configure(cVM.playlist)
             }
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "trackDetailTableViewCell", for: indexPath) as! TrackDetailTableViewCell
             if let cVM = self.vm {
-                cell.track = cVM.getTrackAndDetailsVM(at: indexPath.row)
+                cell.configure(cVM.getTrackAndDetailsVM(at: indexPath.row))
             }
             return cell
         default:

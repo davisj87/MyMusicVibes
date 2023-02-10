@@ -8,20 +8,17 @@
 import UIKit
 
 class ArtistAlbumTableViewHeaderCell: UITableViewCell {
-    
-    var artist:ArtistCellViewModel? {
-        didSet {
-            guard let artist = artist else { return }
-            artistLabel.text = artist.primaryText
-            genreLabel.text = "Genres: " + artist.secondaryText
-            popularityLabel.text = "Popularity: " + artist.popularity
-            followerLabel.text = "Followers: " + artist.additionalDetailText
-            Task {
-                do {
-                    trackImageView.image = try await UIImage().loadImage(artist.imageUrl)
-                }catch {
-                    print ("image didnt load")
-                }
+    func configure(_ artistCellViewModel:ArtistCellViewModel?) {
+        guard let artist = artistCellViewModel else { return }
+        artistLabel.text = artist.primaryText
+        genreLabel.text = "Genres: " + artist.secondaryText
+        popularityLabel.text = "Popularity: " + artist.popularity
+        followerLabel.text = "Followers: " + artist.additionalDetailText
+        Task {
+            do {
+                trackImageView.image = try await UIImage().loadImage(artist.imageUrl)
+            }catch {
+                print ("image didnt load")
             }
         }
     }
