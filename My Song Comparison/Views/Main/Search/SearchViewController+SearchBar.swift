@@ -69,7 +69,7 @@ extension SearchViewController: SearchResultsViewControllerDelegate {
             guard let playlist = result as? PlaylistCellViewModel else { return }
             let playlistVC = PlaylistViewController()
             playlistVC.title = "Playlist"
-            playlistVC.vm = PlaylistTracksViewModel(playlist: playlist)
+            playlistVC.vm = PlaylistTracksViewModel(playlist: playlist, playlistTracksFetcher: PlaylistTracksFetcher())
             playlistVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(playlistVC, animated: true)
         }

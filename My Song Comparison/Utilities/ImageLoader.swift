@@ -8,7 +8,7 @@
 import UIKit
 
 class ImageLoader {
-    private var loadedImages = NSCache<NSString, UIImage>()//[URL: UIImage]()
+    private var loadedImages = NSCache<NSString, UIImage>()
     private var runningRequests = [UUID: URLSessionDataTask]()
     
     func loadImage(_ urlString: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {

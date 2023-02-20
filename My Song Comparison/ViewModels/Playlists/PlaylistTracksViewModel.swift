@@ -7,6 +7,30 @@
 
 import Foundation
 
+protocol PlaylistTracksFetcherProtocol {
+    func getTracks(playlistId:String) async throws -> [PlaylistTrackObject]
+    func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject?>
+}
+
+struct PlaylistTracksFetcher:PlaylistTracksFetcherProtocol {
+    private let authManager = AuthManager()
+    func getTracks(playlistId: String) async throws -> [PlaylistTrackObject] {
+        let playlistTracksEndpoint = PlaylistTracksEndpoint(id: playlistId)
+        let playlistTracksRequest = APIRequest(endpoint: playlistTracksEndpoint, authManager: authManager)
+        guard let playlistTracks = try await playlistTracksRequest.executeRequest() else { return []}
+        return playlistTracks.items
+    }
+    
+   func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject?> {
+        let trackIds = tracks.map{ $0.track.id }
+        let trackIdsString = trackIds.joined(separator: ",")
+        let tracksDetailsEndpoint = TracksDetailEndpoint(ids: trackIdsString)
+        
+        let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
+        guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
+        return trackDetails.audioFeatures
+    }
+}
 
 class PlaylistTracksViewModel: TrackDetailViewFormatter {
     
@@ -28,39 +52,16 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
     }
     
     let playlist:PlaylistCellViewModel
+    let playlistTracksFetcher:PlaylistTracksFetcherProtocol
     
-    init(playlist:PlaylistCellViewModel) {
+    init(playlist:PlaylistCellViewModel, playlistTracksFetcher:PlaylistTracksFetcherProtocol) {
         self.playlist = playlist
+        self.playlistTracksFetcher = playlistTracksFetcher
     }
     
     func getTracks() async throws {
-        let playlistTracksEndpoint = PlaylistTracksEndpoint(id: self.playlist.id)
-        let playlistTracksRequest = APIRequest(endpoint: playlistTracksEndpoint, authManager: authManager)
-        guard let playlistTracks = try await playlistTracksRequest.executeRequest() else { return }
-        self.playlistTracks = playlistTracks.items
-        self.trackDetailsArr = try await self.getTracksDetails(tracks: playlistTracks.items)
+        self.playlistTracks = try await self.playlistTracksFetcher.getTracks(playlistId: self.playlist.id)
+        self.trackDetailsArr = try await self.playlistTracksFetcher.getTracksDetails(tracks: self.playlistTracks)
     }
-    
-    private func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject?> {
-        let trackIds = tracks.map{ $0.track.id }
-        let trackIdsString = trackIds.joined(separator: ",")
-        let tracksDetailsEndpoint = TracksDetailEndpoint(ids: trackIdsString)
-        
-        let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
-        guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
-        return trackDetails.audioFeatures
-    }
-    
-//    func getSortedTracksDetailsArray(playlistTracks:[PlaylistTrackObject], trackDetails:Set<TrackFeaturesObject?>) -> [TrackFeaturesObject] {
-//        var trackFeaturesArr:[TrackFeaturesObject] = []
-//        for eachTrack in playlistTracks {
-//            if let detailIndex = trackDetails.firstIndex(of: TrackFeaturesObject(withId: eachTrack.track.id)),
-//                let detailObj = trackDetails[detailIndex] {
-//                trackFeaturesArr.append(detailObj)
-//            }
-//        }
-//        return trackFeaturesArr
-//    }
-    
 }
 
