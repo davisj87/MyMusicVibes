@@ -33,8 +33,6 @@ struct PlaylistTracksFetcher:PlaylistTracksFetcherProtocol {
 }
 
 class PlaylistTracksViewModel: TrackDetailViewFormatter {
-    
-    private let authManager = AuthManager()
     private (set) var playlistTracks:[PlaylistTrackObject] = []
     private (set) var trackDetailsArr = Set<TrackFeaturesObject?>()
     
@@ -54,7 +52,7 @@ class PlaylistTracksViewModel: TrackDetailViewFormatter {
     let playlist:PlaylistCellViewModel
     let playlistTracksFetcher:PlaylistTracksFetcherProtocol
     
-    init(playlist:PlaylistCellViewModel, playlistTracksFetcher:PlaylistTracksFetcherProtocol) {
+    init(playlist:PlaylistCellViewModel, playlistTracksFetcher:PlaylistTracksFetcherProtocol = PlaylistTracksFetcher()) {
         self.playlist = playlist
         self.playlistTracksFetcher = playlistTracksFetcher
     }

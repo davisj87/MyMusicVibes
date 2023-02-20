@@ -25,7 +25,6 @@
 		83331A49295DD6AD00B23617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83331A47295DD6AD00B23617 /* Main.storyboard */; };
 		83331A4B295DD6AE00B23617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83331A4A295DD6AE00B23617 /* Assets.xcassets */; };
 		83331A4E295DD6AE00B23617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83331A4C295DD6AE00B23617 /* LaunchScreen.storyboard */; };
-		83331A59295DD6AF00B23617 /* My_Song_ComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83331A58295DD6AF00B23617 /* My_Song_ComparisonTests.swift */; };
 		83331A63295DD6AF00B23617 /* My_Song_ComparisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83331A62295DD6AF00B23617 /* My_Song_ComparisonUITests.swift */; };
 		83331A65295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83331A64295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift */; };
 		835499062994092800950FE6 /* SearchAllEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835499052994092800950FE6 /* SearchAllEndpoint.swift */; };
@@ -49,6 +48,10 @@
 		8389CB82297C408D006F95AE /* ArtistAlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8389CB81297C408D006F95AE /* ArtistAlbumsViewModel.swift */; };
 		8389CB84297C4635006F95AE /* ArtistAlbumViewController+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8389CB83297C4635006F95AE /* ArtistAlbumViewController+TableViewDelegates.swift */; };
 		8389CB87297C4810006F95AE /* ArtistAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8389CB86297C4810006F95AE /* ArtistAlbumsTableViewCell.swift */; };
+		838D97C529A40EBD00F1A6D6 /* MockPlaylistTrackResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 838D97C429A40EBD00F1A6D6 /* MockPlaylistTrackResponse.json */; };
+		838D97C829A415E400F1A6D6 /* MockableAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838D97C729A415E400F1A6D6 /* MockableAPI.swift */; };
+		838D97CA29A4186000F1A6D6 /* MockPlaylistTracksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838D97C929A4186000F1A6D6 /* MockPlaylistTracksFetcher.swift */; };
+		838D97CC29A41AAB00F1A6D6 /* PlaylistTrackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838D97CB29A41AAB00F1A6D6 /* PlaylistTrackViewModelTests.swift */; };
 		838F9E20297D66C50073F1CC /* AlbumTracksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F9E1F297D66C50073F1CC /* AlbumTracksObject.swift */; };
 		838F9E22297D674E0073F1CC /* AlbumTracksEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F9E21297D674E0073F1CC /* AlbumTracksEndpoint.swift */; };
 		838F9E24297D67A80073F1CC /* AlbumTracksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F9E23297D67A80073F1CC /* AlbumTracksViewModel.swift */; };
@@ -158,7 +161,6 @@
 		83331A4D295DD6AE00B23617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83331A4F295DD6AE00B23617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83331A54295DD6AF00B23617 /* My Song ComparisonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Song ComparisonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		83331A58295DD6AF00B23617 /* My_Song_ComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Song_ComparisonTests.swift; sourceTree = "<group>"; };
 		83331A5E295DD6AF00B23617 /* My Song ComparisonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Song ComparisonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83331A62295DD6AF00B23617 /* My_Song_ComparisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Song_ComparisonUITests.swift; sourceTree = "<group>"; };
 		83331A64295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Song_ComparisonUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -183,6 +185,10 @@
 		8389CB81297C408D006F95AE /* ArtistAlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumsViewModel.swift; sourceTree = "<group>"; };
 		8389CB83297C4635006F95AE /* ArtistAlbumViewController+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistAlbumViewController+TableViewDelegates.swift"; sourceTree = "<group>"; };
 		8389CB86297C4810006F95AE /* ArtistAlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumsTableViewCell.swift; sourceTree = "<group>"; };
+		838D97C429A40EBD00F1A6D6 /* MockPlaylistTrackResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPlaylistTrackResponse.json; sourceTree = "<group>"; };
+		838D97C729A415E400F1A6D6 /* MockableAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockableAPI.swift; sourceTree = "<group>"; };
+		838D97C929A4186000F1A6D6 /* MockPlaylistTracksFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlaylistTracksFetcher.swift; sourceTree = "<group>"; };
+		838D97CB29A41AAB00F1A6D6 /* PlaylistTrackViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTrackViewModelTests.swift; sourceTree = "<group>"; };
 		838F9E1F297D66C50073F1CC /* AlbumTracksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksObject.swift; sourceTree = "<group>"; };
 		838F9E21297D674E0073F1CC /* AlbumTracksEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksEndpoint.swift; sourceTree = "<group>"; };
 		838F9E23297D67A80073F1CC /* AlbumTracksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksViewModel.swift; sourceTree = "<group>"; };
@@ -367,7 +373,8 @@
 		83331A57295DD6AF00B23617 /* My Song ComparisonTests */ = {
 			isa = PBXGroup;
 			children = (
-				83331A58295DD6AF00B23617 /* My_Song_ComparisonTests.swift */,
+				838D97C729A415E400F1A6D6 /* MockableAPI.swift */,
+				838D97C629A40FB900F1A6D6 /* PlaylistTrackTests */,
 			);
 			path = "My Song ComparisonTests";
 			sourceTree = "<group>";
@@ -429,6 +436,16 @@
 				83AADCA4298004FC00876558 /* TableView Cells */,
 			);
 			path = Artist;
+			sourceTree = "<group>";
+		};
+		838D97C629A40FB900F1A6D6 /* PlaylistTrackTests */ = {
+			isa = PBXGroup;
+			children = (
+				838D97C929A4186000F1A6D6 /* MockPlaylistTracksFetcher.swift */,
+				838D97CB29A41AAB00F1A6D6 /* PlaylistTrackViewModelTests.swift */,
+				838D97C429A40EBD00F1A6D6 /* MockPlaylistTrackResponse.json */,
+			);
+			path = PlaylistTrackTests;
 			sourceTree = "<group>";
 		};
 		839F499D29631F6D0054F660 /* Networking */ = {
@@ -897,6 +914,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				838D97C529A40EBD00F1A6D6 /* MockPlaylistTrackResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,7 +1043,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83331A59295DD6AF00B23617 /* My_Song_ComparisonTests.swift in Sources */,
+				838D97CC29A41AAB00F1A6D6 /* PlaylistTrackViewModelTests.swift in Sources */,
+				838D97C829A415E400F1A6D6 /* MockableAPI.swift in Sources */,
+				838D97CA29A4186000F1A6D6 /* MockPlaylistTracksFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,7 +1279,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jarred.My-Song-ComparisonTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1278,7 +1298,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jarred.My-Song-ComparisonTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1297,6 +1317,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9AN46ZLAUD;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jarred.My-Song-ComparisonUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1315,6 +1336,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9AN46ZLAUD;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jarred.My-Song-ComparisonUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
