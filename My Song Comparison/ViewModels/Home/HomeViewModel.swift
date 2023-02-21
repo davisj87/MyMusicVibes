@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel {
+final class HomeViewModel {
     private let authManager = AuthManager()
     private (set) var sections:[HomeSectionViewModel] = []
     

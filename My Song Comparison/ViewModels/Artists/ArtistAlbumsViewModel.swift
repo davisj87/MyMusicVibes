@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArtistAlbumsViewModel  {
+final class ArtistAlbumsViewModel  {
     private var isPaginating:Bool = false
     private let authManager = AuthManager()
     private var albums:[AlbumObject] = []

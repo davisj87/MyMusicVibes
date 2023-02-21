@@ -32,7 +32,7 @@ struct PlaylistTracksFetcher:PlaylistTracksFetcherProtocol {
     }
 }
 
-class PlaylistTracksViewModel: TrackDetailViewFormatter {
+final class PlaylistTracksViewModel: TrackDetailViewFormatter {
     private (set) var playlistTracks:[PlaylistTrackObject] = []
     private (set) var trackDetailsArr = Set<TrackFeaturesObject?>()
     

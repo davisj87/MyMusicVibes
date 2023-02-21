@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AlbumTracksViewModel {
+final class AlbumTracksViewModel {
     
     private let authManager = AuthManager()
     private (set) var tracks:[TracksObject] = []

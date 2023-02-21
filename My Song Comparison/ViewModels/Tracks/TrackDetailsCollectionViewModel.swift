@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
+final class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
     
     private let authManager = AuthManager()
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchViewModel {
+final class SearchViewModel {
     private (set) var isSearching:Bool = false
     
     private (set) var currentSearchScope:SearchType = .all

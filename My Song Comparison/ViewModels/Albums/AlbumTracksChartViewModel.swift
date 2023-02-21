@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class AlbumTracksChartViewModel: ObservableObject, TrackDetailViewFormatter, TracksChartDetailViewFormatter {
+final class AlbumTracksChartViewModel: ObservableObject, TrackDetailViewFormatter, TracksChartDetailViewFormatter {
     
     private var albumTracks:[TracksObject]
     private var trackDetails:Set<TrackFeaturesObject?>
