@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackDetailCollectionViewCell: ShadowCollectionViewCell {
+final class TrackDetailCollectionViewCell: ShadowCollectionViewCell {
 
     var trackDetail:TrackCollectionViewCellViewModel? {
         didSet {

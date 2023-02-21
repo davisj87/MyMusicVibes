@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumTracksTableViewHeaderCell: ShadowTableViewCell {
+final class AlbumTracksTableViewHeaderCell: ShadowTableViewCell {
     func configure(_ albumCellViewModel:AlbumCellViewModel?) {
         guard let album = albumCellViewModel else { return }
         albumLabel.text = album.primaryText

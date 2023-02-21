@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaylistTableViewHeaderCell: ShadowTableViewCell {
+final class PlaylistTableViewHeaderCell: ShadowTableViewCell {
     
     func configure(_ playlistCellViewModel:PlaylistCellViewModel?) {
         guard let playlist = playlistCellViewModel else { return }

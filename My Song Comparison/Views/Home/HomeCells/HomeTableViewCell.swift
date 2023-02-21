@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTableViewCell: ShadowTableViewCell {
+final class HomeTableViewCell: ShadowTableViewCell {
     
     func configure(_ homeCellViewModel:ItemOverviewCellViewModelProtocol?) {
         guard let homeCellViewModel = homeCellViewModel else { return }

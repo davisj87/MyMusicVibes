@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackDetailHeaderCollectionReusableView: UICollectionReusableView {
+final class TrackDetailHeaderCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackDetailHeaderCollectionReusableView"
     
     func configureSection(_ sectionViewModel:TrackCollectionViewSectionViewModel?) {
@@ -42,7 +42,7 @@ class TrackDetailHeaderCollectionReusableView: UICollectionReusableView {
     
 }
 
-class TrackDetailFooterCollectionReusableView: UICollectionReusableView {
+final class TrackDetailFooterCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackDetailFooterCollectionReusableView"
     
     func configure() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtistAlbumsTableViewCell: ShadowTableViewCell {
+final class ArtistAlbumsTableViewCell: ShadowTableViewCell {
     func configure(_ albumCellViewModel:AlbumCellViewModel?) {
         guard let albumObject = albumCellViewModel else { return }
         nameLabel.text = albumObject.primaryText

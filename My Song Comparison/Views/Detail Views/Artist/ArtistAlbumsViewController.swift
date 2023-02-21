@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtistAlbumsViewController: UIViewController {
+final class ArtistAlbumsViewController: UIViewController {
     
     var vm: ArtistAlbumsViewModel?
     let albumTableView: UITableView = UITableView()

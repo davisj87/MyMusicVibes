@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackDetailsViewController: UIViewController {
+final class TrackDetailsViewController: UIViewController {
     var vm: TrackDetailsCollectionViewModel?
     private var trackCollectionView: UICollectionView?
     

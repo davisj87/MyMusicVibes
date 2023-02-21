@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     let vm: HomeViewModel = HomeViewModel()
     private let homeTableView: UITableView = UITableView()

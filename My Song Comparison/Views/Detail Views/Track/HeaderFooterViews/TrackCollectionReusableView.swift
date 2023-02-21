@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackCollectionReusableView: UICollectionReusableView {
+final class TrackCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackHeaderCollectionReusableView"
     
     func configure(_ trackCellViewModel:TrackCellViewModel?) {

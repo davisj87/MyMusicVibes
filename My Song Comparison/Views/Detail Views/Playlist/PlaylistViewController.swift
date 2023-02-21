@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController {
+final class PlaylistViewController: UIViewController {
     var vm: PlaylistTracksViewModel?
     private let playlistTableView: UITableView = UITableView()
 // This will show list of tracks from a playlist as well as an overview of the playlist

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackDetailTableViewCell: ShadowTableViewCell {
+final class TrackDetailTableViewCell: ShadowTableViewCell {
     
     func configure(_ trackDetailViewModel:TrackDetailTableViewCellViewModel?) {
         guard let track = trackDetailViewModel else { return }

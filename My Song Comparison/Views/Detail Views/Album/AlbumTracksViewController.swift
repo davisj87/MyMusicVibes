@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumTracksViewController: UIViewController {
+final class AlbumTracksViewController: UIViewController {
     
     //VM will be initalized from previous viewcontroller
     var vm: AlbumTracksViewModel?

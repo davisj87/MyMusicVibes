@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class AuthViewController: UIViewController, WKNavigationDelegate {
+final class AuthViewController: UIViewController, WKNavigationDelegate {
 
     private let authViewModel = AuthViewModel()
     private let webview: WKWebView = {

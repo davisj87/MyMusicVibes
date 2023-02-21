@@ -11,7 +11,7 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
     func didTapSearchResult(result:ItemOverviewCellViewModelProtocol)
 }
 
-class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+final class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     weak var delegate: SearchResultsViewControllerDelegate?
     
