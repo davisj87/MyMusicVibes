@@ -47,7 +47,6 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
         Task{
             do{
                 try await self.authViewModel.getAndSaveAuthToken(authCode: code)
-               // try await self.authViewModel.getAlbumSearch()
                 self.dismiss(animated: true, completion: nil)
                 self.completionHandler?(true)
             } catch {

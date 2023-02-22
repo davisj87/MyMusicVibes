@@ -11,10 +11,16 @@ final class HomeViewModel {
     private let authManager = AuthManager()
     private (set) var sections:[HomeSectionViewModel] = []
     
+    let homeFetcher:HomeFetcherProtocol
+    
+    init(homeFetcher: HomeFetcherProtocol = HomeFetcher()) {
+        self.homeFetcher = homeFetcher
+    }
+    
     func loadTopItems() async throws {
-        async let tracks = getTopTracks()
-        async let artists = getTopArtists()
-        async let playlists = getTopPlaylists()
+        async let tracks = self.homeFetcher.getTopTracks()
+        async let artists = self.homeFetcher.getTopArtists()
+        async let playlists = self.homeFetcher.getTopPlaylists()
         self.sections = try await self.getTableViewModel(tracks: tracks, artists: artists, playlist: playlists)
     }
     
@@ -40,33 +46,33 @@ final class HomeViewModel {
         return sectionViewModelArr
     }
     
-    private func getTopArtists() async throws -> [ArtistObject] {
-        let topArtistsEndpoint = TopArtistsEndpoint()
-        let topArtistsRequest = APIRequest(endpoint: topArtistsEndpoint, authManager: authManager)
-        
-        print("get artists")
-        guard let topArtistsWrapper = try await topArtistsRequest.executeRequest() else { return [] }
-        print("got artists")
-        return topArtistsWrapper.items
-    }
-    
-    private func getTopTracks() async throws -> [TracksObject] {
-        let topTracksEndpoint = TopTracksEndpoint()
-        let topTracksRequest = APIRequest(endpoint: topTracksEndpoint, authManager: authManager)
-        print("get tracks")
-        guard let topTracksWrapper = try await topTracksRequest.executeRequest() else { return [] }
-        print("got tracks")
-        return topTracksWrapper.items
-    }
-    
-    private func getTopPlaylists() async throws -> [PlaylistObject] {
-        let topPlaylistsEndpoint = TopPlaylistsEndpoint()
-        let topPlaylistsRequest = APIRequest(endpoint: topPlaylistsEndpoint, authManager: authManager)
-        print("get playlists")
-        guard let topPlaylistsWrapper = try await topPlaylistsRequest.executeRequest() else { return [] }
-        print("got playlists")
-        return topPlaylistsWrapper.items
-    }
+//    private func getTopArtists() async throws -> [ArtistObject] {
+//        let topArtistsEndpoint = TopArtistsEndpoint()
+//        let topArtistsRequest = APIRequest(endpoint: topArtistsEndpoint, authManager: authManager)
+//
+//        print("get artists")
+//        guard let topArtistsWrapper = try await topArtistsRequest.executeRequest() else { return [] }
+//        print("got artists")
+//        return topArtistsWrapper.items
+//    }
+//
+//    private func getTopTracks() async throws -> [TracksObject] {
+//        let topTracksEndpoint = TopTracksEndpoint()
+//        let topTracksRequest = APIRequest(endpoint: topTracksEndpoint, authManager: authManager)
+//        print("get tracks")
+//        guard let topTracksWrapper = try await topTracksRequest.executeRequest() else { return [] }
+//        print("got tracks")
+//        return topTracksWrapper.items
+//    }
+//
+//    private func getTopPlaylists() async throws -> [PlaylistObject] {
+//        let topPlaylistsEndpoint = TopPlaylistsEndpoint()
+//        let topPlaylistsRequest = APIRequest(endpoint: topPlaylistsEndpoint, authManager: authManager)
+//        print("get playlists")
+//        guard let topPlaylistsWrapper = try await topPlaylistsRequest.executeRequest() else { return [] }
+//        print("got playlists")
+//        return topPlaylistsWrapper.items
+//    }
     
 }
 

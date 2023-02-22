@@ -27,6 +27,8 @@
 		83331A4E295DD6AE00B23617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83331A4C295DD6AE00B23617 /* LaunchScreen.storyboard */; };
 		83331A63295DD6AF00B23617 /* My_Song_ComparisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83331A62295DD6AF00B23617 /* My_Song_ComparisonUITests.swift */; };
 		83331A65295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83331A64295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift */; };
+		8345897929A65DAD00CB06A3 /* PlaylistTracksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345897829A65DAD00CB06A3 /* PlaylistTracksFetcher.swift */; };
+		8345897C29A65F4E00CB06A3 /* HomeFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345897B29A65F4E00CB06A3 /* HomeFetcher.swift */; };
 		835499062994092800950FE6 /* SearchAllEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835499052994092800950FE6 /* SearchAllEndpoint.swift */; };
 		835499082994095500950FE6 /* SearchAllWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835499072994095500950FE6 /* SearchAllWrapper.swift */; };
 		835A36FA298D67C4009C01AA /* MusicalPositivityChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A36F9298D67C4009C01AA /* MusicalPositivityChart.swift */; };
@@ -164,6 +166,8 @@
 		83331A5E295DD6AF00B23617 /* My Song ComparisonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Song ComparisonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83331A62295DD6AF00B23617 /* My_Song_ComparisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Song_ComparisonUITests.swift; sourceTree = "<group>"; };
 		83331A64295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Song_ComparisonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8345897829A65DAD00CB06A3 /* PlaylistTracksFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksFetcher.swift; sourceTree = "<group>"; };
+		8345897B29A65F4E00CB06A3 /* HomeFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFetcher.swift; sourceTree = "<group>"; };
 		835499052994092800950FE6 /* SearchAllEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllEndpoint.swift; sourceTree = "<group>"; };
 		835499072994095500950FE6 /* SearchAllWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllWrapper.swift; sourceTree = "<group>"; };
 		835A36F9298D67C4009C01AA /* MusicalPositivityChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalPositivityChart.swift; sourceTree = "<group>"; };
@@ -314,6 +318,7 @@
 		8311E6E229898B9F00563207 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8345897A29A65F3A00CB06A3 /* HomeFetcher */,
 				8321E48E2970AC5700F534F0 /* HomeViewModel.swift */,
 				83AE7C212988269600FBE7EF /* HomeSectionViewModel.swift */,
 			);
@@ -386,6 +391,22 @@
 				83331A64295DD6AF00B23617 /* My_Song_ComparisonUITestsLaunchTests.swift */,
 			);
 			path = "My Song ComparisonUITests";
+			sourceTree = "<group>";
+		};
+		8345897729A65D8600CB06A3 /* PlaylistTracksFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				8345897829A65DAD00CB06A3 /* PlaylistTracksFetcher.swift */,
+			);
+			path = PlaylistTracksFetcher;
+			sourceTree = "<group>";
+		};
+		8345897A29A65F3A00CB06A3 /* HomeFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				8345897B29A65F4E00CB06A3 /* HomeFetcher.swift */,
+			);
+			path = HomeFetcher;
 			sourceTree = "<group>";
 		};
 		835E5187296721350076F248 /* Search */ = {
@@ -597,6 +618,7 @@
 		83AADCA22980048100876558 /* Playlists */ = {
 			isa = PBXGroup;
 			children = (
+				8345897729A65D8600CB06A3 /* PlaylistTracksFetcher */,
 				83D07FBA2979D84700B0D10A /* PlaylistTracksViewModel.swift */,
 				83AE7C2A29885A1100FBE7EF /* PlaylistCellViewModel.swift */,
 				83D5C3E8298C18EC000CC68D /* PlaylistTracksChartViewModel.swift */,
@@ -1010,8 +1032,10 @@
 				83043C5A298053F8000E5D89 /* Credentials.swift in Sources */,
 				83BEE58E2995693C00E1347E /* ImageLoader.swift in Sources */,
 				83065DA1298AFA3600EF5DA2 /* ArtistAlbumTableViewHeader.swift in Sources */,
+				8345897C29A65F4E00CB06A3 /* HomeFetcher.swift in Sources */,
 				83D07FBD2979E02300B0D10A /* PlaylistTrackObject.swift in Sources */,
 				835E518E296721E90076F248 /* PlaylistListWrapper.swift in Sources */,
+				8345897929A65DAD00CB06A3 /* PlaylistTracksFetcher.swift in Sources */,
 				83DCE3932992C16B00195310 /* AlbumTracksChartViewModel.swift in Sources */,
 				83D07FB92979D6FE00B0D10A /* TracksDetailEndpoint.swift in Sources */,
 				835E5198296741DC0076F248 /* ArtistObject.swift in Sources */,
