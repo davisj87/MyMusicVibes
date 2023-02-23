@@ -19,13 +19,10 @@ class MockPlaylistTracksFetcher:PlaylistTracksFetcherProtocol, MockableAPI {
     }
     
    func getTracksDetails(tracks:[PlaylistTrackObject]) async throws -> Set<TrackFeaturesObject?> {
-//        let trackIds = tracks.map{ $0.track.id }
-//        let trackIdsString = trackIds.joined(separator: ",")
-//        let tracksDetailsEndpoint = TracksDetailEndpoint(ids: trackIdsString)
-//
-//        let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
-//        guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
-//        return trackDetails.audioFeatures
-       return []
+       
+       guard let playlistTracksDetailsWrapper = loadJSON(filename: "MockPlaylistTracksDetailsResponse", type: TrackAudioFeatures.self) else {
+           return []
+       }
+       return playlistTracksDetailsWrapper.audioFeatures
     }
 }

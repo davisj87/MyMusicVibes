@@ -59,7 +59,6 @@ final class SearchViewModel {
             self.searchViewModelCells = trackData.items
             self.currentScopeTotal = trackData.scopeTotal
         }
-       // self.isSearching = false
     }
     
     func searchMoreMusic() async throws {

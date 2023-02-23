@@ -30,11 +30,6 @@ final class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
             print("used preloaded track details")
             self.trackSectionViewModel = self.setupCollectionViewModel(trackDetails: trackDetail)
         } else {
-//            let singleTracksEndpoint = SingleTrackDetailEndpoint(id:self.track.id)
-//            let singleTracksRequest = APIRequest(endpoint: singleTracksEndpoint, authManager: authManager)
-//            print("get tracks details")
-//            guard let trackDetails = try await singleTracksRequest.executeRequest() else { return }
-//            print("got tracks details")
             guard let trackDetailData = try await self.trackDetailFetcher.getTrackDetails(trackId: self.track.id) else { return }
             self.trackSectionViewModel = self.setupCollectionViewModel(trackDetails: trackDetailData)
         }

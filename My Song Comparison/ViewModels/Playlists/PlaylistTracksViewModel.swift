@@ -23,7 +23,7 @@ final class PlaylistTracksViewModel: TrackDetailViewFormatter {
         }
         return TrackDetailTableViewCellViewModel(track: trackCellViewModel, trackDetail: nil)
     }
-    
+     
     let playlist:PlaylistCellViewModel
     let playlistTracksFetcher:PlaylistTracksFetcherProtocol
     

@@ -34,6 +34,9 @@ final class PlaylistTrackViewModelTests: XCTestCase {
     
     func testPlaylistTracksSuccess() async throws {
         try await playlistTrackVM.getTracks()
+        let trackAndDetailsData = self.playlistTrackVM.getTrackAndDetailsVM(at: 1)
+        XCTAssertEqual(trackAndDetailsData.track?.id, trackAndDetailsData.trackDetail?.id)
+        XCTAssertEqual(trackAndDetailsData.trackDetail?.energy, 87.7)
         XCTAssertEqual(playlistTrackVM.trackCount, 93)
     }
 
