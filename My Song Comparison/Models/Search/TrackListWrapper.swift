@@ -21,21 +21,3 @@ extension TracksWrapper {
         self.tracks = try container.decodeIfPresent(ItemsWrapper.self, forKey: .tracks) ?? ItemsWrapper(items: [], total:0)
     }
 }
-
-
-
-
-//struct Tracks: Decodable {
-//    var items: [TracksObject]
-//
-//    private enum CodingKeys: String, CodingKey {
-//        case items
-//    }
-//}
-//
-//extension Tracks {
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        self.items = try container.decodeIfPresent([TracksObject].self, forKey: .items) ?? []
-//    }
-//}

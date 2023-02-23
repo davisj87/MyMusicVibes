@@ -12,8 +12,9 @@ final class AlbumTracksViewModel {
     private let authManager = AuthManager()
     private (set) var tracks:[TracksObject] = []
     private (set) var trackDetails = Set<TrackFeaturesObject?>()
+    private let albumTracksFetcher:AlbumTracksFetcherProtocol
     let album:AlbumCellViewModel
-
+    
     var trackCount:Int {
         return tracks.count
     }
@@ -28,39 +29,18 @@ final class AlbumTracksViewModel {
     }
 
     
-    init(album:AlbumCellViewModel) {
+    init(album:AlbumCellViewModel, albumTracksFetcher:AlbumTracksFetcherProtocol = AlbumTracksFetcher()) {
         self.album = album
+        self.albumTracksFetcher = albumTracksFetcher
     }
     
-    func getAlbumTracks() async throws {
-        let albumTracksEndpoint = AlbumTracksEndpoint(id: self.album.id)
-        let albumTracksRequest = APIRequest(endpoint: albumTracksEndpoint, authManager: authManager)
-        guard let albumTracks = try await albumTracksRequest.executeRequest() else { return }
-        let trackIds = albumTracks.items.map{ $0.id }
-        let trackIdsString = trackIds.joined(separator: ",")
-        
-        async let trackArr = self.getTracksArray(ids: trackIdsString)
-        async let trackDetailsArr = self.getTracksDetails(ids: trackIdsString)
+    func getTracksData() async throws {
+        let trackIdsString = try await self.albumTracksFetcher.getAlbumTracks(albumId: self.album.id)
+        async let trackArr = self.albumTracksFetcher.getTracks(ids: trackIdsString)
+        async let trackDetailsArr = self.albumTracksFetcher.getTracksDetails(ids: trackIdsString)
         let result = try await TrackAndDetailsResponse(tracks: trackArr, trackDetails: trackDetailsArr)
         self.tracks = result.tracks
         self.trackDetails = result.trackDetails
-    }
-    
-    private func getTracksDetails(ids:String) async throws -> Set<TrackFeaturesObject?> {
-        let tracksDetailsEndpoint = TracksDetailEndpoint(ids: ids)
-        let tracksDetailsRequest = APIRequest(endpoint: tracksDetailsEndpoint, authManager: authManager)
-        guard let trackDetails = try await tracksDetailsRequest.executeRequest() else { return [] }
-        
-        return trackDetails.audioFeatures
-    }
-    
-    private func getTracksArray(ids:String) async throws -> [TracksObject] {
-        let tracksArrEndpoint = TracksArrayEndpoint(ids: ids)
-        let tracksArrRequest = APIRequest(endpoint: tracksArrEndpoint, authManager: authManager)
-        print("get tracks")
-        guard let tracksArr = try await tracksArrRequest.executeRequest() else { return [] }
-        print("got tracks")
-        return tracksArr.tracks
     }
 }
 

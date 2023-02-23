@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 final class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
     
     private let authManager = AuthManager()
@@ -15,27 +16,31 @@ final class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
     private (set) var track:TrackCellViewModel
     private var trackDetail:TrackFeaturesObject?
     
-    init(track:TrackCellViewModel, trackDetail:TrackFeaturesObject? = nil) {
+    private let trackDetailFetcher: TrackDetailFetcherProtcol
+    
+    init(track:TrackCellViewModel, trackDetail:TrackFeaturesObject? = nil, trackDetailFetcher:TrackDetailFetcherProtcol = TrackDetailFetcher()) {
         self.track = track
         self.trackDetail = trackDetail
+        self.trackDetailFetcher = trackDetailFetcher
     }
     
     
     func getTrack() async throws {
         if let trackDetail = self.trackDetail {
             print("used preloaded track details")
-            self.trackSectionViewModel = await self.setupCollectionViewModel(trackDetails: trackDetail)
+            self.trackSectionViewModel = self.setupCollectionViewModel(trackDetails: trackDetail)
         } else {
-            let singleTracksEndpoint = SingleTrackDetailEndpoint(id:self.track.id)
-            let singleTracksRequest = APIRequest(endpoint: singleTracksEndpoint, authManager: authManager)
-            print("get tracks details")
-            guard let trackDetails = try await singleTracksRequest.executeRequest() else { return }
-            print("got tracks details")
-            self.trackSectionViewModel = await self.setupCollectionViewModel(trackDetails: trackDetails)
+//            let singleTracksEndpoint = SingleTrackDetailEndpoint(id:self.track.id)
+//            let singleTracksRequest = APIRequest(endpoint: singleTracksEndpoint, authManager: authManager)
+//            print("get tracks details")
+//            guard let trackDetails = try await singleTracksRequest.executeRequest() else { return }
+//            print("got tracks details")
+            guard let trackDetailData = try await self.trackDetailFetcher.getTrackDetails(trackId: self.track.id) else { return }
+            self.trackSectionViewModel = self.setupCollectionViewModel(trackDetails: trackDetailData)
         }
     }
     
-    private func setupCollectionViewModel(trackDetails:TrackFeaturesObject) async -> [TrackCollectionViewSectionViewModel] {
+    private func setupCollectionViewModel(trackDetails:TrackFeaturesObject) -> [TrackCollectionViewSectionViewModel] {
         print("setup detail view model")
         //Mood Section: Danceability, Valence, Energy, Tempo
         let danceability = TrackCollectionViewCellViewModel(name: "Danceability", value: String(Int(trackDetails.danceability)))

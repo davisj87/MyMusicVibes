@@ -21,7 +21,3 @@ extension AlbumWrapper {
         self.albums = try container.decodeIfPresent(ItemsWrapper.self, forKey: .albums) ?? ItemsWrapper(items: [], total:0)
     }
 }
-
-//struct Albums: Decodable {
-//    var items: [AlbumObject]
-//}

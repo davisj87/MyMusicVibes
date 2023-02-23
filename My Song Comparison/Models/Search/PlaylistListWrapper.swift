@@ -21,7 +21,3 @@ extension PlaylistWrapper {
         self.playlists = try container.decodeIfPresent(ItemsWrapper.self, forKey: .playlists) ?? ItemsWrapper(items: [], total:0)
     }
 }
-
-//struct Playlists: Decodable {
-//    var items: [PlaylistObject]
-//}

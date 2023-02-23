@@ -95,7 +95,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
             Task{
                 do {
                     self.albumTableView.tableFooterView = self.createSpinnerFooter()
-                    try await cVM.getMoreAlbumsFromArtist()
+                    try await cVM.getMoreAlbumData()
                     self.albumTableView.reloadData()
                     self.albumTableView.tableFooterView = nil
                 } catch {

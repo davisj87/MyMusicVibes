@@ -41,7 +41,7 @@ final class ArtistAlbumsViewController: UIViewController {
             do {
                 guard let cVM = self.vm else { return }
                 self.showSpinner()
-                try await cVM.getAlbumsFromArtist()
+                try await cVM.getAlbumData()
                 self.albumTableView.reloadData()
             } catch {
                 print("Error getting playlist tracks")

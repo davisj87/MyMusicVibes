@@ -21,11 +21,3 @@ extension ArtistWrapper {
         self.artists = try container.decodeIfPresent(ItemsWrapper.self, forKey: .artists) ?? ItemsWrapper(items: [], total:0)
     }
 }
-
-//struct Artists<T:Decodable>: Decodable {
-//    var items: [T]
-//
-//    private enum CodingKeys: String, CodingKey {
-//        case items
-//    }
-//}

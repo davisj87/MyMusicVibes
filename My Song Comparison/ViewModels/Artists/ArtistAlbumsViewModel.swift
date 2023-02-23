@@ -23,33 +23,27 @@ final class ArtistAlbumsViewModel  {
     }
     
     let artist:ArtistCellViewModel
-
-    init(artist:ArtistCellViewModel) {
+    private let artistAlbumsFetcher:ArtistAlbumsFetcherProtocol
+    
+    init(artist:ArtistCellViewModel, artistAlbumsFetcher:ArtistAlbumsFetcherProtocol = ArtistAlbumsFetcher()) {
         self.artist = artist
+        self.artistAlbumsFetcher = artistAlbumsFetcher
     }
     
-    func getAlbumsFromArtist() async throws {
-        let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artist.id, limit: 20, offset: 0)
-        let artistAlbumsRequest = APIRequest(endpoint: artistAlbumsEndpoint, authManager: authManager)
-        guard let artistAlbums = try await artistAlbumsRequest.executeRequest(),
-        artistAlbums.total > 0 else { return }
-        
-        self.albumTotal = artistAlbums.total
-        self.albums = artistAlbums.items
+    func getAlbumData() async throws {
+        let albumData = try await self.artistAlbumsFetcher.getAlbumsFromArtist(artistId: self.artist.id)
+        self.albumTotal = albumData.total
+        self.albums = albumData.items
     }
     
-    func getMoreAlbumsFromArtist() async throws {
+    func getMoreAlbumData() async throws {
+        defer { self.isPaginating = false }
         guard self.albumTotal > self.albums.count else { return }
         if !isPaginating {
             self.isPaginating = true
-            let artistAlbumsEndpoint = ArtistAlbumsEndpoint(id: artist.id, limit: 20, offset: self.albumCount)
-            let artistAlbumsRequest = APIRequest(endpoint: artistAlbumsEndpoint, authManager: authManager)
-            guard let artistAlbums = try await artistAlbumsRequest.executeRequest(), artistAlbums.total > 0 else { return }
-            
-            self.albums.append(contentsOf: artistAlbums.items)
-            self.isPaginating = false
+            let moreAlbumData = try await self.artistAlbumsFetcher.getMoreAlbumsFromArtist(artistId: self.artist.id, offset: self.albumCount)
+            guard !moreAlbumData.isEmpty else { return }
+            self.albums.append(contentsOf: moreAlbumData)
         }
     }
-    
-    
 }
