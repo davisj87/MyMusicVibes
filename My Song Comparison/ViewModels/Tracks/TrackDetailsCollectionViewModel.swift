@@ -8,11 +8,7 @@
 import Foundation
 
 final class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
-    
-    private let authManager = AuthManager()
-    
     private (set) var trackSectionViewModel:[TrackCollectionViewSectionViewModel] = []
-    
     private (set) var track:ItemOverviewCellViewModelProtocol
     private var trackDetail:TrackFeaturesObject?
     

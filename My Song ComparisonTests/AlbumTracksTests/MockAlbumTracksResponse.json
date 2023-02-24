@@ -1,0 +1,917 @@
+
+{
+  "tracks": [
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 197880,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640544"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/1bIJTvGgkoNrDJSvkowFWC"
+      },
+      "href": "https://api.spotify.com/v1/tracks/1bIJTvGgkoNrDJSvkowFWC",
+      "id": "1bIJTvGgkoNrDJSvkowFWC",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Gateway",
+      "popularity": 17,
+      "preview_url": "https://p.scdn.co/mp3-preview/6e57caeedde9e757a80967a3b3e0c9faa5c32222?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:1bIJTvGgkoNrDJSvkowFWC"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 209880,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640545"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/7w5A9xGmZPEX2Otqjr6tRl"
+      },
+      "href": "https://api.spotify.com/v1/tracks/7w5A9xGmZPEX2Otqjr6tRl",
+      "id": "7w5A9xGmZPEX2Otqjr6tRl",
+      "is_local": false,
+      "is_playable": true,
+      "name": "The Summit",
+      "popularity": 16,
+      "preview_url": "https://p.scdn.co/mp3-preview/9627a502d590afc151b678b9bad8470452659dec?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 2,
+      "type": "track",
+      "uri": "spotify:track:7w5A9xGmZPEX2Otqjr6tRl"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 190560,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640546"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/4aPuHkrFzwDkDZ8bvZijWu"
+      },
+      "href": "https://api.spotify.com/v1/tracks/4aPuHkrFzwDkDZ8bvZijWu",
+      "id": "4aPuHkrFzwDkDZ8bvZijWu",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Wilderness",
+      "popularity": 20,
+      "preview_url": "https://p.scdn.co/mp3-preview/a648bcfcf7dae39cbeaeeaf6de296150e173be95?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 3,
+      "type": "track",
+      "uri": "spotify:track:4aPuHkrFzwDkDZ8bvZijWu"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 246893,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640547"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/5qCVco4oE9qGugFfeqFCbQ"
+      },
+      "href": "https://api.spotify.com/v1/tracks/5qCVco4oE9qGugFfeqFCbQ",
+      "id": "5qCVco4oE9qGugFfeqFCbQ",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Hunter's Frontier",
+      "popularity": 14,
+      "preview_url": "https://p.scdn.co/mp3-preview/76e4aae3eeba094d094fe4f8cc512b8d46d63f72?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 4,
+      "type": "track",
+      "uri": "spotify:track:5qCVco4oE9qGugFfeqFCbQ"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 230906,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640548"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/6EBIGXR4BtqHpXgPb3450H"
+      },
+      "href": "https://api.spotify.com/v1/tracks/6EBIGXR4BtqHpXgPb3450H",
+      "id": "6EBIGXR4BtqHpXgPb3450H",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Voyager",
+      "popularity": 15,
+      "preview_url": "https://p.scdn.co/mp3-preview/12838b1122a0548a322c79b97ee602ed66f6cf6e?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 5,
+      "type": "track",
+      "uri": "spotify:track:6EBIGXR4BtqHpXgPb3450H"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 255653,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640549"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/6GOCVE0ex5VOSxI8ZiNNmI"
+      },
+      "href": "https://api.spotify.com/v1/tracks/6GOCVE0ex5VOSxI8ZiNNmI",
+      "id": "6GOCVE0ex5VOSxI8ZiNNmI",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Tales of the Wind",
+      "popularity": 16,
+      "preview_url": "https://p.scdn.co/mp3-preview/3760fe0141a9891650804a4b31985fc608e9646a?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 6,
+      "type": "track",
+      "uri": "spotify:track:6GOCVE0ex5VOSxI8ZiNNmI"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 203213,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640551"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/3UwAIzYXwYryZXwk0zTDe5"
+      },
+      "href": "https://api.spotify.com/v1/tracks/3UwAIzYXwYryZXwk0zTDe5",
+      "id": "3UwAIzYXwYryZXwk0zTDe5",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Highland Spirit",
+      "popularity": 16,
+      "preview_url": "https://p.scdn.co/mp3-preview/2d28900258642225b4678b9a8e90d776f0fe9eed?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 7,
+      "type": "track",
+      "uri": "spotify:track:3UwAIzYXwYryZXwk0zTDe5"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 214693,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640552"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/5mr6YGbb8B2IgcAiagWGHC"
+      },
+      "href": "https://api.spotify.com/v1/tracks/5mr6YGbb8B2IgcAiagWGHC",
+      "id": "5mr6YGbb8B2IgcAiagWGHC",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Everlasting",
+      "popularity": 13,
+      "preview_url": "https://p.scdn.co/mp3-preview/cbed6567ba297b7a14121f8c068a7ec44bf6bf74?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 8,
+      "type": "track",
+      "uri": "spotify:track:5mr6YGbb8B2IgcAiagWGHC"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 287906,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640553"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/50akq5DAxLvEbj2RwnvwVu"
+      },
+      "href": "https://api.spotify.com/v1/tracks/50akq5DAxLvEbj2RwnvwVu",
+      "id": "50akq5DAxLvEbj2RwnvwVu",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Legendary Guardian",
+      "popularity": 22,
+      "preview_url": "https://p.scdn.co/mp3-preview/a079ba19451b891ff17ffb4b7de7a85ba23e3095?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 9,
+      "type": "track",
+      "uri": "spotify:track:50akq5DAxLvEbj2RwnvwVu"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 182706,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640554"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/2NBHFBn37pFK4HFVHFwxv2"
+      },
+      "href": "https://api.spotify.com/v1/tracks/2NBHFBn37pFK4HFVHFwxv2",
+      "id": "2NBHFBn37pFK4HFVHFwxv2",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Solace",
+      "popularity": 17,
+      "preview_url": "https://p.scdn.co/mp3-preview/1772741a8e5dccc240736ca32ad935a4566364e2?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 10,
+      "type": "track",
+      "uri": "spotify:track:2NBHFBn37pFK4HFVHFwxv2"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 191560,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640555"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/7pRWp9qyGMtbp9LWe5lkoi"
+      },
+      "href": "https://api.spotify.com/v1/tracks/7pRWp9qyGMtbp9LWe5lkoi",
+      "id": "7pRWp9qyGMtbp9LWe5lkoi",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Ignite",
+      "popularity": 14,
+      "preview_url": "https://p.scdn.co/mp3-preview/502227cef6414f6dace333362ee7db40ccefa3bd?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 11,
+      "type": "track",
+      "uri": "spotify:track:7pRWp9qyGMtbp9LWe5lkoi"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+            },
+            "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+            "id": "480xKab3lUPhBBnCzlzqIu",
+            "name": "Taylor Davis",
+            "type": "artist",
+            "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZToMXM20WUwjfDXQcswZS"
+        },
+        "href": "https://api.spotify.com/v1/albums/6ZToMXM20WUwjfDXQcswZS",
+        "id": "6ZToMXM20WUwjfDXQcswZS",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a86bb15e9c4eeb5fb4f5f4c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027a86bb15e9c4eeb5fb4f5f4c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517a86bb15e9c4eeb5fb4f5f4c",
+            "width": 64
+          }
+        ],
+        "name": "Odyssey",
+        "release_date": "2016-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 12,
+        "type": "album",
+        "uri": "spotify:album:6ZToMXM20WUwjfDXQcswZS"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/480xKab3lUPhBBnCzlzqIu"
+          },
+          "href": "https://api.spotify.com/v1/artists/480xKab3lUPhBBnCzlzqIu",
+          "id": "480xKab3lUPhBBnCzlzqIu",
+          "name": "Taylor Davis",
+          "type": "artist",
+          "uri": "spotify:artist:480xKab3lUPhBBnCzlzqIu"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 220480,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "TCACS1640556"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/760tdVB12ZbJUnzelxvGOn"
+      },
+      "href": "https://api.spotify.com/v1/tracks/760tdVB12ZbJUnzelxvGOn",
+      "id": "760tdVB12ZbJUnzelxvGOn",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Starfire",
+      "popularity": 21,
+      "preview_url": "https://p.scdn.co/mp3-preview/968575065ce4cb64038442f964bf2bc9bbb3f25b?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 12,
+      "type": "track",
+      "uri": "spotify:track:760tdVB12ZbJUnzelxvGOn"
+    }
+  ]
+}

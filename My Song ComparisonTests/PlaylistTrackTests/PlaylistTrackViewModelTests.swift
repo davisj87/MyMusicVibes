@@ -23,7 +23,7 @@ final class PlaylistTrackViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let playListCellViewModel:PlaylistCellViewModel = PlaylistCellViewModel(playlistObject: playlistObject)
+        let playListCellViewModel:ItemOverviewCellViewModelProtocol = PlaylistCellViewModel(playlistObject: playlistObject)
         playlistTrackVM = PlaylistTracksViewModel(playlist: playListCellViewModel, playlistTracksFetcher: MockPlaylistTracksFetcher())
     }
     

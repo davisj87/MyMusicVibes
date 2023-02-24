@@ -9,7 +9,6 @@ import Foundation
 
 final class ArtistAlbumsViewModel  {
     private var isPaginating:Bool = false
-    private let authManager = AuthManager()
     private var albums:[AlbumObject] = []
     private (set) var albumTotal:Int = 0
     

@@ -8,8 +8,6 @@
 import Foundation
 
 final class AlbumTracksViewModel {
-    
-    private let authManager = AuthManager()
     private (set) var tracks:[TracksObject] = []
     private (set) var trackDetails = Set<TrackFeaturesObject?>()
     private let albumTracksFetcher:AlbumTracksFetcherProtocol
@@ -35,7 +33,7 @@ final class AlbumTracksViewModel {
     }
     
     func getTracksData() async throws {
-        let trackIdsString = try await self.albumTracksFetcher.getAlbumTracks(albumId: self.album.id)
+        let trackIdsString = try await self.albumTracksFetcher.getAlbumTracksIds(albumId: self.album.id)
         async let trackArr = self.albumTracksFetcher.getTracks(ids: trackIdsString)
         async let trackDetailsArr = self.albumTracksFetcher.getTracksDetails(ids: trackIdsString)
         let result = try await TrackAndDetailsResponse(tracks: trackArr, trackDetails: trackDetailsArr)

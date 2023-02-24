@@ -21,10 +21,9 @@ final class SearchViewModel {
     }
     
     private var currentQuery:String = ""
-    
-    private let authManager = AuthManager()
     private let searchFetcher:SearchFetcher
-    var searchViewModelCells:[ItemOverviewCellViewModelProtocol] = []
+    
+    private (set) var searchViewModelCells:[ItemOverviewCellViewModelProtocol] = []
     
     init(searchFetcher:SearchFetcher = SearchFetcher()) {
         self.searchFetcher = searchFetcher

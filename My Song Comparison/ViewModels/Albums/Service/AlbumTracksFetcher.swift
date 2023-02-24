@@ -8,20 +8,20 @@
 import Foundation
 
 protocol AlbumTracksFetcherProtocol {
-    func getAlbumTracks(albumId:String) async throws -> String
+    func getAlbumTracksIds(albumId:String) async throws -> String
     func getTracks(ids:String) async throws -> [TracksObject]
     func getTracksDetails(ids:String) async throws -> Set<TrackFeaturesObject?>
 }
 
 struct AlbumTracksFetcher:AlbumTracksFetcherProtocol {
     private let authManager = AuthManager()
-    func getAlbumTracks(albumId:String) async throws -> String {
+    func getAlbumTracksIds(albumId:String) async throws -> String {
         let albumTracksEndpoint = AlbumTracksEndpoint(id: albumId)
         let albumTracksRequest = APIRequest(endpoint: albumTracksEndpoint, authManager: authManager)
         guard let albumTracks = try await albumTracksRequest.executeRequest() else { return "" }
         let trackIds = albumTracks.items.map{ $0.id }
         let trackIdsString = trackIds.joined(separator: ",")
-        
+        print(trackIdsString)
         return trackIdsString
     }
 

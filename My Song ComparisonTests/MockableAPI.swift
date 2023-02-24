@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MockableAPI: AnyObject {
-    var bundle: Bundle {get}
+    var bundle: Bundle { get }
     func loadJSON<T:Decodable>(filename:String, type:T.Type) -> T?
 }
 
