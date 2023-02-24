@@ -10,7 +10,7 @@ import UIKit
 final class TrackCollectionReusableView: UICollectionReusableView {
     static let identifier = "trackHeaderCollectionReusableView"
     
-    func configure(_ trackCellViewModel:TrackCellViewModel?) {
+    func configure(_ trackCellViewModel:ItemOverviewCellViewModelProtocol?) {
         guard let track = trackCellViewModel else { return }
         artistLabel.text = track.secondaryText
         albumLabel.text = track.additionalDetailText

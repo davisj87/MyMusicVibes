@@ -8,7 +8,7 @@
 import UIKit
 
 final class ArtistAlbumTableViewHeaderCell: UITableViewCell {
-    func configure(_ artistCellViewModel:ArtistCellViewModel?) {
+    func configure(_ artistCellViewModel:ItemOverviewCellViewModelProtocol?) {
         guard let artist = artistCellViewModel else { return }
         artistLabel.text = artist.primaryText
         genreLabel.text = "Genres: " + artist.secondaryText

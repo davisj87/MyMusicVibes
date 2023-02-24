@@ -22,10 +22,10 @@ final class ArtistAlbumsViewModel  {
         return AlbumCellViewModel(albumObject: album)
     }
     
-    let artist:ArtistCellViewModel
+    let artist:ItemOverviewCellViewModelProtocol
     private let artistAlbumsFetcher:ArtistAlbumsFetcherProtocol
     
-    init(artist:ArtistCellViewModel, artistAlbumsFetcher:ArtistAlbumsFetcherProtocol = ArtistAlbumsFetcher()) {
+    init(artist:ItemOverviewCellViewModelProtocol, artistAlbumsFetcher:ArtistAlbumsFetcherProtocol = ArtistAlbumsFetcher()) {
         self.artist = artist
         self.artistAlbumsFetcher = artistAlbumsFetcher
     }

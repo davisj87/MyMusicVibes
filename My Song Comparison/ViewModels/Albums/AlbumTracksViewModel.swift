@@ -13,7 +13,7 @@ final class AlbumTracksViewModel {
     private (set) var tracks:[TracksObject] = []
     private (set) var trackDetails = Set<TrackFeaturesObject?>()
     private let albumTracksFetcher:AlbumTracksFetcherProtocol
-    let album:AlbumCellViewModel
+    let album:ItemOverviewCellViewModelProtocol
     
     var trackCount:Int {
         return tracks.count
@@ -29,7 +29,7 @@ final class AlbumTracksViewModel {
     }
 
     
-    init(album:AlbumCellViewModel, albumTracksFetcher:AlbumTracksFetcherProtocol = AlbumTracksFetcher()) {
+    init(album:ItemOverviewCellViewModelProtocol, albumTracksFetcher:AlbumTracksFetcherProtocol = AlbumTracksFetcher()) {
         self.album = album
         self.albumTracksFetcher = albumTracksFetcher
     }

@@ -9,7 +9,7 @@ import UIKit
 
 final class PlaylistTableViewHeaderCell: ShadowTableViewCell {
     
-    func configure(_ playlistCellViewModel:PlaylistCellViewModel?) {
+    func configure(_ playlistCellViewModel:ItemOverviewCellViewModelProtocol?) {
         guard let playlist = playlistCellViewModel else { return }
         nameLabel.text = playlist.primaryText
         ownerLabel.text = playlist.secondaryText
