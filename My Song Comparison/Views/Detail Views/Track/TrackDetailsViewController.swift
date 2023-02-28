@@ -8,10 +8,20 @@
 import UIKit
 
 final class TrackDetailsViewController: UIViewController {
-    var vm: TrackDetailsCollectionViewModel?
+    let vm: TrackDetailsCollectionViewModel
     private var trackCollectionView: UICollectionView?
+    private var loadingTask: Task<Void, Never>?
     
 //This will have all the track details. Thinkgs Like sogn Mood, Properties, Context, Etc.
+    
+    init(viewModel:TrackDetailsCollectionViewModel) {
+        self.vm = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,17 +77,20 @@ final class TrackDetailsViewController: UIViewController {
     }
     
     func getTrack() {
-        Task {
+        loadingTask = Task { [weak self] in
             do {
-                guard let cVM = self.vm else { return }
-                self.showSpinner()
-                try await cVM.getTrack()
-                self.trackCollectionView?.reloadData()
+                self?.showSpinner()
+                try await self?.vm.getTrack()
+                self?.trackCollectionView?.reloadData()
             } catch {
                 print("Error getting track details")
             }
-            self.removeSpinner()
+            self?.removeSpinner()
         }
+    }
+    
+    deinit {
+        loadingTask?.cancel()
     }
 
 }

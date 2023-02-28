@@ -46,30 +46,26 @@ extension SearchViewController: SearchResultsViewControllerDelegate {
             return
         case .album:
             guard let album = result as? AlbumCellViewModel else { return }
-            let albumTracksVC = AlbumTracksViewController()
+            let albumTracksVC = AlbumTracksViewController(viewModel: AlbumTracksViewModel(album: album))
             albumTracksVC.title = "Album"
-            albumTracksVC.vm = AlbumTracksViewModel(album: album)
             albumTracksVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(albumTracksVC, animated: true)
         case .artist:
             guard let artist = result as? ArtistCellViewModel else { return }
-            let artistAlbumsVC = ArtistAlbumsViewController()
+            let artistAlbumsVC = ArtistAlbumsViewController(viewModel: ArtistAlbumsViewModel(artist: artist))
             artistAlbumsVC.title = "Artist"
-            artistAlbumsVC.vm = ArtistAlbumsViewModel(artist: artist)
             artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(artistAlbumsVC, animated: true)
         case .track:
             guard let track = result as? TrackCellViewModel else { return }
-            let trackVC = TrackDetailsViewController()
+            let trackVC = TrackDetailsViewController(viewModel: TrackDetailsCollectionViewModel(track: track))
             trackVC.title = "Track"
-            trackVC.vm = TrackDetailsCollectionViewModel(track: track)
             trackVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(trackVC, animated: true)
         case .playlist:
             guard let playlist = result as? PlaylistCellViewModel else { return }
-            let playlistVC = PlaylistViewController()
+            let playlistVC = PlaylistViewController(viewModel: PlaylistTracksViewModel(playlist: playlist))
             playlistVC.title = "Playlist"
-            playlistVC.vm = PlaylistTracksViewModel(playlist: playlist)
             playlistVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(playlistVC, animated: true)
         }

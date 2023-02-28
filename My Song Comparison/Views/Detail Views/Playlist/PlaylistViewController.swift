@@ -8,9 +8,20 @@
 import UIKit
 
 final class PlaylistViewController: UIViewController {
-    var vm: PlaylistTracksViewModel?
+    let vm: PlaylistTracksViewModel
     private let playlistTableView: UITableView = UITableView()
+    private var loadingTask: Task<Void, Never>?
 // This will show list of tracks from a playlist as well as an overview of the playlist
+    
+    init(viewModel:PlaylistTracksViewModel) {
+        self.vm = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
@@ -36,17 +47,20 @@ final class PlaylistViewController: UIViewController {
     }
 
     func getPlaylistTracks() {
-        Task {
+        loadingTask = Task { [weak self] in
             do {
-                guard let cVM = self.vm else { return }
-                self.showSpinner()
-                try await cVM.getTracks()
-                self.playlistTableView.reloadData()
+                self?.showSpinner()
+                try await self?.vm.getTracks()
+                self?.playlistTableView.reloadData()
             } catch {
                 print("Error getting playlist tracks")
             }
-            self.removeSpinner()
+            self?.removeSpinner()
         }
+    }
+    
+    deinit {
+        loadingTask?.cancel()
     }
     
 }

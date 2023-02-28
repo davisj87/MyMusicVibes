@@ -18,6 +18,7 @@ final class SearchResultsViewController: UIViewController, UITableViewDelegate, 
     private let vm: SearchViewModel = SearchViewModel()
     private let searchTableView: UITableView = UITableView()
     private var imageLoader = ImageLoader()
+    private var loadingTask: Task<Void, Never>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +44,15 @@ final class SearchResultsViewController: UIViewController, UITableViewDelegate, 
     func update(query:String, scope:String) {
         guard !self.vm.isSearching else { return }
         self.imageLoader = ImageLoader()
-        Task {
+        loadingTask = Task { [weak self] in
             do {
-                self.showSpinner()
-                try await self.vm.searchMusic(type: scope, query: query)
-                self.searchTableView.reloadData()
+                self?.showSpinner()
+                try await self?.vm.searchMusic(type: scope, query: query)
+                self?.searchTableView.reloadData()
             } catch {
                 print("didn't work")
             }
-            self.removeSpinner()
+            self?.removeSpinner()
         }
     }
     
@@ -97,19 +98,21 @@ final class SearchResultsViewController: UIViewController, UITableViewDelegate, 
 
         let position = scrollView.contentOffset.y
         if position > (searchTableView.contentSize.height - 100 - scrollView.frame.size.height) {
-            Task{
+            loadingTask = Task { [weak self] in
                 do {
-                    self.searchTableView.tableFooterView = createSpinnerFooter()
-                    try await self.vm.searchMoreMusic()
-                    self.searchTableView.reloadData()
-                    self.searchTableView.tableFooterView = nil
+                    self?.searchTableView.tableFooterView = createSpinnerFooter()
+                    try await self?.vm.searchMoreMusic()
+                    self?.searchTableView.reloadData()
+                    self?.searchTableView.tableFooterView = nil
                 } catch {
-                    self.searchTableView.tableFooterView = nil
+                    self?.searchTableView.tableFooterView = nil
                     print("Error getting more albums")
                 }
             }
         }
     }
     
-    
+    deinit {
+        loadingTask?.cancel()
+    }
 }

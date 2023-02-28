@@ -9,10 +9,18 @@ import UIKit
 
 final class AlbumTracksViewController: UIViewController {
     
-    //VM will be initalized from previous viewcontroller
-    var vm: AlbumTracksViewModel?
-    
+    let vm: AlbumTracksViewModel
     private let albumTracksTableView: UITableView = UITableView()
+    private var loadingTask: Task<Void, Never>?
+    
+    init(viewModel:AlbumTracksViewModel) {
+        self.vm = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +47,20 @@ final class AlbumTracksViewController: UIViewController {
     }
 
     func getAlbumTracks() {
-        Task {
+        loadingTask = Task { [weak self] in
             do {
-                guard let cVM = self.vm else { return }
-                self.showSpinner()
-                try await cVM.getTracksData()
-                self.albumTracksTableView.reloadData()
+                self?.showSpinner()
+                try await self?.vm.getTracksData()
+                self?.albumTracksTableView.reloadData()
             } catch {
-                print("Error getting playlist tracks")
+                print("Error getting album tracks")
             }
-            self.removeSpinner()
+            self?.removeSpinner()
         }
+    }
+    
+    deinit {
+        loadingTask?.cancel()
     }
 
 }

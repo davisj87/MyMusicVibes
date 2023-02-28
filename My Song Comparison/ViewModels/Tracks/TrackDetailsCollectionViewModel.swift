@@ -14,7 +14,10 @@ final class TrackDetailsCollectionViewModel: TrackDetailViewFormatter {
     
     private let trackDetailFetcher: TrackDetailFetcherProtcol
     
-    init(track:ItemOverviewCellViewModelProtocol, trackDetail:TrackFeaturesObject? = nil, trackDetailFetcher:TrackDetailFetcherProtcol = TrackDetailFetcher()) {
+    init(track:ItemOverviewCellViewModelProtocol,
+         trackDetail:TrackFeaturesObject? = nil,
+         trackDetailFetcher:TrackDetailFetcherProtcol = TrackDetailFetcher()) {
+        
         self.track = track
         self.trackDetail = trackDetail
         self.trackDetailFetcher = trackDetailFetcher

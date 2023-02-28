@@ -11,6 +11,8 @@ final class HomeViewController: UIViewController {
     
     let vm: HomeViewModel = HomeViewModel()
     private let homeTableView: UITableView = UITableView()
+    private var loadingTask: Task<Void, Never>?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +40,21 @@ final class HomeViewController: UIViewController {
     }
     
     func getTopObjects() {
-        Task {
+        loadingTask = Task { [weak self] in
             do {
-                self.showSpinner()
-                try await self.vm.loadTopItems()
-                self.homeTableView.reloadData()
+                self?.showSpinner()
+                try await self?.vm.loadTopItems()
+                self?.homeTableView.reloadData()
             } catch {
                 print("Error getting top artists")
             }
-            self.removeSpinner()
+            self?.removeSpinner()
         }
     }
-
-
+    
+    deinit {
+        loadingTask?.cancel()
+    }
+    
 }
 

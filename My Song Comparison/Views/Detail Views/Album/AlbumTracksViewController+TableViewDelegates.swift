@@ -29,7 +29,7 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             return 1
         case 1:
-            return self.vm?.trackCount ?? 0
+            return self.vm.trackCount
         default:
             return 0
         }
@@ -51,15 +51,12 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "albumTracksTableViewHeaderCell", for: indexPath) as! AlbumTracksTableViewHeaderCell
-            if let cVM = self.vm {
-                cell.configure(cVM.album)
-            }
+            cell.configure(self.vm.album)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "trackDetailTableViewCell", for: indexPath) as! TrackDetailTableViewCell
-            if let cVM = self.vm {
-                cell.configure(cVM.getTrackAndDetailsVM(at: indexPath.row))
-            }
+            cell.configure(self.vm.getTrackAndDetailsVM(at: indexPath.row))
+            
             return cell
         default:
             return UITableViewCell()
@@ -70,22 +67,20 @@ extension AlbumTracksViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cVM = self.vm else { return }
         
         switch indexPath.section {
         case 0:
-            let albumTracksChartVM = AlbumTracksChartViewModel(albumTracks: cVM.tracks, trackDetails: cVM.trackDetails)
+            let albumTracksChartVM = AlbumTracksChartViewModel(albumTracks: self.vm.tracks, trackDetails: self.vm.trackDetails)
             let albumTracksChartSwiftUIController = UIHostingController(rootView: AlbumTracksChart(vm:albumTracksChartVM))
             navigationController?.pushViewController(albumTracksChartSwiftUIController, animated: true)
             return
         case 1:
-            let trackViewModel = cVM.getTrackAndDetailsVM(at: indexPath.row)
+            let trackViewModel = self.vm.getTrackAndDetailsVM(at: indexPath.row)
             guard   let track = trackViewModel.track,
                     let trackDetail = trackViewModel.trackDetail else { return }
             
-            let trackDetailVC = TrackDetailsViewController()
+            let trackDetailVC = TrackDetailsViewController(viewModel: TrackDetailsCollectionViewModel(track: track, trackDetail: trackDetail))
             trackDetailVC.title = trackViewModel.name
-            trackDetailVC.vm = TrackDetailsCollectionViewModel(track: track, trackDetail: trackDetail)
             trackDetailVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(trackDetailVC, animated: true)
         default:

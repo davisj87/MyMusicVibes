@@ -11,26 +11,22 @@ import UIKit
 
 extension TrackDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.vm?.trackSectionViewModel.count ?? 1
+        return self.vm.trackSectionViewModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let cVM = self.vm else { return 0 }
-        return cVM.trackSectionViewModel[section].attributes.count
+        return self.vm.trackSectionViewModel[section].attributes.count
 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cVM = self.vm else { return UICollectionViewCell() }
-        
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackDetailCell", for: indexPath) as! TrackDetailCollectionViewCell
-        let details = cVM.trackSectionViewModel[indexPath.section].attributes[indexPath.row]
+        let details = self.vm.trackSectionViewModel[indexPath.section].attributes[indexPath.row]
         myCell.trackDetail = details
         return myCell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let cVM = self.vm else { return UICollectionReusableView() }
         if kind == UICollectionView.elementKindSectionFooter {
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
                                                                          withReuseIdentifier: TrackDetailFooterCollectionReusableView.identifier,
@@ -43,9 +39,9 @@ extension TrackDetailsViewController: UICollectionViewDelegate, UICollectionView
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                          withReuseIdentifier: TrackCollectionReusableView.identifier,
                                                                          for: indexPath) as! TrackCollectionReusableView
-            let track = cVM.track
+            let track = self.vm.track
             header.configure(track)
-            let section = cVM.trackSectionViewModel[indexPath.section]
+            let section = self.vm.trackSectionViewModel[indexPath.section]
             header.configureSection(section)
             return header
         }
@@ -53,7 +49,7 @@ extension TrackDetailsViewController: UICollectionViewDelegate, UICollectionView
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                      withReuseIdentifier: TrackDetailHeaderCollectionReusableView.identifier,
                                                                      for: indexPath) as! TrackDetailHeaderCollectionReusableView
-        let section = cVM.trackSectionViewModel[indexPath.section]
+        let section = self.vm.trackSectionViewModel[indexPath.section]
         header.configureSection(section)
         return header
     }

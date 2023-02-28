@@ -9,8 +9,18 @@ import UIKit
 
 final class ArtistAlbumsViewController: UIViewController {
     
-    var vm: ArtistAlbumsViewModel?
+    let vm: ArtistAlbumsViewModel
     let albumTableView: UITableView = UITableView()
+    private var loadingTask: Task<Void, Never>?
+    
+    init(viewModel:ArtistAlbumsViewModel) {
+        self.vm = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +47,20 @@ final class ArtistAlbumsViewController: UIViewController {
     }
 
     func getAlbums() {
-        Task {
+        loadingTask = Task { [weak self] in
             do {
-                guard let cVM = self.vm else { return }
-                self.showSpinner()
-                try await cVM.getAlbumData()
-                self.albumTableView.reloadData()
+                self?.showSpinner()
+                try await self?.vm.getAlbumData()
+                self?.albumTableView.reloadData()
             } catch {
-                print("Error getting playlist tracks")
+                print("Error getting albums")
             }
-            self.removeSpinner()
+            self?.removeSpinner()
         }
     }
-    
 
+    deinit {
+        loadingTask?.cancel()
+    }
+    
 }

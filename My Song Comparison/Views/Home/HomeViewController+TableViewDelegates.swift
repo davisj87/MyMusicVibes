@@ -37,23 +37,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch section.title {
         case .artist:
             guard let artist = section.homeCells[indexPath.row] as? ArtistCellViewModel else { return }
-            let artistAlbumsVC = ArtistAlbumsViewController()
+            let artistAlbumsVC = ArtistAlbumsViewController(viewModel: ArtistAlbumsViewModel(artist: artist))
             artistAlbumsVC.title = "Artist"
-            artistAlbumsVC.vm = ArtistAlbumsViewModel(artist: artist)
             artistAlbumsVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(artistAlbumsVC, animated: true)
         case .track:
             guard let track = section.homeCells[indexPath.row] as? TrackCellViewModel else { return }
-            let trackVC = TrackDetailsViewController()
+            let trackVC = TrackDetailsViewController(viewModel: TrackDetailsCollectionViewModel(track: track))
             trackVC.title = "Track"
-            trackVC.vm = TrackDetailsCollectionViewModel(track: track)
             trackVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(trackVC, animated: true)
         case .playlist:
             guard let playlist = section.homeCells[indexPath.row] as? PlaylistCellViewModel else { return }
-            let playlistVC = PlaylistViewController()
+            let playlistVC = PlaylistViewController(viewModel: PlaylistTracksViewModel(playlist: playlist))
             playlistVC.title = "Playlist"
-            playlistVC.vm = PlaylistTracksViewModel(playlist: playlist)
             playlistVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(playlistVC, animated: true)
         }

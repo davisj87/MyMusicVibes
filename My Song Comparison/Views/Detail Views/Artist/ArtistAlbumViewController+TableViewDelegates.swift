@@ -28,7 +28,7 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         case 0:
             return 1
         case 1:
-            return self.vm?.albumCount ?? 0
+            return self.vm.albumCount
         default:
             return 0
         }
@@ -50,15 +50,11 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumTableViewHeaderCell", for: indexPath) as! ArtistAlbumTableViewHeaderCell
-            if let cVM = self.vm {
-                cell.configure(cVM.artist)
-            }
+            cell.configure(self.vm.artist)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumsTableViewCell", for: indexPath) as! ArtistAlbumsTableViewCell
-            if let cVM = self.vm {
-                cell.configure(cVM.getAlbumVM(at: indexPath.row))
-            }
+            cell.configure(self.vm.getAlbumVM(at: indexPath.row))
             return cell
         default:
             return UITableViewCell()
@@ -68,16 +64,13 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cVM = self.vm else { return }
-        
         switch indexPath.section {
         case 0:
             return
         case 1:
-            let album = cVM.getAlbumVM(at: indexPath.row)
-            let albumTracksVC = AlbumTracksViewController()
+            let album = self.vm.getAlbumVM(at: indexPath.row)
+            let albumTracksVC = AlbumTracksViewController(viewModel: AlbumTracksViewModel(album: album))
             albumTracksVC.title = "Album"
-            albumTracksVC.vm = AlbumTracksViewModel(album: album)
             albumTracksVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(albumTracksVC, animated: true)
         default:
@@ -88,14 +81,14 @@ extension ArtistAlbumsViewController: UITableViewDelegate, UITableViewDataSource
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let cVM = self.vm, cVM.albumTotal > cVM.albumCount else { return }
+        guard self.vm.albumTotal > self.vm.albumCount else { return }
         
         let position = scrollView.contentOffset.y
         if position > (albumTableView.contentSize.height - 100 - scrollView.frame.size.height) {
             Task{
                 do {
                     self.albumTableView.tableFooterView = self.createSpinnerFooter()
-                    try await cVM.getMoreAlbumData()
+                    try await self.vm.getMoreAlbumData()
                     self.albumTableView.reloadData()
                     self.albumTableView.tableFooterView = nil
                 } catch {
